@@ -16,8 +16,9 @@ Our project aims to help students plan trips on a budget.
 1. Slack
 2. Phone
 
-| Name  | Email
-| Cisco | vlahakis@stanford.edu
-| Seb | 
-| Noah |
-| Daniel | 
+| __Name__ | __Email__ |
+|-------------|------------|
+| Cisco         | vlahakis@stanford.edu     |
+| Seb         |  |
+| Daniel         |  |
+| Noah        |  |
