@@ -9,4 +9,4 @@ Our project aims to help students plan trips on a budget.
 | Sebastianos (Seb) Hapte-Selassie | Needfinding, Prototyping, Frontend(React.js), API, Node.js, UI/UX | Easy-going,  |  Graphs, Webscraping |  Writing, Documentation |
 | Cisco | Web/Mobile dev, Ping pong | Sophomore | Webscraping, Graphs, Multithreading, Product Development | Less AI/ML/Backend experience
 | Noah | Machine Learning | Flexible Schedule, Grind Lord | Need-Finding, Design thinking, Larger Scale Projects | Less Web Experience 
-| Daniel | Full stack web/mobile dev, AI/ML, Agile development | Outdoorsy, Big GoT guy | Needfinding, Design | Writing, Slow-worker
+| Daniel | Full stack web/mobile dev, AI/ML, Agile development | Big GoT guy | Needfinding, Design | Writing, Slow-worker
