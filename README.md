@@ -4,9 +4,9 @@ Dan Book             |  Noah Jackson
 :-------------------------:|:-------------------------:
 ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Book_Daniel.jpeg)  |  ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Jackon_Noah.jpg)
 
-Seb Selassie               |  Kevin Chang
+Cisco Vlahakis               |  Seb Selassie
 :-------------------------:|:-------------------------:
-![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Vlahakis_Cisco.jpeg) |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Vlahakis_Cisco.jpeg)
+![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Vlahakis_Cisco.jpeg) |  ![](https://github.com/SStanfordCS194/Team-16/blob/master/TeamPhotos/Selassie_Seb.JPG)
 
 
 ### Project Decsription
@@ -29,5 +29,5 @@ Our project aims to help students plan trips on a budget.
 |-------------|------------|
 | Cisco       | vlahakis@stanford.edu |
 | Seb         | sebhs@stanford.edu |
-| Book      | dbook@stanford.edu |
+| Daniel      | dbook@stanford.edu |
 | Noah        | noahjax@stanford.edu |
