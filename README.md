@@ -18,7 +18,7 @@ Our project aims to help students plan trips on a budget.
 
 | __Name__ | __Email__ |
 |-------------|------------|
-| Cisco         | vlahakis@stanford.edu     |
-| Seb         |  |
-| Daniel         |  |
-| Noah        |  |
+| Cisco       | vlahakis@stanford.edu |
+| Seb         | sebhs@stanford.edu |
+| Daniel      | dbook@stanford.edu |
+| Noah        | noahjax@stanford.edu |
