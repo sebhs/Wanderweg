@@ -1,9 +1,7 @@
 # Wanderweg
 
 
-![](https://github.com/StanfordCS194/Team-16/blob/master/logo.png  = 10x10)
-
-
+<img src="https://github.com/StanfordCS194/Team-16/blob/master/logo.png" width="250" height="250" />
 
 ### Team Members
 
