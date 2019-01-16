@@ -1,5 +1,10 @@
 # Wanderweg
 
+
+![](https://github.com/StanfordCS194/Team-16/blob/master/logo.jpg)
+
+
+
 ### Team Members
 
 Dan Book             |  Noah Jackson
