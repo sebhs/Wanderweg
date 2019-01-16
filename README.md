@@ -1,7 +1,13 @@
-# Wanderweg
+# Team-16
 
 ### Project Decsription
-Our project aims to help students plan trips on a budget.
+Noah Jackson              |  Daniel Book
+:-------------------------:|:-------------------------:
+![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Andrew_Photo.png)  |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Anna_Photo.jpg)
+
+Seb Selassie                |  Cisco Vlahakis
+:-------------------------:|:-------------------------:
+![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Dhruv_Photo.jpg)  |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Kevin_Photo.jpeg)
 
 ### Team Skills
 | Name  | Skill |Personal Traits| Desired Growth | Weaknesses
