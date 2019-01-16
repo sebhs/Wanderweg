@@ -1,5 +1,14 @@
 # Wanderweg
 
+Noah Jackson             |  Anna Mitchell
+:-------------------------:|:-------------------------:
+![](https://github.com/StanfordCS194/Team-16/blob/master/Jackson_Noah.png)  |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Anna_Photo.jpg)
+
+Dhruv Kedia                |  Kevin Chang
+:-------------------------:|:-------------------------:
+![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Dhruv_Photo.jpg)  |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Kevin_Photo.jpeg)
+
+
 ### Project Decsription
 Our project aims to help students plan trips on a budget.
 
