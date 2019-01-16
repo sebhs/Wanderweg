@@ -1,7 +1,7 @@
 # Wanderweg
 
 
-![](https://github.com/StanfordCS194/Team-16/blob/master/logo.png)
+![](https://github.com/StanfordCS194/Team-16/blob/master/logo.png  = 10x10)
 
 
 
