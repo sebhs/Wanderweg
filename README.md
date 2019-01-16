@@ -1,5 +1,7 @@
 # Wanderweg
 
+### Team Members
+
 ### Project Decsription
 Our project aims to help students plan trips on a budget.
 
