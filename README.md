@@ -2,7 +2,7 @@
 
 Noah Jackson             |  Anna Mitchell
 :-------------------------:|:-------------------------:
-![](https://github.com/StanfordCS194/Team-16/blob/master/Jackson_Noah.png)  |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Anna_Photo.jpg)
+![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Book_Daniel.jpeg)  |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Anna_Photo.jpg)
 
 Dhruv Kedia                |  Kevin Chang
 :-------------------------:|:-------------------------:
