@@ -1,6 +1,7 @@
-# Team-16
+# Wanderweg
 
 ### Project Decsription
+Our project aims to help students plan trips on a budget.
 
 ### Team Skills
 | Name  | Skill |Personal Traits| Desired Growth | Weaknesses
