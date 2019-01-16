@@ -6,7 +6,7 @@ Dan Book             |  Noah Jackson
 
 Seb Selassie               |  Kevin Chang
 :-------------------------:|:-------------------------:
-![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Selassie_Seb.JPG) |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Vlahakis_Cisco.jpeg)
+![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Vlahakis_Cisco.jpeg) |  ![](https://github.com/StanfordCS194/Team-7/blob/master/team_photos/Vlahakis_Cisco.jpeg)
 
 
 ### Project Decsription
