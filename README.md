@@ -1,6 +1,8 @@
 # Team-16
 
+### Project Decsription
 
+### Team Skills
 | Name  | Skill |Personal Traits| Desired Growth | Weaknesses
 | --- | --- | --- | --- | --- | 
 | Seb | Seb | Seb |  Seb |  Seb |
