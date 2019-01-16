@@ -6,7 +6,7 @@ Dan Book             |  Noah Jackson
 
 Cisco Vlahakis               |  Seb Selassie
 :-------------------------:|:-------------------------:
-![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Vlahakis_Cisco.jpeg) |  ![](https://github.com/SStanfordCS194/Team-16/blob/master/TeamPhotos/Selassie_Seb.JPG)
+![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Vlahakis_Cisco.jpeg) |  ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Selassie_Seb.JPG)
 
 
 ### Project Decsription
