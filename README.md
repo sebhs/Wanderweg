@@ -15,8 +15,8 @@ Our project aims to help students plan trips on a budget.
 ### Team Skills
 | Name  | Skill |Personal Traits| Desired Growth | Weaknesses
 | --- | --- | --- | --- | --- | 
-| Sebastianos (Seb) Hapte-Selassie | Needfinding, Prototyping, Frontend(React.js), API, Node.js, UI/UX | Easy-going,  |  Graphs, Webscraping |  Writing, Documentation |
-| Noah | Machine Learning | Flexible Schedule, Grind Lord | Need-Finding, Design Thinking | Less Web Experience 
+| Seb | Needfinding, Prototyping, Frontend(React.js), API, Node.js, UI/UX | Easy-going, Love GoT  |  Graphs, Webscraping |  Writing, Documentation |
+| Noah | Machine Learning | Flexible Schedule, Grind Lord, GoT super fan | Need-Finding, Design Thinking | Less Web Experience 
 | Daniel | Full-stack JS Web/Mobile Dev, ML/AI, Agile Development | Big GoT Guy | Need-Finding, Organization/Management | Writing, UI/UX
 
 ### Team Communication
