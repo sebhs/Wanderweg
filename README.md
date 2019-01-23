@@ -9,9 +9,9 @@ Dan Book             |  Noah Jackson
 :-------------------------:|:-------------------------:
 ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Book_Daniel.jpeg)  |  ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Jackon_Noah.jpg)
 
-Cisco Vlahakis               |  Seb Selassie
-:-------------------------:|:-------------------------:
-![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Vlahakis_Cisco.jpeg) |  ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Selassie_Seb.JPG)
+  Seb Selassie
+:-------------------------:
+![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Selassie_Seb.JPG)
 
 
 ### Project Decsription
