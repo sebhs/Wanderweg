@@ -23,7 +23,7 @@ Our project aims to help students plan trips on a budget.
 
 1. Slack
 2. Phone
-3. SGM Form: https://goo.gl/forms/Ne7KbZcXM8dzarv33
+3. SGM Form: https://docs.google.com/forms/d/12X_jcITSqMh3lYWOTCVdUACBGKqZGMzdswdD0uRMq1A/edit#responses
 
 | __Name__ | __Email__ |
 |-------------|------------|
