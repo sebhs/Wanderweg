@@ -3,7 +3,13 @@ import ContinentSelect from './ContinentSelect'
 import CountrySelect from './CountrySelect'
 
 
-// const pages =  [<ContinentSelect setContinent={this.setContinent}/>, <CountrySelect /> ]
+
+const wrapperStyles = {
+    width: "100%",
+    maxWidth: "100%",
+    margin: "0 auto",
+}
+
 class TripPlannerParent extends Component {
     
     constructor() {
@@ -28,7 +34,7 @@ class TripPlannerParent extends Component {
 
     render() {
         return (
-            <div>
+            <div style={wrapperStyles}>
                 {this.getPage(this.state.index)}
             </div>
         );

@@ -12,12 +12,6 @@ import {
 
 
 
-const wrapperStyles = {
-    width: "100%",
-    maxWidth: 980,
-    margin: "0 auto",
-}
-
 class ContinentSelect extends Component {
     constructor() {
         super();
@@ -83,7 +77,7 @@ class ContinentSelect extends Component {
 
     render() {
         return (
-            <div style={wrapperStyles}>
+            <div >
                 <div>Select the continent you want to travel to?</div>
                 {this.ContinentMap()}
             </div>

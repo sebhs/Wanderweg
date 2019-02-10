@@ -15,12 +15,6 @@ import {
 
 
 
-const wrapperStyles = {
-    width: "100%",
-    maxWidth: 980,
-    margin: "0 auto",
-}
-
 const strToContinent = new Map([
     ['Europe', Europe],
     ['North America',NorthAmerica],
@@ -100,7 +94,7 @@ class CountrySelect extends Component {
 
     render() {
         return (
-            <div style={wrapperStyles}>
+            <div>
                 <div>Select the continent you want to travel to?</div>
                 {this.ContinentMap()}
             </div>
