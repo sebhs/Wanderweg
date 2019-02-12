@@ -9,6 +9,7 @@ To-do:
 # Imports
 from screenScrape import Scraper
 import sys
+import time
 
 
 """
@@ -73,6 +74,8 @@ def writeToFile(urls):
 
 # Builds list of hostels by searching down through Hostel worlds structure (country -> provence -> city -> hostel)
 def createList(url):
+	start = time.time()
+	
 	provences = fetchOtherLocations([url], False)
 	print("Number of provences: ", len(provences))
 	cities = fetchOtherLocations(provences, True)
@@ -81,6 +84,8 @@ def createList(url):
 	print("Number of hostels: ", len(hostels))
 	writeToFile(hostels)
 
+	end = time.time()
+	print(end-start)
 
 # Main function that is called to parse command line and execute function
 def main():
