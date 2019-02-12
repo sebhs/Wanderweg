@@ -1,8 +1,6 @@
 """
 Creates list of all trains on goeuro.com for a given city and writes them to file
 
-TODO:
-	- Add multiprocessing (threadpool?) to speed up
 """
 
 # Imports
@@ -10,77 +8,120 @@ from screenScrape import Scraper
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import sys
+from datetime import datetime
+from datetime import timedelta
+from multiprocessing.pool import ThreadPool
+import json
+'''
+Creates a class that takes two cities as input and finds trips between these two cities
+#TODO: Manage a specific date instead of using generic date
+'''
 
-# Grab input elements from trenitalia
-# def initInputs(driver):
-# 	driver.get('https://www.trenitalia.com/tcom-en')
-# 	origin = driver.find_element_by_id('biglietti_fromNew')
-# 	dest = driver.find_element_by_id('biglietti_toNew')
-# 	date = driver.find_element_by_id('biglietti_data_p')
-# 	search = driver.find_element_by_class_name('btn')
-# 	return origin, dest, date, search
+class ScrapeCityRoute:
 
-# Grab input elements from raileurope
-def initInputs(driver):
-	driver.get('https://www.raileurope.com/')
-	origin = driver.find_element_by_class_name('js-reverser-left')
-	print(origin)
-	# locs = driver.find_element_by_css_selector("[data-id='departurePostion']")
-	# print(locs)
-	# origin = driver.find_element_by_id('biglietti_fromNew')
-	# dest = driver.find_element_by_id('biglietti_toNew')
-	# date = driver.find_element_by_id('biglietti_data_p')
-	# search = driver.find_element_by_class_name('btn')
-	# return origin, dest, date, search
+	def __init__(self, headless=False):
+		self.headless = headless
+		#Initialize web driver
+		options = webdriver.ChromeOptions()
+		if headless: options.add_argument('headless')		#Use to toggle headless option
+		self.driver = webdriver.Chrome(chrome_options=options)
+		self.driver.get('https://www.trenitalia.com/tcom-en')
+		self.orig_inp = self.driver.find_element_by_id('biglietti_fromNew')
+		self.dest_inp = self.driver.find_element_by_id('biglietti_toNew')
+		self.date_inp = self.driver.find_element_by_id('biglietti_data_p')
+		self.search_button = self.driver.find_element_by_class_name('btn')
 
-def scrapeInfo(driver):
-	trip_rows = driver.find_elements_by_class_name('solutionRow')
-	trip_info = []
-	for row in trip_rows:
-		times = row.find_elements_by_class_name('bottom')
-		departTime = times[0].text
-		if '*' in departTime: continue		#This is a trip for the next day
-		arriveTime = times[1].text
-		price = row.find_element_by_class_name('price').text[:-2]
+		self.tripOptions = None
 
-		trip_info.append((departTime, arriveTime, price))
-	return trip_info
+	def scrapeInfo(self):
+		trip_rows = self.driver.find_elements_by_class_name('solutionRow')
+		trip_info = []
+		for row in trip_rows:
+			times = row.find_elements_by_class_name('bottom')
+			departTime = times[0].text
+			if '*' in departTime: continue		#This is a trip for the next day
+			arriveTime = times[1].text
+			duration = datetime.strptime(arriveTime, '%H:%M') - datetime.strptime(departTime, '%H:%M')
+			duration = duration.total_seconds() / 60
+			price = row.find_element_by_class_name('price').text[:-2]
 
-def sendCities(driver, orig_inp, dest_inp, depart_inp, search, orig_text, dest_text, date):
-	orig_inp.send_keys(orig_text)
-	dest_inp.send_keys(dest_text)
-	depart_inp.clear()
-	depart_inp.send_keys(date)	#TODO: How do we select the ideal date(s)?
-	search.click()
+			trip_info.append((departTime, arriveTime, duration, price))
+		return trip_info
 
-	#Get trip depart time, arrival time, and price
-	trip_info = scrapeInfo(driver)
+	def findRoutes(self, orig_text, dest_text, date_text):
+		self.orig_inp.send_keys(orig_text)
+		self.dest_inp.send_keys(dest_text)
+		self.date_inp.clear()
+		self.date_inp.send_keys(date_text)	
+		self.search_button.click()
 
-	next_page = driver.find_elements_by_id('nextPageId')
-	while len(next_page) > 0:
-		next_page[0].click()
-		trip_info += scrapeInfo(driver)
-		next_page = driver.find_elements_by_id('nextPageId')
+		#Get trip depart time, arrival time, and price
+		trip_info = self.scrapeInfo()
 
-	print(trip_info)
-	
-	input("Press Enter to continue...")
+		# next_page = self.driver.find_elements_by_id('nextPageId')
+		# while len(next_page) > 0:
+		# 	next_page[0].click()
+		# 	trip_info += self.scrapeInfo()
+		# 	next_page = self.driver.find_elements_by_id('nextPageId')
 
-def main():
-	
-	#TODO: Use a ThreadPool to run multiple headless drivers at once
-	options = webdriver.ChromeOptions()
-	# options.add_argument('headless')		#Use to toggle headless option
-	driver = webdriver.Chrome(chrome_options=options)
-	cities = [('Firenze ( Tutte Le Stazioni )', 'Venezia ( Tutte Le Stazioni )')]
-	# cities = [('Firenze ( Tutte Le Stazioni )', 'Venezia ( Tutte Le Stazioni )')]
+		return trip_info
 
-	for city in cities:
-		a,b = city
-		date = '08-02-2019'
-		orig_inp, dest_inp, date_in, search = initInputs(driver)
-		sendCities(driver, orig_inp, dest_inp, date_in, search, a, b, date)
+	def findAllInfo(self, cityA='Firenze S. M. Novella', cityB='Venezia S. Lucia', date=None):
+		cityA = cityA
+		cityB = cityB
 
+		if date == None:
+			date = (datetime.now() + timedelta(days=30)).strftime('%d-%m-%Y')
 
-if __name__ == '__main__':
-	main()
+		self.tripOptions = self.findRoutes(cityA, cityB, date)
+		fastestOptions = self.findFastest()
+		cheapestOptions = self.findCheapest()
+		return fastestOptions, cheapestOptions
+
+	def findFastest(self, n=1):
+		assert self.tripOptions != None, 'Need to find all info first'
+		self.tripOptions.sort(key=lambda x: x[2])
+		return self.tripOptions[:n]
+
+	def findCheapest(self, n=1):
+		assert self.tripOptions != None, 'Need to find all info first'
+		self.tripOptions.sort(key=lambda x: x[3])
+		return self.tripOptions[:n]
+
+	def closeWindow(self):
+		self.driver.quit()
+
+'''
+Class that uses a threadpool to take requests for information from cities and run them in parallel
+'''
+
+class RouteData:
+
+	def __init__(self, num_threads=8):
+		self.pool = ThreadPool()
+
+	#Takes in a list of [(cityA, cityB, date), ...]
+	def getInfo(self, cities):
+		self.found_info = []
+		self.pool.map(self.processRequest, cities)
+
+	def processRequest(self, trip_inputs):
+		cityA, cityB, date = trip_inputs
+		print('Processing Request', cityA, cityB, date)
+		scraper = ScrapeCityRoute()
+		fast, cheap = scraper.findAllInfo()
+		fast = fast[0]
+		cheap = cheap[0]
+
+	def toJSON(self, cityA, cityB, date, data, result_type, transportation_type):
+		json = {'origin': cityA, 'destination': cityB, 'duration': data[2],
+				'price': data[3], 'type': result_type, 'transportation': transportation_type}
+
+	def outputInfo(self):
+		#TODO: find a way to output JSON info so seb can use
+		pass
+		
+cities = [(None,None,None)]*3
+test = RouteData()
+test.getInfo(cities)
+print(test.found_info)
