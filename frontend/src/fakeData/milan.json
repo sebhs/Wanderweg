@@ -1,0 +1,91 @@
+
+{
+	"name":"Milan",
+	"country":"Italy",
+	"size":{
+		"population":2873000,
+		"area":496			
+	},
+	"pics":[],
+	"weather":[
+        {
+            "date": "2019-02-11T00:50:34+0000",
+            "climate":"sunny", 
+            "temp": {
+                "inC":23,
+                "inF":73
+            }
+        },
+        {
+            "date": "2019-02-12T00:50:34+0000",
+            "climate":"sunny", 
+            "temp": {
+                "inC":25,
+                "inF":73
+            }
+        },
+        {
+            "date": "2019-02-13T00:50:34+0000",
+            "climate":"sunny", 
+            "temp": {
+                "inC":23,
+                "inF":73
+            }
+        },
+        {
+            "date": "2019-02-14T00:50:34+0000",
+            "climate":"rain", 
+            "temp": {
+                "inC":11,
+                "inF":73
+            }
+        },
+        {
+            "date": "2019-02-15T00:50:34+0000",
+            "climate":"cloud", 
+            "temp": {
+                "inC":15,
+                "inF":73
+            }
+        }
+    ],
+	"hostels":[
+        {
+            "name": "The Yellow Rome",
+            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
+            "rating": 4, 
+            "pics": [], 
+            "pricePerNight": 20, 
+            "availableDays": 10,
+            "location": { "lat": 41.9028, "lng": 12.4964 } 
+        },
+        {
+            "name": "The Yellow Rome",
+            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
+            "rating": 4, 
+            "pics": [], 
+            "pricePerNight": 20, 
+            "availableDays": 10,
+            "location": { "lat": 41.9028, "lng": 12.4964 } 
+        },
+        {
+            "name": "The Yellow Rome",
+            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
+            "rating": 4, 
+            "pics": [], 
+            "pricePerNight": 20, 
+            "availableDays": 10,
+            "location": { "lat": 41.9028, "lng": 12.4964 } 
+        },
+        {
+            "name": "The Yellow Rome",
+            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
+            "rating": 4, 
+            "pics": [], 
+            "pricePerNight": 20, 
+            "availableDays": 10,
+            "location": { "lat": 41.9028, "lng": 12.4964 } 
+        }
+    ],
+	"location": { "lat": 45.4642, "lng": 9.1900 } 
+}

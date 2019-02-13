@@ -2,7 +2,6 @@
 "city":{
 	"name":"Roma",
 	"country":"Italy",
-	"capital":true,
 	"size":{
 		"population":1240123,
 		"area":41123,			
@@ -10,7 +9,7 @@
 	"pics":["pic"], //we have to think about how to store pics - the best pic should come first
 	"weather":["weatherObj"],
 	"hostels":["hostelObj"],
-	"location": "TBA" // we should look at this: https://developers.google.com/maps/documentation/geocoding/intro
+	"location": { "lat": 41.8719, "lng": 12.5674 } 
 }
 
 "weather":{
@@ -23,20 +22,24 @@
 }
 
 "hostel": {
+	"name": "Super Hostel",
 	"link":"http://example.com/",
 	"rating": 4, 
 	"pics": ["pic"], //we have to think about how to store pics - the best pic should come first
 	"pricePerNight": 50, //in USD
 	"availableDates": ["date"], //we need to think how to do this, maybe we also just want to store how long it is available for
-	"location": "TBA" // we should look at this: https://developers.google.com/maps/documentation/geocoding/intro
-
+	"location": { "lat": 41.8719, "lng": 12.5674 } 
 }
 
 "country":{
 	"name":"Italy",
 	"continent":"Europe",
 	"cities":["city"],
-	"location": "TBA" // we should look at this: https://developers.google.com/maps/documentation/geocoding/intro
+	"size":{
+		"population":1240123,
+		"area":41123,			
+	},
+	"location": { "lat": 41.8719, "lng": 12.5674 } 
 
 }
 

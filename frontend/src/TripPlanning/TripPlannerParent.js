@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import ContinentSelect from './ContinentSelect'
-import CountrySelect from './CountrySelect'
-
+import MapView from './MapView'
+import InfoView from './InfoView'
+import Grid from '@material-ui/core/Grid';
+import selectedCountry from './../fakeData/italy.json';
+import selectedCity from './../fakeData/rome.json';
 
 
 const wrapperStyles = {
@@ -11,31 +13,46 @@ const wrapperStyles = {
 }
 
 class TripPlannerParent extends Component {
-    
+
     constructor() {
         super();
         this.state = {
-            index: 0,
+            tripPlan: {},
+            selectedCity: selectedCity,
+            cityMarkers: [],
         }
-    }
-    setContinent = (selectedContinent) => {
-        this.setState({ selectedContinent, index: ++this.state.index })
     }
 
-    getPage = (index) => {
-        if(index === 0) {
-            return(<ContinentSelect setContinent={this.setContinent}/>);
-        } else {
-           return(<CountrySelect selectedContinent={this.state.selectedContinent} />);
-        }
-       
-        
+    componentDidMount() {
+        let cityMarkers = selectedCountry.cities.map((city, index) => {
+            return {
+                index: index,
+                position: city.location,
+                onClick: () => this.setToCurrentCity(index)
+
+            }
+        });
+        console.log(cityMarkers);
+        this.setState({ cityMarkers })
     }
+
+
+    setToCurrentCity = function (index) {
+        this.setState({
+            selectedCity: selectedCountry.cities[index],
+        })
+    }
+
+
+
 
     render() {
         return (
             <div style={wrapperStyles}>
-                {this.getPage(this.state.index)}
+                <MapView cityMarker={this.state.cityMarkers} />
+                <InfoView
+                    selectedCity={this.state.selectedCity}
+                />
             </div>
         );
     }
