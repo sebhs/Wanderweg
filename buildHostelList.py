@@ -64,7 +64,6 @@ def fetchHostels(urls):
 
 	return hostels
 
-
 # Helper function to write list of hostels to file
 def writeToFile(urls):
 	f = open('hostels.txt', 'w+')

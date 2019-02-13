@@ -46,5 +46,5 @@ class GatherClimate:
         for row in rows:
             if filter_term == None or filter_term in row.th['title']:
                 for entry in row.find_all('td'):
-                    entries.append(float(entry.text))
+                    entries.append(float(entry.text.replace(',','.')))
         return entries

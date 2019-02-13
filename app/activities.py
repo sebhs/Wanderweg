@@ -18,6 +18,7 @@ class GatherActivities:
         #TODO: Add more relevant info, make sure prices are in dollars
         all_activities = {'city':city, 'data':[]}
         for activity in self.json['data']:
+            if 'description' not in activity: continue
             activity_info = {}
             activity_info['title'] = activity['title']
             activity_info['description'] = activity['description']
@@ -25,9 +26,10 @@ class GatherActivities:
             activity_info['price'] = activity['retail_price']['value']
             activity_info['review_count'] = activity['reviews_number']
             activity_info['ave_review'] = activity['reviews_avg']
-            activity_info['latitude'] = activity['latitude']
-            activity_info['longitude'] = activity['longitude']
+            if 'latitude' in activity: activity_info['latitude'] = activity['latitude']
+            if 'longitude' in activity: activity_info['longitude'] = activity['longitude']
 
             all_activities['data'].append(activity_info)
 
-        return json.dumps(all_activities)
+        # return json.dumps(all_activities)
+        return json.dumps(self.json)
