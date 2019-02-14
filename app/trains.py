@@ -2,9 +2,7 @@
 Creates list of all trains on goeuro.com for a given city and writes them to file
 
 """
-
 # Imports
-from screenScrape import Scraper
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import sys
@@ -12,12 +10,12 @@ from datetime import datetime
 from datetime import timedelta
 from multiprocessing.pool import ThreadPool
 import json
+
 '''
 Creates a class that takes two cities as input and finds trips between these two cities
-#TODO: Manage a specific date instead of using generic date
 '''
 
-class ScrapeCityRoute:
+class GatherTrains:
 
 	def __init__(self, headless=False):
 		self.headless = headless
@@ -31,9 +29,7 @@ class ScrapeCityRoute:
 		self.date_inp = self.driver.find_element_by_id('biglietti_data_p')
 		self.search_button = self.driver.find_element_by_class_name('btn')
 
-		self.tripOptions = None
-
-	def scrapeInfo(self):
+	def scrapePage(self):
 		trip_rows = self.driver.find_elements_by_class_name('solutionRow')
 		trip_info = []
 		for row in trip_rows:
@@ -43,6 +39,7 @@ class ScrapeCityRoute:
 			arriveTime = times[1].text
 			duration = datetime.strptime(arriveTime, '%H:%M') - datetime.strptime(departTime, '%H:%M')
 			duration = duration.total_seconds() / 60
+			if duration < 0: duration += 24*60
 			price = row.find_element_by_class_name('price').text[:-2]
 
 			trip_info.append((departTime, arriveTime, duration, price))
@@ -56,17 +53,17 @@ class ScrapeCityRoute:
 		self.search_button.click()
 
 		#Get trip depart time, arrival time, and price
-		trip_info = self.scrapeInfo()
+		trip_info = self.scrapePage()
 
-		# next_page = self.driver.find_elements_by_id('nextPageId')
-		# while len(next_page) > 0:
-		# 	next_page[0].click()
-		# 	trip_info += self.scrapeInfo()
-		# 	next_page = self.driver.find_elements_by_id('nextPageId')
+		next_page = self.driver.find_elements_by_id('nextPageId')
+		while len(next_page) > 0:
+			next_page[0].click()
+			trip_info += self.scrapePage()
+			next_page = self.driver.find_elements_by_id('nextPageId')
 
 		return trip_info
 
-	def findAllInfo(self, cityA='Firenze S. M. Novella', cityB='Venezia S. Lucia', date=None):
+	def scrapeAllInfo(self, cityA='Firenze S. M. Novella', cityB='Venezia S. Lucia', date=None, n=1):
 		cityA = cityA
 		cityB = cityB
 
@@ -74,54 +71,21 @@ class ScrapeCityRoute:
 			date = (datetime.now() + timedelta(days=30)).strftime('%d-%m-%Y')
 
 		self.tripOptions = self.findRoutes(cityA, cityB, date)
-		fastestOptions = self.findFastest()
-		cheapestOptions = self.findCheapest()
-		return fastestOptions, cheapestOptions
+		fastestOptions = self.findFastest(n)
+		cheapestOptions = self.findCheapest(n)
 
-	def findFastest(self, n=1):
-		assert self.tripOptions != None, 'Need to find all info first'
+		#Create json object
+		options_json = {"origin": cityA, "destination": cityB, "date":date, "fastest": fastestOptions,
+						"cheapest":cheapestOptions, "type":"train"}
+
+		self.driver.quit()
+		return json.dumps(options_json)
+
+	def findFastest(self, n):
 		self.tripOptions.sort(key=lambda x: x[2])
 		return self.tripOptions[:n]
 
-	def findCheapest(self, n=1):
-		assert self.tripOptions != None, 'Need to find all info first'
+	def findCheapest(self, n):
 		self.tripOptions.sort(key=lambda x: x[3])
 		return self.tripOptions[:n]
 
-	def closeWindow(self):
-		self.driver.quit()
-
-'''
-Class that uses a threadpool to take requests for information from cities and run them in parallel
-'''
-
-class RouteData:
-
-	def __init__(self, num_threads=8):
-		self.pool = ThreadPool()
-
-	#Takes in a list of [(cityA, cityB, date), ...]
-	def getInfo(self, cities):
-		self.found_info = []
-		self.pool.map(self.processRequest, cities)
-
-	def processRequest(self, trip_inputs):
-		cityA, cityB, date = trip_inputs
-		print('Processing Request', cityA, cityB, date)
-		scraper = ScrapeCityRoute()
-		fast, cheap = scraper.findAllInfo()
-		fast = fast[0]
-		cheap = cheap[0]
-
-	def toJSON(self, cityA, cityB, date, data, result_type, transportation_type):
-		json = {'origin': cityA, 'destination': cityB, 'duration': data[2],
-				'price': data[3], 'type': result_type, 'transportation': transportation_type}
-
-	def outputInfo(self):
-		#TODO: find a way to output JSON info so seb can use
-		pass
-		
-cities = [(None,None,None)]*3
-test = RouteData()
-test.getInfo(cities)
-print(test.found_info)

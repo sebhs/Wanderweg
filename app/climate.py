@@ -6,7 +6,7 @@ import json
 Class for gathering climate info on cities. Needs a country and a city 
 and then it can find temp mins and maxes, rain, and sun info
 '''
-class gatherClimate:
+class GatherClimate:
 
     def __init__(self):
         self.url_base = 'https://www.climatestotravel.com/climate/'
@@ -18,7 +18,7 @@ class gatherClimate:
         self.months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
     #Scrapes the appropriate page for the given city and gathers climate data
-    def gatherData(self, country='Italy', city='Florence'):
+    def scrapeData(self, country='Italy', city='Florence'):
         self.country = country.lower()
         self.city = city.lower()
         self.url = self.url_base + self.country + '/' + self.city
@@ -32,10 +32,12 @@ class gatherClimate:
         precip_inches = self.gatherRow(klass='precipit-table', filter_term='inches')[:-1]
         precip_days = self.gatherRow(klass='precipit-table', filter_term='Days')[:-1]
         sunny_hours = self.gatherRow(klass='sole-table')
-        print(sunny_hours)
 
-        #TODO: Find a better way to send this back to user? Maybe JSONify?
-        return min_temps, max_temps, precip_inches, precip_days, sunny_hours
+        #Create a JSON object to return
+        temp_data = {'min_temps': min_temps, 'max_temps': max_temps, 'precip_inches': precip_inches,
+                    'pricip_days': precip_days, 'sunny_hours': sunny_hours}
+
+        return json.dumps(temp_data)
 
     #Gathers a single row of climate data
     def gatherRow(self, klass, filter_term=None):
@@ -44,6 +46,5 @@ class gatherClimate:
         for row in rows:
             if filter_term == None or filter_term in row.th['title']:
                 for entry in row.find_all('td'):
-                    entries.append(entry.text)
+                    entries.append(float(entry.text.replace(',','.')))
         return entries
-        
