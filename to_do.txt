@@ -1,0 +1,6 @@
+To do:
+	- Add .gitignore
+	- Clean / define file structure
+	- Database
+	- Server decomposition
+	- Cost of living data
