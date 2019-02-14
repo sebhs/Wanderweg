@@ -3,7 +3,6 @@ import MapView from './MapView'
 import InfoView from './InfoView'
 import Grid from '@material-ui/core/Grid';
 import selectedCountry from './../fakeData/italy.json';
-import selectedCity from './../fakeData/rome.json';
 
 
 const wrapperStyles = {
@@ -18,7 +17,8 @@ class TripPlannerParent extends Component {
         super();
         this.state = {
             tripPlan: {},
-            selectedCity: selectedCity,
+            selectedCity: selectedCountry.cities[0],
+            currentCityIndex: 0,
             cityMarkers: [],
         }
     }
@@ -40,6 +40,7 @@ class TripPlannerParent extends Component {
     setToCurrentCity = function (index) {
         this.setState({
             selectedCity: selectedCountry.cities[index],
+            currentCityIndex: index
         })
     }
 
@@ -48,11 +49,15 @@ class TripPlannerParent extends Component {
 
     render() {
         return (
-            <div style={wrapperStyles}>
-                <MapView cityMarker={this.state.cityMarkers} />
+            // <div style={wrapperStyles}>
+            <div>
+                <MapView cityMarker={this.state.cityMarkers}
+                currentCityIndex = {this.state.currentCityIndex} />
+
                 <InfoView
                     selectedCity={this.state.selectedCity}
                 />
+
             </div>
         );
     }

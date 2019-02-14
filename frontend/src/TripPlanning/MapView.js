@@ -23,10 +23,13 @@ export default class Map extends React.Component {
     }
 
     render() {
+        let icon_url_selected = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+        let icon_url_notselected = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
         const cityMarkers = this.props.cityMarker.map(markerObj =>
             <Marker
                 index={markerObj.index}
                 position={markerObj.position}
+                icon={this.props.currentCityIndex === markerObj.index ?icon_url_selected : icon_url_notselected }
                 onClick={markerObj.onClick} />)
         return (
             <div>
