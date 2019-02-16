@@ -5,7 +5,7 @@
 
 ### Team Members
 
-Dan Book             |  Noah Jacksonn | Seb Selassie
+Daniel Book             |  Noah Jacksonn | Seb Selassie
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Book_Daniel.jpeg)  |  ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Jackon_Noah.jpg) | ![](https://github.com/StanfordCS194/Team-16/blob/master/TeamPhotos/Selassie_Seb.JPG)
 
