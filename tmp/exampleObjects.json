@@ -44,8 +44,8 @@
 }
 
 "trip": {
-	 "origin": cityA, 
-	 "destination": cityB, 
+	 "origin": cityA_id, 
+	 "destination": cityB_id, 
 	 "date":date, 
 	 "fastest": [fastestOptions],
 	 "cheapest": [cheapestOptions], 
