@@ -49,5 +49,6 @@
 	 "date":date, 
 	 "fastest": [fastestOptions],
 	 "cheapest": [cheapestOptions], 
+	 "best": [bestOptions],
 	 "type":"train"
 }
