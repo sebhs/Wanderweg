@@ -3,6 +3,7 @@ from flask import request
 from app.climate import GatherClimate
 from app.activities import GatherActivities
 from app.trains import GatherTrains
+from app.population import GatherPop
 
 @app.route('/')
 def home():
@@ -34,3 +35,9 @@ def getTrains():
     #Get route data
     trainScraper = GatherTrains()
     return trainScraper.scrapeAllInfo(origin, destination, date, num_results)
+
+@app.route('/population/<country>/<city>')
+def getPopulation(country, city):
+    print(country, city)
+    popScraper = GatherPop()
+    return popScraper.scrapeInfo(country, city)
