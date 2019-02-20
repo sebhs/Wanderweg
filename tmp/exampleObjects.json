@@ -1,5 +1,6 @@
 
 "city":{
+	"city_id":"id",
 	"name":"Roma",
 	"country":"Italy",
 	"size":{
@@ -26,8 +27,7 @@
 	"link":"http://example.com/",
 	"rating": 4, 
 	"pics": ["pic"], //we have to think about how to store pics - the best pic should come first
-	"pricePerNight": 50, //in USD
-	"availableDates": ["date"], //we need to think how to do this, maybe we also just want to store how long it is available for
+	"pricePerNight": 50, //in USD	
 	"location": { "lat": 41.8719, "lng": 12.5674 } 
 }
 
