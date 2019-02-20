@@ -43,12 +43,11 @@
 
 }
 
-"trip":{
-	"origin":"city",
-	"destination":"city",
-	"price":55,
-	"duration":32523, //in min
-	"type":"fast", //we should have fast, cheap, and best
-	"transporation":"train" //boat, flight, walk, bike etc.
-
+"trip": {
+	 "origin": cityA, 
+	 "destination": cityB, 
+	 "date":date, 
+	 "fastest": [fastestOptions],
+	 "cheapest": [cheapestOptions], 
+	 "type":"train"
 }
