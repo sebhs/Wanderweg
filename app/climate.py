@@ -23,7 +23,7 @@ class GatherClimate:
         self.city = city.lower()
         self.url = self.url_base + self.country + '/' + self.city
 
-        with urllib.request .urlopen(self.url) as response:
+        with urllib.request.urlopen(self.url) as response:
             html = response.read().decode('utf-8')
             self.soup = BeautifulSoup(html, 'html.parser')
 
