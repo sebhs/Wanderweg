@@ -1,5 +1,5 @@
 # Imports
-from screenScrape import Scraper
+from db.screenScrape import Scraper
 import json
 import requests 
 import csv
@@ -51,17 +51,17 @@ def addPopulationData(country, cityMap):
     for row in rows:
         [link, pop] = s.search('td', html=row)
         city = link.find('a').text
-        if city in italianCities:
-            italianCities[city].append(int(pop.text.replace(',', '')))
+        if city in cityMap:
+            cityMap[city].append(int(pop.text.replace(',', '')))
 
 # Function to prune all communes from city data
 def prune(cityMap, val):
     communes = set()
-    for key in italianCities:
-        if len(italianCities[key]) < val:
+    for key in cityMap:
+        if len(cityMap[key]) < val:
             communes.add(key)
     for key in communes:
-        del italianCities[key]
+        del cityMap[key]
 
 
 ###### COORDINATES ######
@@ -83,11 +83,19 @@ def addCoordData(cityMap):
 ###### MAIN FUNCTIONS ######
 
 
-def writeToFile(data, name):
+def writeToFile(data, filename):
     string = json.dumps(data)
-    f = open(name, 'w+')
+    f = open(filename, 'w+')
     f.write(string)
     f.close()
+
+def readFromFile(filename):
+    ret = {}
+    with open(filename) as f:
+        data = json.load(f)
+        for key in data:
+            ret[key] = data[key]
+    return ret
 
 def main(country):
 	url = 'https://www.hostelworld.com/hostels/' + country
@@ -98,19 +106,18 @@ def main(country):
 	fileName = country.lower() + 'Data.txt'
 	writeToFile(cities, fileName)
 
-def main():
-	if len(sys.argv) == 1:
-		sys.stderr.write("Please give the country of interest\nProper format is python3 buildHostelList.py ~country~\n")
-		return
-	url = 'https://www.hostelworld.com/hostels/' + sys.argv[1]
-	createList(url)
+# def main():
+# 	if len(sys.argv) == 1:
+# 		sys.stderr.write("Please give the country of interest\nProper format is python3 buildHostelList.py ~country~\n")
+# 		return
+# 	url = 'https://www.hostelworld.com/hostels/' + sys.argv[1]
+# 	createList(url)
 
 # Add checks for valid input country
 if __name__ == '__main__':
 	if len(sys.argv) == 1 or sys.argv[1][0].isLower():
 		sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py ~Country~\n")
-		return
-	maine(sys.argv[1])
+	else: main(sys.argv[1])
 
 
 
