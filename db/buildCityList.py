@@ -3,7 +3,7 @@ Script to build dict of static data on cities in a given country
 """
 
 # Imports
-from screenScrape import Scraper
+from db.screenScrape import Scraper
 import json
 import requests 
 import csv
@@ -88,11 +88,19 @@ def addCoordData(cityMap):
 ###### MAIN FUNCTIONS ######
 
 
-def writeToFile(data, name):
+def writeToFile(data, filename):
     string = json.dumps(data)
-    f = open(name, 'w+')
+    f = open(filename, 'w+')
     f.write(string)
     f.close()
+
+def readFromFile(filename):
+    ret = {}
+    with open(filename) as f:
+        data = json.load(f)
+        for key in data:
+            ret[key] = data[key]
+    return ret
 
 def main(country):
     url = 'https://www.hostelworld.com/hostels/' + country.lower()
@@ -114,19 +122,4 @@ if __name__ == '__main__':
         sys.stderr.write("That country is currently not supported\n")
     else:
         main(sys.argv[1])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
