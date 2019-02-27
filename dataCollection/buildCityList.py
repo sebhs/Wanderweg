@@ -5,10 +5,11 @@ import requests
 import csv
 import sys
 from dataCollection.screenScrape import Scraper
-from dataCollection.climate import GatherClimate
+from dataCollection import climate
 
 # Constants
 googleAPIKey = 'AIzaSyBw0StR76cWn1lE3laP23Tr9zig47bC-K8'
+validCountries = set(["Italy", "France", "Croatia"])
 
 ###### HOSTELS ######
 
@@ -84,10 +85,8 @@ def addCoordData(cityMap):
 
 #Scrapes for climate
 def addClimateData():
+    pass
     # cl
-
-
-
 
 
 ###### MAIN FUNCTIONS ######
@@ -116,18 +115,21 @@ def main(country):
 	fileName = '../database/' + country.lower() + 'Data.txt'
 	writeToFile(cities, fileName)
 
-# def main():
-# 	if len(sys.argv) == 1:
-# 		sys.stderr.write("Please give the country of interest\nProper format is python3 buildHostelList.py ~country~\n")
-# 		return
-# 	url = 'https://www.hostelworld.com/hostels/' + sys.argv[1]
-# 	createList(url)
-
 # Add checks for valid input country
 if __name__ == '__main__':
-	if len(sys.argv) == 1 or sys.argv[1][0].islower():
-		sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py ~Country~\n")
-	else: main(sys.argv[1])
+    if len(sys.argv) == 1 or sys.argv[1][0].islower():
+        sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py Country\n")
+    elif sys.argv[1] not in validCountries:
+        sys.stderr.write("That country is currently not supported\n")
+    else:
+        main(sys.argv[1])
+
+
+# Add checks for valid input country
+# if __name__ == '__main__':
+# 	if len(sys.argv) == 1 or sys.argv[1][0].islower():
+# 		sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py ~Country~\n")
+# 	else: main(sys.argv[1])
 
 
 

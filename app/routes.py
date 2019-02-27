@@ -17,8 +17,8 @@ def home():
 #TODO: Modify so it uses city id instead
 @app.route('/city_info/<city>')
 def getCityInfo(city):
-    table_path = str(Path('../Wanderweg/db/sqlite.db').resolve())
-    conn = db.create_connection(table_path)
+    db_path = str(Path('../Wanderweg/db/sqlite.db').resolve())
+    conn = db.create_connection(db_path)
     
     cur = conn.cursor()
     cur.execute('SELECT * FROM city_data WHERE name=?', (city,))
