@@ -1,91 +1,1364 @@
-
 {
-	"name":"Milan",
-	"country":"Italy",
-	"size":{
-		"population":2873000,
-		"area":496			
-	},
-	"pics":[],
-	"weather":[
-        {
-            "date": "2019-02-11T00:50:34+0000",
-            "climate":"sunny", 
-            "temp": {
-                "inC":23,
-                "inF":73
+    "id":"169c0cbbf0104c00912f6c344fff8123",
+    "city": "Milan",
+    "country": "Italy",
+    "size": {
+        "population": 2873000,
+        "area": 496
+    },
+    "pics": [],
+    "weather": {"min_temps": [30.0, 32.0, 39.0, 45.0, 54.0, 59.0, 64.0, 64.0, 57.0, 48.0, 39.0, 32.0], "max_temps": [43.0, 48.0, 57.0, 63.0, 72.0, 79.0, 84.0, 84.0, 75.0, 64.0, 52.0, 43.0], "precip_inches": [2.6, 2.6, 3.1, 3.1, 3.7, 2.6, 2.8, 3.7, 2.8, 3.9, 3.9, 2.4], "pricip_days": [7.0, 7.0, 8.0, 8.0, 8.0, 8.0, 6.0, 7.0, 5.0, 7.0, 9.0, 6.0], "sunny_hours": [2.0, 3.0, 5.0, 6.0, 7.0, 8.0, 9.0, 8.0, 6.0, 4.0, 2.0, 2.0]},
+    "hostels": [{"name": "Ostello Bello Grande", "link": "https://www.hostelworld.com/hosteldetails.php/Ostello-Bello-Grande/Milan/96190", "rating": "9.6"}, {"name": "Grand Hostel Coconut", "link": "https://www.hostelworld.com/hosteldetails.php/Grand-Hostel-Coconut/Milan/292352", "rating": "9.4"}, {"name": "Koala Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Koala-Hostel/Milan/90089", "rating": "9.0"}, {"name": "Milano Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Milano-Hostel/Milan/84924", "rating": "7.0"}, {"name": "Madama Hostel & Bistrot", "link": "https://www.hostelworld.com/hosteldetails.php/Madama-Hostel-and-Bistrot/Milan/98593", "rating": "8.8"}, {"name": "Queen Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Queen-Hostel/Milan/267025", "rating": "8.7"}, {"name": "Ostello Bello", "link": "https://www.hostelworld.com/hosteldetails.php/Ostello-Bello/Milan/54097", "rating": "9.6"}, {"name": "Panda Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Panda-Hostel/Milan/100417", "rating": "8.0"}, {"name": "Atmos Luxe Navigli", "link": "https://www.hostelworld.com/hosteldetails.php/Atmos-Luxe-Navigli/Milan/267015", "rating": "9.1"}, {"name": "Gogol'Ostello & Caft\u00e8 Letterario", "link": "https://www.hostelworld.com/hosteldetails.php/Gogol-Ostello-and-Cafte-Letterario/Milan/77966", "rating": "7.9"}, {"name": "MEININGER Milano Lambrate", "link": "https://www.hostelworld.com/hosteldetails.php/MEININGER-Milano-Lambrate/Milan/290186", "rating": "9.1"}, {"name": "Babila Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Babila-Hostel/Milan/279836", "rating": "9.1"}, {"name": "Hostel Colours", "link": "https://www.hostelworld.com/hosteldetails.php/Hostel-Colours/Milan/68209", "rating": "8.2"}, {"name": "MEININGER Milano Garibaldi", "link": "https://www.hostelworld.com/hosteldetails.php/MEININGER-Milano-Garibaldi/Milan/281830", "rating": "8.7"}, {"name": "New Generation Hostel Urban Navigli", "link": "https://www.hostelworld.com/hosteldetails.php/New-Generation-Hostel-Urban-Navigli/Milan/267352", "rating": "7.8"}, {"name": "B&B Antica Corte Milanese", "link": "https://www.hostelworld.com/hosteldetails.php/B-and-B-Antica-Corte-Milanese/Milan/38342", "rating": "0.0"}, {"name": "New Generation Hostel Urban Brera", "link": "https://www.hostelworld.com/hosteldetails.php/New-Generation-Hostel-Urban-Brera/Milan/56872", "rating": "7.2"}, {"name": "Mio Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Mio-Hostel/Milan/271292", "rating": "7.7"}, {"name": "La Cordata Accommodation  Zumbini 6", "link": "https://www.hostelworld.com/hosteldetails.php/La-Cordata-Accommodation-Zumbini-6/Milan/73038", "rating": "7.9"}, {"name": "New Generation Hostel Urban Citt\u00e0 Studi", "link": "https://www.hostelworld.com/hosteldetails.php/New-Generation-Hostel-Urban-Citta-Studi/Milan/83926", "rating": "7.5"}, {"name": "Youth Hostel Piero Rotta", "link": "https://www.hostelworld.com/hosteldetails.php/Youth-Hostel-Piero-Rotta/Milan/16114", "rating": "6.4"}, {"name": "Hotel Central Station", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Central-Station/Milan/18745", "rating": "7.7"}, {"name": "Scream House", "link": "https://www.hostelworld.com/hosteldetails.php/Scream-House/Milan/44871", "rating": "6.1"}, {"name": "Hotel Midtown", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Midtown/Milan/279415", "rating": "8.3"}, {"name": "Hotel San Tomaso", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-San-Tomaso/Milan/6256", "rating": "6.9"}, {"name": "Hotel Dateo", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Dateo/Milan/13219", "rating": "7.2"}, {"name": "Hotel Parma", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Parma/Milan/280640", "rating": "8.0"}, {"name": "Hotel Poma Milan", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Poma-Milan/Milan/73902", "rating": "4.4"}, {"name": "Central Station", "link": "https://www.hostelworld.com/hosteldetails.php/Central-Station/Milan/34158", "rating": "3.9"}, {"name": "Hotel Brasil", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Brasil/Milan/15667", "rating": "4.9"}],
+    "activities": {
+        "meta": {
+            "count": 121,
+            "match_type": "cities",
+            "match_names": [
+                "Milan"
+            ],
+            "match_ids": [
+                "1"
+            ]
+        },
+        "data": [
+            {
+                "operational_days": "Weekend",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "1454578b-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Creative sessions in Pirelli HangarBicocca: What shall I pack? (8-10 years)",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Acquista il Laboratorio per bambini dell'Hangar Bicocca a Milano: Cosa metto in valigia? (8-10 anni). Divertenti attivit\u00e0 per apprendere l'arte.",
+                "about": "In The Seven Heavenly Palaces 2004-2015, Anselm Kiefer takes us on a journey dotted with memories \u2013 but how many types of travel are there? Let's choose our favourite one and pack a suitcase with experiences, people, passions, memories, songs, books, films... and lots more!",
+                "meeting_point": "Pirelli HangarBicocca",
+                "duration": "PT1H30M",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [
+                    {
+                        "code": "it",
+                        "name": "Italian"
+                    }
+                ],
+                "group_size": [],
+                "food": [],
+                "services": [
+                    {
+                        "code": "wheelchair",
+                        "name": "Wheelchair accessible"
+                    }
+                ],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    }
+                ],
+                "highlights": [
+                    "Weekend",
+                    "Discovering \"The Seven Heavenly Palaces 2004-2015\" by Anselm Kiefer"
+                ],
+                "included": [
+                    "Guided tour to the permanent installation \"The Seven Heavenly Palaces 2004-2015\" by Anselm Kiefer",
+                    "Lab for 8-10 years old kids"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/64/thumb_63143_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/museums-c/"
+                    }
+                ],
+                "reviews_number": 2,
+                "reviews_avg": 5,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 2
+                },
+                "latitude": 45.520676,
+                "longitude": 9.218798,
+                "url": "https://sandbox.musement.com/us/milan/creative-sessions-in-pirelli-hangarbicocca-what-shall-i-pack-8-10-years-7199/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": true,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Weekends",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "14545a2f-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Creative sessions in Pirelli HangarBicocca: Another book (4-6 years)",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Acquista il Laboratorio per bambini dell'Hangar Bicocca a Milano: Un libro in pi\u00f9 (4-6 anni). Divertenti attivit\u00e0 per apprendere l'arte.",
+                "about": "Anselm Kiefer loves reading and studying, and that\u2019s why, in his Seven Heavenly Palaces 2004-2015, he inserted numerous books made of a curious material. Let\u2019s discover what they are and make your book together, to add to the artist\u2019s!",
+                "meeting_point": "Pirelli HangarBicocca",
+                "duration": "PT1H30M",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [
+                    {
+                        "code": "it",
+                        "name": "Italian"
+                    }
+                ],
+                "group_size": [],
+                "food": [],
+                "services": [
+                    {
+                        "code": "wheelchair",
+                        "name": "Wheelchair accessible"
+                    }
+                ],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    }
+                ],
+                "highlights": [
+                    "Weekend",
+                    "Discovering \"The Seven Heavenly Palaces 2004-2015\" by Anselm Kiefer"
+                ],
+                "included": [
+                    "Guided tour to the permanent installation \"The Seven Heavenly Palaces 2004-2015\" by Anselm Kiefer",
+                    "Lab for 4-6 years old kids"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/64/thumb_63085_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/museums-c/"
+                    }
+                ],
+                "reviews_number": 33,
+                "reviews_avg": 4.6,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 13,
+                    "5": 20
+                },
+                "latitude": 45.520676,
+                "longitude": 9.218798,
+                "url": "https://sandbox.musement.com/us/milan/creative-sessions-in-pirelli-hangarbicocca-another-book-4-6-years-7200/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": true,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "25 October 2018 - 24 February 2019",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "3b7cd5ff-0e55-4a6d-8ede-1097a1cf585c",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Guided visit to Mario Merz's \u201cIgloos\u201d show",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": true,
+                "description": "Visit the exhibition \"Igloos\" by Mario Merz, a key figure of Arte Povera. Discover and learn all about more than 30 Igloos in the Pirelli HangarBicocca with a guided visit today.",
+                "about": "A cultural mediator/guide will accompany visitors to discover the exhibition \"Igloos\", dedicated to Mario Merz (Milan, 1925-2003). Merz is one of the most important post-war artists who brings together the corpus of his most iconic works, his igloos, dating from 1968 to his death. Mario Merz, a key figure of Arte Povera, investigates and represents the processes of the transformation of nature and human life: in particular igloos, visible reminders of primordial houses, become for the artist the archetype of inhabited places and of the world. Igloos come to represent the metaphor of the different relationships between interior and exterior, between physical space and conceptual space, and between individuality and collectivity. This exhibition offers the opportunity to observe works of historical importance and innovative scope, coming from all over from private collections and international museums. Here his works are collected and exhibited together for the first time ever in such large numbers!",
+                "duration": "PT1H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [
+                    {
+                        "code": "it",
+                        "name": "Italian"
+                    }
+                ],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [],
+                "highlights": [
+                    "Take the opportunity to observe more than 30 igloos by Mario Merz - works of historical importance and innovative, collected and exhibited together for the first time ever in such large numbers",
+                    "Discover how the artist, a key figure of Arte Povera, investigates and represents the processes of the transformation of nature and human life",
+                    "Explore the unusual landscape configured by the igloos that extends into the Navate and Pirelli Cubas HangarBicocca"
+                ],
+                "included": [
+                    "Guided visit to the Mario Merz \u201cIgloos\u201d show"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0003/04/thumb_203115_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 114,
+                        "name": "Exhibitions",
+                        "level": "1",
+                        "code": "exhibitions",
+                        "event_image_url": "https://images.musement.com/cover/0002/99/thumb_198481_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/99/thumb_198481_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/exhibitions-c/"
+                    }
+                ],
+                "reviews_number": 21,
+                "reviews_avg": 4.4,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 12,
+                    "5": 9
+                },
+                "latitude": 45.5211981,
+                "longitude": 9.2192962,
+                "url": "https://sandbox.musement.com/us/milan/guided-visit-to-mario-merz-s-igloos-show-83893/",
+                "flavours": [
+                    {
+                        "id": 111,
+                        "name": "Guided Tour",
+                        "active": true,
+                        "slug": "guided-tour"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": true,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Tuesday-Sunday",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "59f5b4b0-dd00-445b-8897-8a0599a4dca2",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Torre Branca tickets",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Buy your tickets to visit Torre Branca in Milan. Climb to the city's highest point in Sempione Park and admire the breathtaking skyline.",
+                "about": "The Tower:\nIn the 30's, the rising city built its totem in the clearing of 'Parco Sempione'. Designed by Gio Ponti, the tower is considered a true work of art in which modern architecture and new techniques meet. Slim and transparent, a true architectural challenge, it was erected in record time\u2013 just two and a half months. It was built in 1933, on the occasion of the 5th Trienniale Exhibition, along with six large isolated, temporary arches designed by Sironi. Milan gets the \"European exclusive\" of an International Triennial Exhibition of decorative, industrial arts and modern architecture.The intervention of Branca:\nHaving become unusable, the Tower was decommissioned in 1972. It has been completely restored and made accessible again by Fratelli Branca, a name it began bear in 2002. The technical data:\nAll in Dalmine pipes, made from a special steel, flanged and bolted, the Tower is 108.60 meters high. The main structure has a pyramidal-trunk shape with a hexagonal section, from a side that reaches six meters to the base. At an altitude of 100 meters, the side of the hexagon it's still 4.45 meters. The very slight taper suggests an almost prismatic appearance. Today, a modern lift system allows entrance to the indoor Belvedere Club\u2013 five people at a time, in less than one minute. The idea:\nAt the base of the renovation work, there was a will to hand over to the city of Milan, a restaurant-bar that could also host events. The Branca wanted to help awaken the pride of Milan with a unique landmark\u2013 a symbol of a new, creative and innovative effort, projected into the future. At the base of the tower there is a metal support structure, of semicircular shape, inspired by the elements of the fascinating work of monumental art meant to represent a natural technological evolution. It constitutes an axis of orientation that respects the squareness of the monumental architectures of the park (Palazzo dell' Arte, Castello, Arena and Arco della Pace) and is located at a lower level than the base, to avoid visually interfering with the monument. The beautiful casing and wall, facing the side of the park in high-strength transparent crystal, allow a suggestive perspective view of the Tower from the inside.Private events at Torre Branca:\nTorre Branca can be rented by companies and individuals for parties, corporate events and cocktails with panoramic views and exhibitions. For more information you can contact the Musement Customer Care by writing to support@musement.com or by calling 0245386900 Monday to Friday from 8.00am to 7.00pm and Saturday and Sunday from 9.00am to 7.00pm.",
+                "duration": "PT7M",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    }
+                ],
+                "highlights": [
+                    "Visit Torre Branca and reach the highest point in Milan at Parco Sempione",
+                    "Admire Gio Ponti's work of art",
+                    "Reach the scenic terrace by lift",
+                    "Milan's skyline awaits you for a dip in the clouds"
+                ],
+                "included": [
+                    "Climb to the lookout deck cabin with elevator",
+                    "Additional booking fee: 1.00 \u20ac"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0002/01/thumb_100420_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 76,
+                        "name": "Attractions & monuments",
+                        "level": "1",
+                        "code": "attractions-and-monuments",
+                        "event_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/attractions-monuments-c/"
+                    }
+                ],
+                "reviews_number": 26,
+                "reviews_avg": 4.3,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 18,
+                    "5": 8
+                },
+                "latitude": 45.4729696,
+                "longitude": 9.1728961,
+                "url": "https://sandbox.musement.com/us/milan/torre-branca-tickets-27968/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Weekend",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "14540157-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Creative sessions in Pirelli HangarBicocca: We and our stars (4-6 years)",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": true,
+                "description": "Acquista il Laboratorio per bambini dell'Hangar Bicocca a Milano: Noi e le nostre stelle (4-6 anni). Divertenti attivit\u00e0 per apprendere l'arte.",
+                "about": "Amidst The Seven Heavenly Palaces 2004-2015 the German artist Anselm Kiefer left all of the stars of the firmament known to astronomers. Let\u2019s go find them together \u2026 and add our own!",
+                "meeting_point": "Pirelli HangarBicocca",
+                "duration": "PT1H30M",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [
+                    {
+                        "code": "it",
+                        "name": "Italian"
+                    }
+                ],
+                "group_size": [],
+                "food": [],
+                "services": [
+                    {
+                        "code": "wheelchair",
+                        "name": "Wheelchair accessible"
+                    }
+                ],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    }
+                ],
+                "highlights": [
+                    "Weekend",
+                    "Discovering \"The Seven Heavenly Palaces 2004-2015\" by Anselm Kiefer"
+                ],
+                "included": [
+                    "Guided tour to the permanent exhibition \"The Seven Heavenly Palaces 2004-2015\" by Anselm Kiefer",
+                    "Lab for 4-6 years old kids"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/41/thumb_40140_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 7,
+                    "formatted_value": "$ 7.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/museums-c/"
+                    }
+                ],
+                "reviews_number": 44,
+                "reviews_avg": 4.6,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 19,
+                    "5": 25
+                },
+                "latitude": 45.520676,
+                "longitude": 9.218798,
+                "url": "https://sandbox.musement.com/us/milan/creative-sessions-in-pirelli-hangarbicocca-we-and-our-stars-4-6-years-7178/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": true,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "16 and 17 February 2019",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "PT16H",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "7d8e6ffb-79aa-4e5d-8b00-118af2bbe9d5",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Tickets for \"AgruMI\" at Milan's Villa Necchi Campiglio",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": true,
+                "description": "Take part in \"AgruMI\", an exhibition and market dedicated to citrus fruits in the enchanting Villa Necchi Campiglio! Discover innovative ideas and take part in educational workshops.",
+                "about": "Enjoy two days of delightful scents and intense colors, a journey through the stories and secrets of citrus fruit. If you love authentic flavors, if you are always looking for quality products, or if you want to spend a day immersed in art and nature, don's miss out on \"AgruMI\", the eighth edition of the exhibition and market dedicated to the citrus world.Exhibitors and plant growers from all over Italy will offer the best of their productions: plants, fruits, jams, honeys, mustards, perfumes, jewels and cosmetics. To fill the days, there will be a rich program of initiatives, including educational workshops, meetings with experts and activities for children.The splendid Villa Necchi Campiglio, designed by the great architect Piero Portaluppi in the center of Milan, will be the magnificent setting for this event. A unique opportunity to admire the amazing masterpieces of art displayed in its rooms and take in the refined atmosphere of the Milanese bourgeoisie of the last century.",
+                "meeting_point": "FAI Villa Necchi Campiglio",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    },
+                    {
+                        "code": "official",
+                        "name": "OFFICIAL RESELLER"
+                    }
+                ],
+                "highlights": [
+                    "Participate in an exhibition and local market dedicated to citrus: plants, fruits and selected citrus products",
+                    "Discover the innovative ideas of plant growers and exhibitors: workshops, suggestions from experts and activities for children",
+                    "Visit Villa Necchi Campiglio, a splendid 1930s residence in the heart of Milan",
+                    "Stroll through the rooms of Villa Necchi Campiglio and admire the works of the great masters of 20th century art, from Picasso to Fontana, from Modigliani to Matisse"
+                ],
+                "included": [
+                    "The \"Cumulative\" ticket includes admission to the \"AgruMI\" event + admission and free visit to Villa Necchi Campiglio",
+                    "\"Event only\" ticket includes admission to the \"AgruMI\" event",
+                    "The special promotion Citrus + Soffio ticket includes admission to the \"AgruMI\" and \"Soffio di primavera\" events"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0003/46/thumb_245866_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 8,
+                    "formatted_value": "$ 8.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 8,
+                    "formatted_value": "$ 8.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 24,
+                        "name": "Gardens & parks",
+                        "level": "1",
+                        "code": "gardens-parks",
+                        "event_image_url": "https://images.musement.com/cover/0002/50/thumb_149030_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/50/thumb_149030_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/gardens-parks-c/"
+                    },
+                    {
+                        "id": 114,
+                        "name": "Exhibitions",
+                        "level": "1",
+                        "code": "exhibitions",
+                        "event_image_url": "https://images.musement.com/cover/0002/99/thumb_198481_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/99/thumb_198481_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/exhibitions-c/"
+                    }
+                ],
+                "reviews_number": 2,
+                "reviews_avg": 5,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 2
+                },
+                "latitude": 45.4685449,
+                "longitude": 9.2013008,
+                "url": "https://sandbox.musement.com/us/milan/biglietti-per-agrumi-a-villa-necchi-campiglio-di-milano-49548/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "March 2-3, 2019",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "PT17H",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "6e371e6b-fb8e-4192-8f66-cbc590b41cf5",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Tickets for 'Soffio di primavera' at Villa Necchi Campiglio in Milan",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": true,
+                "description": "Buy tickets to 'Soffio di Primavera' and take part in the exhibition and market dedicated to gardening enthusiasts at Villa Necchi Campiglio.",
+                "about": "The first and most eagerly awaited floriculture event of the season: a two-day exhibition-cum-market with 30 carefully selected nursery gardeners, invited for their specialization and the quality of their work. Categories on show include: annual, biennial and perennial flowering plants; plants and shrubs for gardens and terraces; aromatic plants to add fragrances and flavors to your spring salads; winter vegetable plants; rustic plants for the front door and the backyard; bulbous plants in bloom between late winter and early spring; cacti; furniture, tools and products for maintaining your garden and orchard; collection of acacias; seeds; gardening books; and botanical illustration books.The event will also have a diverse activities program: meetings and book presentations on gardening; practical pruning lessons; the inevitable 'the gardener answers' meeting, and creative workshops with a floral theme for the little ones.The splendid Villa Necchi Campiglio in the heart of Milan, designed by the great architect Piero Portaluppi, will provide the setting for the event. A unique opportunity to admire the stunning artworks displayed in the Villa's rooms and to experience the sophisticated atmosphere of the 20th-century Milanese bourgeoisie.",
+                "meeting_point": "FAI Villa Necchi Campiglio",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    },
+                    {
+                        "code": "official",
+                        "name": "OFFICIAL RESELLER"
+                    }
+                ],
+                "highlights": [
+                    "Visit the exhibition and market dedicated to greenthumbs and gardening enthusiasts",
+                    "Breathe in the spring air with plants, flowers and gardening products",
+                    "Admire Villa Necchi Campiglio, a splendid 1930s villa in the heart of Milan",
+                    "Stroll through the villa's rooms and admire artworks by the great masters of the 20th century, from Picasso to Fontana, from Magritte to Matisse"
+                ],
+                "included": [
+                    "The 'Combined' ticket includes admission to the 'Un soffio di primavera' event + free visit to Villa Necchi Campiglio",
+                    "The 'Solo manifestazione' ticket includes admission to the 'Un soffio di primavera' event"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0003/46/thumb_245867_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 8,
+                    "formatted_value": "$ 8.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 8,
+                    "formatted_value": "$ 8.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 24,
+                        "name": "Gardens & parks",
+                        "level": "1",
+                        "code": "gardens-parks",
+                        "event_image_url": "https://images.musement.com/cover/0002/50/thumb_149030_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/50/thumb_149030_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/gardens-parks-c/"
+                    },
+                    {
+                        "id": 114,
+                        "name": "Exhibitions",
+                        "level": "1",
+                        "code": "exhibitions",
+                        "event_image_url": "https://images.musement.com/cover/0002/99/thumb_198481_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/99/thumb_198481_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/exhibitions-c/"
+                    }
+                ],
+                "reviews_number": 3,
+                "reviews_avg": 4.3,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 2,
+                    "5": 1
+                },
+                "latitude": 45.4687955,
+                "longitude": 9.2018243,
+                "url": "https://sandbox.musement.com/us/milan/tickets-for-soffio-di-primavera-at-villa-necchi-campiglio-in-milan-52494/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Valid for 24, 48 or 72 hours",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P2D",
+                "booking_type": "NO-CALENDAR-FIXED-END",
+                "uuid": "1398bc60-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 6,
+                "title": "Milano Card for 24, 48 or 72 hours",
+                "relevance": 1,
+                "relevance_venue": 70,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Buy your Milano Card with Musement. Visit the best attractions saving money and time!",
+                "about": "MilanoCard is the official tourist pass of Milan. It offers unlimited access to the Milan public transport, a personal driver for a ride, access to Milan top attractions, and a very interesting range of discounts for museums, tours, resturants, hotel, shops, activities and more. Available for 24h, 48h and 72h, the MilanoCard is the best and cheapest solution to move around the city and make the most for less. Get your digital card and avoid waiting in line to redeem your voucher! Through MilanoCard APP (after activating the card) you will also get an audio guide of the historical center of Milan by clicking on the \"Free audioguide in Milan\" section.Some of the free opportunites include*:\n- free personal Uber driver for 1 ride\n- free access to Highline Galleria\n- free access to Poldi Pezzoli Museum\n- free access to Museo Bagatti Valsecchi\n- free access to Torre Branca\n- free ticket to Outlet shopping bus for Vicolungo, Franciacorta and Scalo Milano\n- free men\u00f9 at Pizzeria ai 12 Gatti\n- Artisinal Panettone (sweet cake)\n- Entrance to the AC Milan Museum\n- Bus ticket to the Milano Designer District\n- Bus ticket to Vicolungo Outlet\n- Bus ticket to Franciacorta Outlet Village\n Discounted rates up to 50% for:\n- La Scala Theatre Museum\n- Triennale Art Design Museum\n- Ambrosiana Gallery (Codex Atlanticus of Leonardo da Vinci)\n- Diocensa Museum\n- Villa Necchi Campiglio\n- The Last Supper tour\n- Airport bus to Malpensa, Linate and Orio al Serio\n- Bus City tour of Milan\n...and much much moreUse your MilanoCard also in Venice and Rome to visit the best attractions saving money and time!*Only a limited number of free entries are allowed per day. Not valid for MIlanoCard PerMilano.",
+                "duration": "P0D",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": true,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    }
+                ],
+                "highlights": [
+                    "Free public transport for 24, 48 or 72h",
+                    "Free personal driver",
+                    "Free access to Milan top attractions",
+                    "Discounts for museums, tours, restaurants"
+                ],
+                "included": [
+                    "Public transport access",
+                    "Personal driver",
+                    "Coupon for free access to Milan top attractions (limited per day)",
+                    "Guide of benefits"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": true,
+                "cover_image_url": "https://images.musement.com/cover/0001/34/thumb_33790_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 9,
+                    "formatted_value": "$ 9.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 9,
+                    "formatted_value": "$ 9.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 8,
+                        "name": "City passes",
+                        "level": "1",
+                        "code": "city-passes",
+                        "event_image_url": "https://images.musement.com/cover/0001/16/the-milan-pass_header-15626.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/16/the-milan-pass_header-15626.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/city-passes-c/"
+                    }
+                ],
+                "reviews_number": 49,
+                "reviews_avg": 4.2,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 5,
+                    "4": 28,
+                    "5": 16
+                },
+                "url": "https://sandbox.musement.com/us/milan/milano-card-for-24-48-or-72-hours-5756/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Tuesday - Sunday",
+                "max_confirmation_time": "P1D",
+                "cutoff_time": "P2D",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "0f690a13-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 14,
+                "title": "Sforza Castle and museums skip-the-line tickets",
+                "relevance": 800,
+                "relevance_venue": 900,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "PRINTED",
+                "temporary": false,
+                "description": "Buy your skip-the-line tickets to visit the Sforza Castle in Milan and its museums today to discover and learn all about the history and culture of Milan!",
+                "about": "The fifteenth-century Sforza Castle was commissioned by Francesco Sforza, the former Duke of Milan. The residence of the city\u2019s lords for four centuries, Sforza Castle was one of the biggest citadels in Europe. Today the castle overlooks Sempione Park, the largest park in the city. Following an extensive restoration work carried out at the beginning of the twentieth century, it now houses several of the city's museums and art collections.This skip-the-line ticket allows the visitor to access the Sforza Castle Museums: \n- Pinacoteca del Castello Sforzesco: saves a rich collection of paintings, including works by Filippo Lippi, Antonello da Messina, Mantegna, Canaletto, Correggio, Tiepolo and the last statue by Michelangelo, the Rondanini Piet\u00e0\n- Museum of Prehistory \n- Egyptian Museum \n- Museum of Ancient Art \n- Museum of Musical Instruments \n- Museum of Mobile \n- Civic Collections of Applied Art",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [],
+                "highlights": [
+                    "Visit the Sforza Castle, one of the great symbols of Milan",
+                    "Skip the line and get access to the castle's museums",
+                    "Admire the last statue of Michelangelo: Rondanini Pieta",
+                    "Discover the lives of the dukes of Milan who lived here"
+                ],
+                "included": [
+                    "Skip-the-line daily ticket to the Sforza Castle and its museums:",
+                    "Pinacoteca",
+                    "Museum of Prehistory",
+                    "Egyptian Museum",
+                    "Museum of Ancient Art",
+                    "Museum of Musical Instruments",
+                    "Museum of Mobile",
+                    "Civic Collections of Applied Art",
+                    "Temporary exhibitions"
+                ],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/30/sforza-castle-and-its-museums-skip-the-line-tickets_header-29538.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 1.5,
+                    "formatted_value": "$ 1.50"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 10,
+                    "formatted_value": "$ 10.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 10,
+                    "formatted_value": "$ 10.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/museums-c/"
+                    },
+                    {
+                        "id": 76,
+                        "name": "Attractions & monuments",
+                        "level": "1",
+                        "code": "attractions-and-monuments",
+                        "event_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/10/da-vinci-s-last-supper-skip-the-line-tickets-and-guided-tour_header-9730.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/attractions-monuments-c/"
+                    }
+                ],
+                "reviews_number": 52,
+                "reviews_avg": 4.3,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 2,
+                    "4": 32,
+                    "5": 18
+                },
+                "latitude": 45.471,
+                "longitude": 9.18,
+                "url": "https://sandbox.musement.com/us/milan/sforza-castle-and-museums-skip-the-line-tickets-1357/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Friday, 01 March 10:00 PM",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "58a8dc28-eba0-4b6c-a715-b62753a80fcc",
+                "city": {
+                    "id": 1,
+                    "name": "Milan",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/milan-vittorio-emanuele-ii-gallery-italy-jpg_header-138313.jpeg",
+                    "url": "https://sandbox.musement.com/us/milan/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Youth & Space Milano Present Pawsa, Alex Rubia & Maiki, Fabio Vi, Wayf",
+                "relevance": 0,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": true,
+                "about": "Friday 1st March 2019\nfrom 11.30 pm\nYOUTH milan - Space Milan in collaboration with \u2022 NO PLAN \u2022\npresent\nPAWSA\nAlex Rubia & Maiki\nFabio Vi\nwAYF\n>> Online Tickets:\nBuy your ticket online on Xceed\nSave, skip the line and come in whenever you want!\nUnity is strength, especially if it gives rise to virtuous synergies. A concept that in Italy is always struggling to take root but that Amnesia Milano has managed to make its own in times not suspicious. The umpteenth try again? The party of Friday, March 1, 2019 which sees the protagonists Youth Milan and Space Milan and which takes advantage of the collaboration of NO PLAN., Three young underground realities always consistent with themselves.\nFriday, March 1, the Amnesia Milano console hosts PAWSA, Alex Rubia & Maiki (Youth Milan), Fabio Vi (No Plan.) And Wayf (Space Milan).\nThe London PAWSA always prefers the facts to words: his favorite slogan is \"let the music do the talking\", a rule that has always put into practice with its tech house is not foreign to old school recalls, as shown by its mixes Groover Essentials and the release of its Solid Grooves Records label.\nAmnesia Milan - via Alfonso Gatto ang. Forlanini - Milan\nGenres: Tech house,Techno\nLines Up: Pawsa,Alex Rubia & Maiki,Fabio Vi,Wayf\nAtmospheres: Underground,International\nDoor Policies: Come as you are\nAge Policies: +18",
+                "duration": "P0D",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [],
+                "highlights": [],
+                "included": [],
+                "not_included": [],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0003/67/thumb_266931_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 11,
+                    "formatted_value": "$ 11.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 11,
+                    "formatted_value": "$ 11.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 64,
+                        "name": "Nightclubs",
+                        "level": "1",
+                        "code": "nightclubs",
+                        "event_image_url": "https://images.musement.com/cover/0003/21/thumb_220064_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0003/21/thumb_220064_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/milan/nightclubs-c/"
+                    }
+                ],
+                "reviews_number": 0,
+                "reviews_avg": 0,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0
+                },
+                "latitude": 45.459,
+                "longitude": 9.183,
+                "url": "https://sandbox.musement.com/us/milan/youth-space-milano-present-pawsa-alex-rubia-maiki-fabio-vi-wayf-106862/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 7,
+                        "name": "Nightlife",
+                        "active": true,
+                        "code": "nightlife",
+                        "slug": "nightlife",
+                        "url": "https://sandbox.musement.com/us/nightlife-t/",
+                        "meta_title": "Experience local Nightlife as you dance the night away",
+                        "meta_description": "Want to dance your heart out tonight? Visit the hottest clubs in top travel destinations with Musement.",
+                        "cover_image_url": "https://images.musement.com/cover/0001/91/thumb_90786_cover_header.jpeg",
+                        "relevance": 40
+                    }
+                ],
+                "giftable": false,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
             }
-        },
-        {
-            "date": "2019-02-12T00:50:34+0000",
-            "climate":"sunny", 
-            "temp": {
-                "inC":25,
-                "inF":73
-            }
-        },
-        {
-            "date": "2019-02-13T00:50:34+0000",
-            "climate":"sunny", 
-            "temp": {
-                "inC":23,
-                "inF":73
-            }
-        },
-        {
-            "date": "2019-02-14T00:50:34+0000",
-            "climate":"rain", 
-            "temp": {
-                "inC":11,
-                "inF":73
-            }
-        },
-        {
-            "date": "2019-02-15T00:50:34+0000",
-            "climate":"cloud", 
-            "temp": {
-                "inC":15,
-                "inF":73
-            }
-        }
-    ],
-	"hostels":[
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        },
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        },
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        },
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        }
-    ],
-	"location": { "lat": 45.4642, "lng": 9.1900 } 
+        ]
+    },
+    "location": {
+        "lat": 45.4642,
+        "lng": 9.1900
+    }
 }

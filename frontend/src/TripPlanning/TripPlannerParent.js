@@ -4,6 +4,9 @@ import InfoView from './InfoView'
 import Grid from '@material-ui/core/Grid';
 import { cities } from './../fakeData/cities.json';
 
+import milan from './../fakeData/milan.json';
+import rome from './../fakeData/rome.json';
+import florence from './../fakeData/florence.json';
 
 const wrapperStyles = {
     width: "100%",
@@ -21,6 +24,8 @@ class TripPlannerParent extends Component {
             selectedCity: cities[0],
             currentCityIndex: -1,
             cityMarkers: [],
+            cityLoaded: false,
+            cityInfo:rome
         }
     }
 
@@ -34,6 +39,18 @@ class TripPlannerParent extends Component {
             }
         });
         this.setState({ cityMarkers })
+        this.fetchCity()
+    }
+
+    fetchCity() {
+        this.setState({cityLoaded: false})
+        const {selectedCity} = this.state
+        let city = selectedCity.id === rome.id ? rome : milan;
+        city = selectedCity.id === florence.id ? florence : city;
+        this.setState({
+            cityInfo: city,
+            cityLoaded: true
+        })  
     }
 
 
@@ -42,6 +59,7 @@ class TripPlannerParent extends Component {
             selectedCity: cities[index],
             currentCityIndex: index
         })
+        this.fetchCity();
 
     }
 
@@ -77,7 +95,9 @@ class TripPlannerParent extends Component {
                      />
 
                 <InfoView
-                    selectedCity={this.state.selectedCity}
+                    cityInfo={this.state.cityInfo}
+                    cityLoaded={this.state.cityLoaded}
+
                     addToTrip={this.addToTrip.bind(this)}
                 />
             </div>

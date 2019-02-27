@@ -1,91 +1,1457 @@
-
 {
-	"name":"Florence",
-	"country":"Italy",
-	"size":{
-		"population":2873000,
-		"area":496			
-	},
-	"pics":[],
-	"weather":[
-        {
-            "date": "2019-02-11T00:50:34+0000",
-            "climate":"sunny", 
-            "temp": {
-                "inC":23,
-                "inF":73
+    "id":"284d263daf0b47baa9e9a48a604a87d5",
+    "city": "Florence",
+    "country": "Italy",
+    "size": {
+        "population": 2873000,
+        "area": 496
+    },
+    "pics": [],
+    "weather": {"min_temps": [36.0, 36.0, 41.0, 45.0, 54.0, 59.0, 64.0, 64.0, 57.0, 50.0, 41.0, 37.0], "max_temps": [52.0, 55.0, 61.0, 66.0, 75.0, 82.0, 88.0, 90.0, 81.0, 70.0, 59.0, 52.0], "precip_inches": [2.4, 2.6, 2.6, 3.3, 2.8, 2.2, 1.4, 2.2, 3.1, 4.1, 4.5, 3.1], "pricip_days": [8.0, 7.0, 8.0, 10.0, 8.0, 6.0, 4.0, 5.0, 6.0, 9.0, 9.0, 8.0], "sunny_hours": [4.0, 5.0, 5.0, 7.0, 8.0, 10.0, 11.0, 10.0, 7.0, 6.0, 3.0, 3.0]},
+    "hostels": [{"name": "Hostel Santa Monaca", "link": "https://www.hostelworld.com/hosteldetails.php/Hostel-Santa-Monaca/Florence/14783", "rating": "8.2"}, {"name": "Hostel Gallo d'Oro", "link": "https://www.hostelworld.com/hosteldetails.php/Hostel-Gallo-d-Oro/Florence/7602", "rating": "9.2"}, {"name": "Academy Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Academy-Hostel/Florence/293106", "rating": "8.4"}, {"name": "Hotel Savonarola", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Savonarola/Florence/60256", "rating": "9.3"}, {"name": "Leonardo House", "link": "https://www.hostelworld.com/hosteldetails.php/Leonardo-House/Florence/2165", "rating": "9.3"}, {"name": "New Hostel Florence", "link": "https://www.hostelworld.com/hosteldetails.php/New-Hostel-Florence/Florence/30455", "rating": "7.3"}, {"name": "Hostel 7 Santi", "link": "https://www.hostelworld.com/hosteldetails.php/Hostel-7-Santi/Florence/11732", "rating": "7.8"}, {"name": "My Friends", "link": "https://www.hostelworld.com/hosteldetails.php/My-Friends/Florence/5326", "rating": "9.4"}, {"name": "Tourist House Liberty", "link": "https://www.hostelworld.com/hosteldetails.php/Tourist-House-Liberty/Florence/5105", "rating": "8.3"}, {"name": "PLUS Florence", "link": "https://www.hostelworld.com/hosteldetails.php/PLUS-Florence/Florence/22996", "rating": "8.7"}, {"name": "Archi Rossi Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Archi-Rossi-Hostel/Florence/16843", "rating": "8.8"}, {"name": "Hotel Pensione Ottaviani", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Pensione-Ottaviani/Florence/48584", "rating": "7.8"}, {"name": "WoW Florence Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/WoW-Florence-Hostel/Florence/91690", "rating": "8.6"}, {"name": "Opera Boutique B&B", "link": "https://www.hostelworld.com/hosteldetails.php/Opera-Boutique-B-and-B/Florence/81080", "rating": "10.0"}, {"name": "Emerald Fields", "link": "https://www.hostelworld.com/hosteldetails.php/Emerald-Fields/Florence/15701", "rating": "8.7"}, {"name": "Emerald Palace", "link": "https://www.hostelworld.com/hosteldetails.php/Emerald-Palace/Florence/28225", "rating": "8.7"}, {"name": "Riverbank''s Hostel", "link": "https://www.hostelworld.com/hosteldetails.php/Riverbank-s-Hostel/Florence/22268", "rating": "8.2"}, {"name": "Tourist House Santa Croce", "link": "https://www.hostelworld.com/hosteldetails.php/Tourist-House-Santa-Croce/Florence/12810", "rating": "8.7"}, {"name": "Panzani 14 TouristHouse", "link": "https://www.hostelworld.com/hosteldetails.php/Panzani-14-TouristHouse/Florence/271763", "rating": "7.9"}, {"name": "M\u00f2s\u00ec Firenze", "link": "https://www.hostelworld.com/hosteldetails.php/Mosi-Firenze/Florence/274130", "rating": "9.4"}, {"name": "Backpackers Florence Central", "link": "https://www.hostelworld.com/hosteldetails.php/Backpackers-Florence-Central/Florence/28642", "rating": "8.4"}, {"name": "Hotel Bavaria", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Bavaria/Florence/12282", "rating": "8.8"}, {"name": "Hotel Lombardi", "link": "https://www.hostelworld.com/hosteldetails.php/Hotel-Lombardi/Florence/26098", "rating": "9.3"}, {"name": "Bassetto Guesthouse", "link": "https://www.hostelworld.com/hosteldetails.php/Bassetto-Guesthouse/Florence/744", "rating": "9.5"}, {"name": "Franz House", "link": "https://www.hostelworld.com/hosteldetails.php/Franz-House/Florence/17099", "rating": "9.6"}, {"name": "Florence Dance", "link": "https://www.hostelworld.com/hosteldetails.php/Florence-Dance/Florence/283739", "rating": "6.3"}, {"name": "Promenade", "link": "https://www.hostelworld.com/hosteldetails.php/Promenade/Florence/76776", "rating": "8.9"}, {"name": "Muse Apartments", "link": "https://www.hostelworld.com/hosteldetails.php/Muse-Apartments/Florence/291910", "rating": "8.4"}, {"name": "Hostel Veronique", "link": "https://www.hostelworld.com/hosteldetails.php/Hostel-Veronique/Florence/13214", "rating": "7.0"}, {"name": "Affitacamere Florenncedance", "link": "https://www.hostelworld.com/hosteldetails.php/Affitacamere-Florenncedance/Florence/44270", "rating": "6.9"}],
+    "activities": {
+        "meta": {
+            "count": 262,
+            "match_type": "cities",
+            "match_names": [
+                "Florence"
+            ],
+            "match_ids": [
+                "3"
+            ]
+        },
+        "data": [
+            {
+                "operational_days": "Every day",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "PT30M",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "aab0b307-bdbf-4496-9201-8bc2472e3b51",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Skip-the-line tickets to Leonardo da Vinci Museum in Florence",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Do not miss the Leonardo da Vinci Museum in Florence: get your skip-the-line tickets, see the machines designed by Leonardo and enjoy an unmissable experience!",
+                "about": "This Museum, dedicated to the thought and works of Leonardo da Vinci, is situated in the historical center of Florence, 200 meters from the Cathedral and very close to the Accademia Gallery. Inside, visitors will discover working and interactive reproductions of Leonardo\u2019s machines, created from the famous \u201cDa Vinci Codes\u201d. The exhibition, recommended for children from 7 years old and adults alike, stimulates curiosity and promotes understanding of his remarkable work: it is organized in four sections, \u201cEarth\u201d, \u201cWater\u201d, \u201cAir\u201d and \u201cFire\u201d. All the machines have been built according to Leonardo da Vinci\u2019s designs and, where possible, to scale. In addition, there is also a section dedicated to some of Leonardo\u2019s anatomical studies and a gallery displaying his most important paintings, faithfully reproduced using high-resolution backlight technology. All exhibits are accompanied by informative descriptions in Italian, English, French, German, Spanish and Russian, and multimedia displays provide further information on Leonardo\u2019s life and works. Visitors can also browse and purchase books and souvenirs from the original and well-stocked museum shop.",
+                "meeting_point": "Museo Leonardo da Vinci",
+                "duration": "PT24H",
+                "validity": "PT24H",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [
+                    {
+                        "code": "wheelchair",
+                        "name": "Wheelchair accessible"
+                    }
+                ],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    }
+                ],
+                "highlights": [
+                    "See the machines designed by Leonardo in his famous codes",
+                    "Learn about Leonardo da Vinci and its great inventions",
+                    "Get your skip-the-line tickets and enjoy an unmissable experience"
+                ],
+                "included": [
+                    "Skip-the-line tickets",
+                    "Free Wi-Fi",
+                    "Informative descriptions in Italian, English, French, German, Spanish and Russian"
+                ],
+                "not_included": [
+                    "Guided tour"
+                ],
+                "is_available_today": true,
+                "is_available_tomorrow": true,
+                "cover_image_url": "https://images.musement.com/cover/0002/26/thumb_125345_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 8,
+                    "formatted_value": "$ 8.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 8,
+                    "formatted_value": "$ 8.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    }
+                ],
+                "reviews_number": 13,
+                "reviews_avg": 4.2,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 1,
+                    "4": 9,
+                    "5": 3
+                },
+                "latitude": 43.7749758,
+                "longitude": 11.2567584,
+                "url": "https://sandbox.musement.com/us/florence/skip-the-line-tickets-to-leonardo-da-vinci-museum-in-florence-47306/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Every day (except Saturday)",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P1D",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "42f89360-6952-4c9b-99f7-b56b8b493e7b",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Tickets to the Florence Synagogue and the Jewish Museum",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "PRINTED",
+                "temporary": false,
+                "description": "Buy your ticket to the Florence Synagogue and the Jewish Museum and visit one of the most important survivals of the exotic Moorish style in Europe.",
+                "about": "The Great Synagogue of Florence, one of the most important examples of Moorish architecture in Europe, was inaugurated in 1882, a few years after the Emancipation of Italian Jews in 1861, with the proclamation of Italy's unification. Its structure, different from the traditional Florentine architecture of the Middle Ages and the Renaissance, has a large dome covered in green copper. The inside is particularly striking - for the richness of the geometric elements in the frescoes, the splendor of the mosaics, and the soft light that filters through the stained-glass windows. An integral part of the visit to the Synagogue is the Jewish Museum, founded in 1981 and expanded in 2007. Spread over two floors, the museum hosts a rich collection of ceremonial Jewish art objects, silverware and fabrics from the ancient synagogues of the Florentine ghetto, and photographic and archival documentation on the history of Florence's Jewish communities. On the second floor you will find objects and furnishings related to the most significant moments of the Jewish life cycle, family rituals, and religious holidays. Moreover, you will be able to visit a projection room dedicated to the memory of the Shoah (Holocaust). There is also a computer area connected to the most important Jewish museums and centers in the world.",
+                "meeting_point": "Synagogue and Hebrew Museum in Florence",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    }
+                ],
+                "highlights": [
+                    "",
+                    "Visit one of the most significant examples of exotic Moorish style in Europe",
+                    "",
+                    "Explore the interior of the synagogue with its geometric decorations, stained glass windows and mosaics",
+                    "",
+                    "Admire several ceremonial objects of Jewish art, silver and fabrics on display in the Jewish Museum"
+                ],
+                "included": [
+                    "",
+                    "Entrance to the Synagogue",
+                    "",
+                    "Entrance to the Hebrew Museum in Florence"
+                ],
+                "not_included": [
+                    "",
+                    "Guided tour",
+                    "",
+                    "audio-guide"
+                ],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0002/23/thumb_122036_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 10,
+                    "formatted_value": "$ 10.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 10,
+                    "formatted_value": "$ 10.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    },
+                    {
+                        "id": 36,
+                        "name": "History & heritage tours",
+                        "level": "1",
+                        "code": "history-heritage-tours",
+                        "event_image_url": "https://images.musement.com/cover/0002/90/thumb_189673_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/90/thumb_189673_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/history-heritage-tours-c/"
+                    },
+                    {
+                        "id": 76,
+                        "name": "Attractions & monuments",
+                        "level": "1",
+                        "code": "attractions-and-monuments",
+                        "event_image_url": "https://images.musement.com/cover/0001/63/thumb_62166_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/63/thumb_62166_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/attractions-monuments-c/"
+                    }
+                ],
+                "reviews_number": 0,
+                "reviews_avg": 0,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0
+                },
+                "latitude": 43.772831,
+                "longitude": 11.266343,
+                "url": "https://sandbox.musement.com/us/florence/tickets-to-the-florence-synagogue-and-the-jewish-museum-45438/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Everyday",
+                "max_confirmation_time": "P2D",
+                "cutoff_time": "P2D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "0f5827cd-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 7,
+                "title": "San Marco Museum Tickets",
+                "relevance": 1,
+                "relevance_venue": 0,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Get all the best information for San Marco's Museum and book your tickets, skipping the line, at official rates. Get informed, plan, book.",
+                "about": "While visiting Florence you will want to stop by the 13th century Dominican Monastery of San Marco. Founded in 1436 it is today a great tourist attraction for its architectural, artistic, religious and cultural importance in the history of Florence. With this ticket you will save time and energy by skipping the lines, avoiding the hours you could possibly spend waiting for your turn at ticket-offices. With this ticket you will receive entrance to San Marco\u2019s Museum (Museo di San Marco) and have free reign to explore the halls, rooms, corridors, chapels, refectory and cloisters of the structure.San Marco\u2019s Monastery San Marco\u2019s Monastery took the place of a previously existing monastery of another order when Cosimo I de\u2019 Medici influenced the renovation and encouraged the establishment of a Dominican community in Florence. He hired the famous Italian architect Michelozzo to plan the building\u2019s renovation and today it is a great example of early 13th century architecture, with a simple, elegant and functional style that greatly reflects the standards of Renaissance design. The building remained a monastery until 1869 when a great part of the building, following some renovation, was dedicated to the Museum of Ancient Florence and later also to the monographic museum dedicated to Beato Angelico, the artist that painted the many beautiful frescoes within the monastery. San Marco\u2019s Monastery was also declared that year a \u2018monument of national importance\u2019.San Marco\u2019s MuseumThe Museum of San Marco maintains much of the atmosphere that once belonged to the Dominican convent. The great attraction of this museum is the architectural and artistic importance of the structure, particularly because of the extensive frescoes that decorate the walls of the monastery buildings. At the time in fact the extent of the decorations was greatly unusual but hoped to be a great educational tool for visitors and worshipers. Featured in the museum today is the collection of the works of Fra Angelico that were brought together at the monastery in the 20th century. Another important section of the museum is dedicated to work by Fra Bartolomeo, while another section is devoted to fragments of sculpture and architecture from buildings of central Florence that were demolished in the 19th century.",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    }
+                ],
+                "highlights": [
+                    "Visit the Dominican monastery of San Marco",
+                    "Admire the beautiful frescoes by Fra Angelico"
+                ],
+                "included": [
+                    "Priority access to the Museum of San Marco",
+                    "Access to temporary exhibitions"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/24/san-marco-museum-tickets_header-23461.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 10,
+                    "formatted_value": "$ 10.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 10,
+                    "formatted_value": "$ 10.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    }
+                ],
+                "reviews_number": 29,
+                "reviews_avg": 4.8,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 5,
+                    "5": 24
+                },
+                "latitude": 43.778471,
+                "longitude": 11.259321,
+                "url": "https://sandbox.musement.com/us/florence/san-marco-museum-tickets-540/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Everyday",
+                "max_confirmation_time": "P1DT2H",
+                "cutoff_time": "P1DT2H",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "0f583532-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 45,
+                "title": "Tickets for Boboli Gardens, Porcelain Museum and Bardini Garden",
+                "relevance": 1,
+                "relevance_venue": 2000,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Visit the Palazzo Pitti Museums in Florence: the splendid Boboli Gardens, the Porcelain Museum, and the Bardini Garden.",
+                "about": "You don't want to skip the museums in Palazzo Pitti during your stay in Florence. In the old residence of the Medici family, you can visit different museums and gain access to the famous Boboli gardens.The museums included in this ticket are:\n- the Porcelain Museum\n- the Boboli Gardens\n- the Bardini Garden\nPalazzo PittiThe Palace was built by the rich Florentine banker Luca Pitti and is a Grand Renaissance building that dates back to 1458. The building is made of a rustic stone that gives it an austere but powerful look that is further reinforced by a series of arch-headed apertures, similar to ancient Roman aqueducts. Cosimo I de Medici\u2019s wife bought the building and had artist and architect Giorgio Vasari enlarge the structure to fit the family\u2019s taste, doubling it in size. Porcelain MuseumFound at the top of the Boboli Gardens in a separate building called the 'Palazzina del Cavaliere', the Porcelain Museum holds the most beautiful work of Porcelain in Europe.Boboli Gardens and Bardini GardenThe Boboli Gardens found behind Palazzo Pitti were the first example of Italian gardens that would later become so popular throughout Europe. Statues, fountains and grottoes are spread across the vast gardens, giving you the feeling that you are in an open-air museum. The nearby Bardini Garden is less famous, but unique and romantic in its arrangement as well.",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    },
+                    {
+                        "code": "official",
+                        "name": "OFFICIAL RESELLER"
+                    }
+                ],
+                "highlights": [
+                    "Visit Palazzo Pitti and explore its wonderful museums",
+                    "Experience moments to relax in the Boboli Gardens",
+                    "Stroll among the garden statues, fountains and caves",
+                    "Explore the Porcelain Museum and the Bardini Garden"
+                ],
+                "included": [
+                    "Skip-the-line entrance ticket to:",
+                    "Porcelain Museum",
+                    "Boboli Gardens",
+                    "Bardini Garden",
+                    "Temporary exhibitions"
+                ],
+                "not_included": [
+                    "Palatine Gallery",
+                    "Gallery of Modern Art",
+                    "Museum of Fashion and Costume",
+                    "Treasure of the Grand Dukes"
+                ],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0002/07/thumb_106004_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 13,
+                    "formatted_value": "$ 13.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 13,
+                    "formatted_value": "$ 13.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    },
+                    {
+                        "id": 24,
+                        "name": "Gardens & parks",
+                        "level": "1",
+                        "code": "gardens-parks",
+                        "event_image_url": "https://images.musement.com/cover/0001/94/thumb_93262_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/94/thumb_93262_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/gardens-parks-c/"
+                    }
+                ],
+                "reviews_number": 503,
+                "reviews_avg": 4.3,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 23,
+                    "4": 327,
+                    "5": 153
+                },
+                "latitude": 43.765231,
+                "longitude": 11.249922,
+                "url": "https://sandbox.musement.com/us/florence/tickets-for-boboli-gardens-porcelain-museum-and-bardini-garden-543/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    },
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Every day",
+                "max_confirmation_time": "P2D",
+                "cutoff_time": "P2D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "0f5821c5-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 4,
+                "title": "Tickets for the Bargello National Museum",
+                "relevance": 1,
+                "relevance_venue": 2,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Get all the best information for the Bargello Museum and book your tickets, skipping the line, at official rates. Get informed, plan, book.",
+                "about": "The Bargello Museum, found in the city of Florence, is part of the group of museums belonging to the Polo Museale Fiorentino and is an art museum dedicated to the \"applied\" arts. The Bargello museum is found in Palazzo Bargello in the old city and was built in 1255 to be the seat of the city\u2019s administration.Palazzo BargelloPalazzo Bargello is the name of the building that was designed by architect Lapo Tedesco. The building from administrative offices became home to the city\u2019s police force and so remained from the 16th to the 19th century. It was the center of the city\u2019s justice system and a vast area of the building became the city\u2019s prison. A great part of the Volognana Tower, part of Palazzo Bargello, was where the prisoners were mostly held. Its name is in fact the name of the first prisoner ever to be detained in its dungeons, Geri da Volognana. The tower reaches a good 57 meters and the bell on top was for centuries used to call the city\u2019s men to battle or to announce capital executions. In 1865 the first floor of Palazzo Bargello became a public museum and since then the collection has expanded and value grown exponentially. National Museum of BargelloThe National Museum of Bargello has its collection divided into various halls that each have a chronological theme generally. Each room is dedicated to a certain century and/or artist. Great artists like Michelangelo Carrand and Donatello, Andrea and Giovanni della Robbia have rooms in this museum dedicated to them and within these halls the art is theirs or of artists to them contemporary. From pre-Renaissance art to the 16th century the collection continues with displays of art of the Islamic Collection, of 15th century sculptures, bronze artifacts, paintings and objects from various historical periods made of precious elements and material.",
+                "meeting_point": "Museo Nazionale del Bargello",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [],
+                "highlights": [
+                    "Visit the Museum of Bargello, with a remarkable collection of sculpture and works of art",
+                    "Explore Palazzo Bargello, which was the center of the city\u2019s justice system"
+                ],
+                "included": [
+                    "Entrance ticket",
+                    "Temporary exhibitions"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/02/tickets-for-the-bargello-national-museum_header-1445.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 15,
+                    "formatted_value": "$ 15.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 15,
+                    "formatted_value": "$ 15.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    }
+                ],
+                "reviews_number": 34,
+                "reviews_avg": 4.4,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 20,
+                    "5": 14
+                },
+                "latitude": 43.77,
+                "longitude": 11.258,
+                "url": "https://sandbox.musement.com/us/florence/tickets-for-the-bargello-national-museum-538/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Every Day",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-NO-TIMESLOTS",
+                "uuid": "c17edf19-917c-41e0-8892-60e6810936f3",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Shuttle bus to Barberino Outlet",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "PRINTED",
+                "temporary": false,
+                "description": "Do not miss this offer: get your round trip ticket to Barberino Designer Outlet (Florence) and an additional 10% reduction on the outlet price!",
+                "about": "Close to beautiful Florence and its famous works of art, find your own gorgeous pieces to take home at Barberino Designer Outlet.\nFall in love with the most luxurious Italian and International brands for 30-70% less, all year round. With 120 shops, as well as cafes, restaurants and tax-free shopping available, there\u2019s everything the discerning shopper could ever desire.",
+                "meeting_point": "Florence SMN Train Station, luggage room side.",
+                "duration": "PT1H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": true,
+                "languages": [
+                    {
+                        "code": "en",
+                        "name": "English"
+                    },
+                    {
+                        "code": "it",
+                        "name": "Italian"
+                    }
+                ],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [],
+                "highlights": [
+                    "Choice of several departures throughout the day",
+                    "Pick-up from a centrally located meeting point",
+                    "Excellent value for money"
+                ],
+                "included": [
+                    "Comfortable journey with GT coach and air condition",
+                    "Round-trip transfer",
+                    "Wi-fi onboard bus"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": true,
+                "cover_image_url": "https://images.musement.com/cover/0001/95/thumb_94441_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 15,
+                    "formatted_value": "$ 15.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 15,
+                    "formatted_value": "$ 15.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 30,
+                        "name": "Shopping Tours",
+                        "level": "1",
+                        "code": "shopping-tours",
+                        "event_image_url": "https://images.musement.com/cover/0002/90/thumb_189715_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/90/thumb_189715_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/shopping-tours-c/"
+                    },
+                    {
+                        "id": 87,
+                        "name": "Transportation",
+                        "level": "1",
+                        "code": "transportation",
+                        "event_image_url": "https://images.musement.com/cover/0001/19/venice-with-high-speed-train-and-3-star-hotel_header-18347.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/19/venice-with-high-speed-train-and-3-star-hotel_header-18347.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/transportation-c/"
+                    },
+                    {
+                        "id": 173,
+                        "name": "Markets & crafts",
+                        "level": "1",
+                        "code": "markets-crafts",
+                        "event_image_url": "https://images.musement.com/cover/0002/90/thumb_189715_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0002/90/thumb_189715_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/markets-crafts-c/"
+                    }
+                ],
+                "reviews_number": 0,
+                "reviews_avg": 0,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0
+                },
+                "latitude": 43.7765838,
+                "longitude": 11.2477451,
+                "url": "https://sandbox.musement.com/us/florence/shuttle-bus-to-barberino-outlet-24653/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Every day",
+                "max_confirmation_time": "P2D",
+                "cutoff_time": "P2D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "0f582503-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 9,
+                "title": "Tickets for the Medici Chapels Museum",
+                "relevance": 1,
+                "relevance_venue": 100,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Book your entrance tickets for the Museum of Medici Chapels. Admire the treasures of the noble family and visit the Chapel of the Princes and the Lorenese Crypt.",
+                "about": "The museum of the Medici Chapels is found in the Basilica di San Lorenzo, one of Florence\u2019s biggest and oldest churches. Book your tickets in advance here and ensure your entrance to the Chapels without wasting time at the ticket office. You can skip the line and start your exploration of the Medici tombs and chapels as soon as you arrive. This ticket will give you access to the Sagrestia Nuova (New Sacristy from the 16th century), the Chapel of the Princes, the Lorenese Crypt, and a section of the Treasure of San Lorenzo\u2019s Basilica. With this ticket you can also see temporary exhibitions.Medici ChapelsThe Medici family was one of the most powerful families in the city\u2019s history. The Basilica di San Lorenzo was built thanks to their support and the financial responsibility they took over the construction. The Sagrestia Nuova was designed by Michelangelo in the 16th century and was to be a mausoleum to members of the Medici family. The famous artist also designed many of the tombs that are found in the New Sacristy. More than 50 members of the Medici family have tombs in the New Sacristy and in the Chapel of Princes. Surmounted by a great dome, the Chapel of Princes was a true expression of court art, being the result of the collaboration of artists and lords alike.The Treasure of San Lorenzo\u2019s Basilica and the Cripta LoreneseUntil recently the Treasure of San Lorenzo was carefully preserved behind closed doors but now the underground floors of the Medici chapels have been carefully prepared to have parts of the Basilica\u2019s treasure on display. Special focus is given to some works of art that were recently restored \u2013 like the Christ by Michelozzo, a silver statue completed in the year 1444 or the Bust of Saint Peter in wood and painted gold, that dates back to 1552.\nThe Cripta Lorenese is the crypt of the Lorena family that succeeded the Medici family in the city\u2019s administrative role. They also had their family mausoleum built in the Basilica di San Lorenzo and it found in between the tomb of father Cosimo Patrie and the Medici Sepulcher.",
+                "meeting_point": "Cappelle Medicee",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    },
+                    {
+                        "code": "official",
+                        "name": "OFFICIAL RESELLER"
+                    }
+                ],
+                "highlights": [
+                    "Admire the treasures of the Medici Chapels Museum",
+                    "Visit the Chapel of the Princes and the Lorenese Crypt",
+                    "See the treasure of San Lorenzo\u2019s Basilica",
+                    "Access to temporary exhibitions"
+                ],
+                "included": [
+                    "Sagrestia Nuova",
+                    "Chapel of the Princes",
+                    "Lorenese Crypt",
+                    "A section of the Treasure of San Lorenzo\u2019s Basilica",
+                    "Temporary exhibitions"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0002/10/thumb_109978_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 15,
+                    "formatted_value": "$ 15.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 15,
+                    "formatted_value": "$ 15.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    }
+                ],
+                "reviews_number": 62,
+                "reviews_avg": 4.5,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 1,
+                    "3": 2,
+                    "4": 24,
+                    "5": 35
+                },
+                "latitude": 43.775,
+                "longitude": 11.253,
+                "url": "https://sandbox.musement.com/us/florence/tickets-for-the-medici-chapels-museum-539/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Monday - Saturday",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P0D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "785e9f78-79ed-48aa-9b2a-ac0d7c66d378",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Best of Florence self-guided walking tour with audiopen",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Enjoy a self-guided walking tour of Florence with your audiopen: touch all the not-to-be-missed monuments with an independent visit of the city!",
+                "about": "Do not miss this informative tour, the new way to visit Florence in total freedom without wasting of time: take the opportunity to discover Florence in a funny, interactive and independent way! Thanks to an innovative \"audiopen\", you can explore the old city center at your own pace and in total relax, following the charming itinerary designed for you by expert local guides and through which you can see all the iconic monuments of the city center. You will be so free to dedicate to each point of interest, all the time that you wish, alternating the experience of the visit with all the stops that you want to do!Your audioguide is at your disposal as a \"personal guide\" for a whole day and you can play back the comments as many times as you like. The use of this magic pen is very easy. Simply passing it on one of the points of interest shown on the map provided with your audioguide, you can listen very clearly the commentary about the monument that you have reached: a great way to discover, one by one, all the not-to-be-missed sights and all the highlights of the \"Cradle of the Renaissance\". Also, your \"audiopen\" will provide interesting information about the Renaissance period and the famous and powerful Medici family. During the walking tour you will receive useful information regarding the history of Florence and the Renaissance period, touching all the most important sights of the city, as the Church of San Lorenzo, the Basilica of Santa Maria Novella, the Baptistery of St. John, the Cathedral of Santa Maria del Fiore with the majestic Brunelleschi's Dome, Repubblica Square, the Medieval District with Dante\u2019s House, Strozzi Palace, Tornabuoni Street, Ponte Vecchio, Palazzo Pitti with the Boboli Gardens, the Straw Market, the Church of Santa Croce, Orsanmichele Church, Piazza Signoria and the imposing Palazzo Vecchio. Among the monuments, not to be missed, located just outside the city center within walking distance or by public transport, there is the Church of San Miniato al Monte, from which you can also enjoy the most spectacular panoramic view of the city.The center of Florence is an open-air museum: discover it walking in complete freedom, accompanied by the audio commentary of your personal guide!Enrich your experience with a delicious Tuscan Lunch with Drinks in a historic Restaurant in the old town!",
+                "meeting_point": "Caf Tours Office",
+                "duration": "PT10H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [
+                    {
+                        "code": "en",
+                        "name": "English"
+                    },
+                    {
+                        "code": "it",
+                        "name": "Italian"
+                    },
+                    {
+                        "code": "fr",
+                        "name": "French"
+                    },
+                    {
+                        "code": "es",
+                        "name": "Spanish"
+                    },
+                    {
+                        "code": "de",
+                        "name": "German"
+                    }
+                ],
+                "group_size": [],
+                "food": [],
+                "services": [
+                    {
+                        "code": "audioguide",
+                        "name": "With audioguide"
+                    }
+                ],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    },
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    }
+                ],
+                "highlights": [
+                    "Independent visit of the city, without waste of time",
+                    "A lot of time to take pictures, have shopping and lunch",
+                    "Exhaustive itinerary touching all the not-to-be-missed monuments of Florence",
+                    "Informative and reliable information provided by local guides"
+                ],
+                "included": [
+                    "1 Audiopen Device Rental (at disposal until 7.15pm of the reserved day from Mon-Sat, and until 4.30pm on Sundays)",
+                    "1 encode interactive map per person (the map will remain to the customers as a souvenir)",
+                    "Lunch (if selected)"
+                ],
+                "not_included": [],
+                "is_available_today": true,
+                "is_available_tomorrow": true,
+                "cover_image_url": "https://images.musement.com/cover/0002/34/thumb_133655_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 17,
+                    "formatted_value": "$ 17.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 17,
+                    "formatted_value": "$ 17.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    }
+                ],
+                "reviews_number": 0,
+                "reviews_avg": 0,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0
+                },
+                "latitude": 43.7766059,
+                "longitude": 11.2552149,
+                "url": "https://sandbox.musement.com/us/florence/best-of-florence-self-guided-walking-tour-with-audiopen-52940/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": false,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "Every day except Sunday",
+                "max_confirmation_time": "P0D",
+                "cutoff_time": "P1D",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "dab0595b-a7a2-424f-8548-fb7e0fdb4d1a",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 0,
+                "title": "Florence Duomo express guided tour",
+                "relevance": 1,
+                "relevance_venue": 1,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Book your Florence Duomo express guided tour with Musement. The iconic Florence Duomo minus the crowds with our no wait access and visit the spectacular Duomo, an architectural masterpiece",
+                "about": "Steer clear of the astonishingly long queues and take advantage of privileged access to the majestic Florence Duomo, the third largest church in the world and an architectural masterpiece symbol of the city, with its beautiful colourful marbles and their mesmerizing geometric patterns. This incredible feat of engineering required a whole new process for its construction, which your guide will describe when you view it from inside and out. Brunelleschi's innovative approach involved vaulting the dome space without any scaffolding as he used a double shell with a space in between. Inside, the Duomo is no less impressive, with elaborate marble floors mirroring its exterior and beautiful frescos lining the dome, made by Vasari, namely the Last Judgement.Don\u2019t miss the chance to learn all about it on this guided tour with exclusive access!",
+                "meeting_point": "Cathedral in Piazza di San Giovanni, 7, just in front of the entrance to the Duomo tickets office. Look for a representative holding a \u2018Florence Duomo Guided Tour \u2013 City Wonders & Senza Confini\u2019 sign.",
+                "duration": "PT30M",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [
+                    {
+                        "code": "en",
+                        "name": "English"
+                    }
+                ],
+                "group_size": [
+                    {
+                        "code": "group",
+                        "name": "Group tour"
+                    }
+                ],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "istant",
+                        "name": "INSTANT CONFIRMATION"
+                    }
+                ],
+                "highlights": [
+                    "Discover the iconic Florence Duomo minus the crowds with no-wait-access",
+                    "Visit an architectural masterpiece, crowned by the Brunelleschi\u2019s dome and embellished with frescos by Vasari",
+                    "Enjoy a 30 minute guided tour in English with an expert local guide"
+                ],
+                "included": [
+                    "No wait access to Duomo Florence Cathedral",
+                    "30 minutes guided tour with an expert, English-speaking local guide",
+                    "Headsets when appropriate, so you don\u2019t miss a word",
+                    "Small groups of 25 or less"
+                ],
+                "not_included": [
+                    "Gratuities",
+                    "Hotel pick-up/drop-off",
+                    "Food/ beverages"
+                ],
+                "is_available_today": false,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0002/62/thumb_161660_cover_header.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 17,
+                    "formatted_value": "$ 17.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 17,
+                    "formatted_value": "$ 17.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 76,
+                        "name": "Attractions & monuments",
+                        "level": "1",
+                        "code": "attractions-and-monuments",
+                        "event_image_url": "https://images.musement.com/cover/0001/63/thumb_62166_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/cover/0001/63/thumb_62166_cover_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/attractions-monuments-c/"
+                    }
+                ],
+                "reviews_number": 0,
+                "reviews_avg": 0,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0
+                },
+                "latitude": 43.773482,
+                "longitude": 11.255029,
+                "url": "https://sandbox.musement.com/us/florence/florence-duomo-express-guided-tour-64408/",
+                "flavours": [],
+                "verticals": [
+                    {
+                        "id": 2,
+                        "name": "Tours & attractions",
+                        "active": true,
+                        "code": "sightseeing",
+                        "slug": "tours-attractions",
+                        "url": "https://sandbox.musement.com/us/tours-attractions-t/",
+                        "meta_title": "Access Top Tours and Attractions",
+                        "meta_description": "Live every city like a local with Musement. Skip the line at some of the world's most popular attractions and discover hidden gems.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/31/sightseeing-00-jpg_header-30549.jpeg",
+                        "relevance": 90
+                    }
+                ],
+                "giftable": false,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
+            },
+            {
+                "operational_days": "From Tuesday to Sunday",
+                "max_confirmation_time": "P1DT2H",
+                "cutoff_time": "P1DT2H",
+                "booking_type": "CALENDAR-TIMESLOTS",
+                "uuid": "0f5831e6-2046-11e7-9cc9-06a7e332783f",
+                "city": {
+                    "id": 3,
+                    "name": "Florence",
+                    "country": {
+                        "id": 82,
+                        "name": "Italy",
+                        "iso_code": "IT"
+                    },
+                    "cover_image_url": "https://images.musement.com/cover/0002/39/top-cityscape-view-on-the-dome-of-santa-maria-del-fiori-florence-jpg_header-138319.jpeg",
+                    "url": "https://sandbox.musement.com/us/florence/",
+                    "time_zone": "Europe/Rome"
+                },
+                "saves": 20,
+                "title": "Tickets to Pitti Palace and its museums",
+                "relevance": 1,
+                "relevance_venue": 15000,
+                "must_see": false,
+                "last_chance": false,
+                "top_seller": false,
+                "voucher_access_usage": "MOBILE",
+                "temporary": false,
+                "description": "Buy your tickets for the Palazzo Pitti museums: Palatina Gallery and the Modern Art Gallery, Florence. Admire Italian art from the 18th century to World War I.",
+                "about": "Palazzo Pitti is one of Florence\u2019s biggest museum. It is a powerful looking,13th century building that holds 5 museums within its halls and is directly connected to the beautiful Boboli Gardens. This ticket includes dedicated entrance to four of the main museums within the palace: \n- Galleria Palatina\n- Gallery of Modern Art\n- Museum of Fashion and Costume\n- Treasure of the Grand Dukes\nGalleria PalatinaThe Galleria Palatina, along with the building\u2019s Royal Apartments, takes up all of the \u2018piano nobile\u2019 or left-wing of the Palace. The de\u2019 Medici family that used this building as their residence, having moved out of Palazzo Vecchio and seat of the government, were great patrons of the arts. The most important paintings they collected over generations were hung in the Galleria Palatina. The paintings cover the walls of the 17th century rooms as their rich frames sat on top of the fresco decorations of the six rooms, overlooking the square in front of the Palace. Names of great artists such as Raphael, Titian, Correggio, Rubens, Pietro da Cortona are found here, along with other famous artists of the Renaissance and Baroque periods. A visit to the Palatine Gallery (Galleria Palatina) includes the visit of the 14 rooms that belong to the Royal Apartments.Gallery of Modern ArtThe Gallery of Modern Art is to be found on Palazzo Pitti\u2019s second floor and is dedicated to Italian art that comes from the 18th century all the way up to World War I. The beautiful rooms of the Palace that now belong to the Gallery were once the residence of Lorraine Grand Dukes and are decorated in neoclassical and romantic works of art. Another feature of this Gallery is the section dedicated to artists of the Macchiaioli movement of the 19th and 20th centuries.Museum of Fashion and CostumeThis costume gallery is a true antique museum of fashion with nearly 600 gowns and dresses that show Florentine fashion and its development over the centuries.Treasure of the Grand DukesHolding a good portion of the treasure that once belonged to the de\u2019 Medici family, this museum fascinates visitors with vases, gold work, precious stones and more.",
+                "duration": "PT24H",
+                "validity": "P0D",
+                "has_price_info_on_date": true,
+                "open": false,
+                "ticket_not_included": false,
+                "likely_to_sell_out": false,
+                "special_offer": false,
+                "exclusive": false,
+                "best_price": false,
+                "daily": false,
+                "languages": [],
+                "group_size": [],
+                "food": [],
+                "services": [],
+                "features": [
+                    {
+                        "code": "skip",
+                        "name": "SKIP THE LINE"
+                    },
+                    {
+                        "code": "official",
+                        "name": "OFFICIAL RESELLER"
+                    }
+                ],
+                "highlights": [
+                    "Visit Palazzo Pitti, one of the Florence\u2019s biggest museums",
+                    "Explore four museums within the palace, including the Galleria Palatina and that of Modern Art",
+                    "Admire Italian art from the 18th century to World War I",
+                    "Discover the Galleria Palatina, used by de\u2019 Medici family as a residence"
+                ],
+                "included": [
+                    "Skip-the-line entrance ticket to:",
+                    "Galleria Palatina",
+                    "Gallery of Modern Art",
+                    "Museum of Fashion and Costume",
+                    "Treasure of the Grand Dukes",
+                    "Temporary exhibitions"
+                ],
+                "not_included": [
+                    "Porcelain Museum",
+                    "Boboli Gardens",
+                    "Bardini Garden"
+                ],
+                "is_available_today": true,
+                "is_available_tomorrow": false,
+                "cover_image_url": "https://images.musement.com/cover/0001/17/palatine-gallery-and-gallery-of-modern-art-tickets-for-palazzo-pitti-museums_header-16357.jpeg",
+                "service_fee": {
+                    "currency": "USD",
+                    "value": 0,
+                    "formatted_value": "$ 0.00"
+                },
+                "retail_price": {
+                    "currency": "USD",
+                    "value": 24,
+                    "formatted_value": "$ 24.00"
+                },
+                "original_retail_price": {
+                    "currency": "USD",
+                    "value": 24,
+                    "formatted_value": "$ 24.00"
+                },
+                "discount": 0,
+                "categories": [
+                    {
+                        "id": 13,
+                        "name": "Museums",
+                        "level": "1",
+                        "code": "museums",
+                        "event_image_url": "https://images.musement.com/cover/0002/51/thumb_150564_cover_header.jpeg",
+                        "cover_image_url": "https://images.musement.com/category/0003/24/thumb_223579_category_header.jpeg",
+                        "url": "https://sandbox.musement.com/us/florence/museums-c/"
+                    }
+                ],
+                "reviews_number": 265,
+                "reviews_avg": 4.4,
+                "reviews_aggregated_info": {
+                    "1": 0,
+                    "2": 2,
+                    "3": 8,
+                    "4": 130,
+                    "5": 125
+                },
+                "latitude": 43.765,
+                "longitude": 11.25,
+                "url": "https://sandbox.musement.com/us/florence/tickets-to-pitti-palace-and-its-museums-542/",
+                "flavours": [
+                    {
+                        "id": 2,
+                        "name": "Entrance Tickets",
+                        "active": true,
+                        "slug": "entrance-tickets"
+                    }
+                ],
+                "verticals": [
+                    {
+                        "id": 1,
+                        "name": "Museums & art",
+                        "active": true,
+                        "code": "arts-culture",
+                        "slug": "museums-art",
+                        "url": "https://sandbox.musement.com/us/museums-art-t/",
+                        "meta_title": "Discover the remarkable world of Art and Museums",
+                        "meta_description": "From classically beautiful renaissance paintings and sculptures to revolutionary modern artworks, admire world-renowned art with Musement.",
+                        "cover_image_url": "https://images.musement.com/vertical/0001/30/art-and-culture_header-29023.jpeg",
+                        "relevance": 100
+                    }
+                ],
+                "giftable": true,
+                "has_passenger_info": false,
+                "has_extra_customer_data": false,
+                "buy_multiplier": 1
             }
-        },
-        {
-            "date": "2019-02-12T00:50:34+0000",
-            "climate":"sunny", 
-            "temp": {
-                "inC":25,
-                "inF":73
-            }
-        },
-        {
-            "date": "2019-02-13T00:50:34+0000",
-            "climate":"sunny", 
-            "temp": {
-                "inC":23,
-                "inF":73
-            }
-        },
-        {
-            "date": "2019-02-14T00:50:34+0000",
-            "climate":"rain", 
-            "temp": {
-                "inC":11,
-                "inF":73
-            }
-        },
-        {
-            "date": "2019-02-15T00:50:34+0000",
-            "climate":"cloud", 
-            "temp": {
-                "inC":15,
-                "inF":73
-            }
-        }
-    ],
-	"hostels":[
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        },
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        },
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        },
-        {
-            "name": "The Yellow Rome",
-            "link":"https://www.hostelworld.com/hosteldetails.php/The-Yellow/Rome/743?dateFrom=2019-02-12&dateTo=2019-02-13&number_of_guests=1&origin=microsite",
-            "rating": 4, 
-            "pics": [], 
-            "pricePerNight": 20, 
-            "availableDays": 10,
-            "location": { "lat": 41.9028, "lng": 12.4964 } 
-        }
-    ],
-	"location": { "lat": 43.7696, "lng":11.2558 } 
+        ]
+    },
+    "location": {
+        "lat": 43.7696,
+        "lng": 11.2558
+    }
 }
