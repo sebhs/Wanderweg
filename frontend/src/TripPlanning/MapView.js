@@ -19,22 +19,42 @@ const GoogleMapsAPIKey = 'AIzaSyBw0StR76cWn1lE3laP23Tr9zig47bC-K8';
 
 export default class Map extends React.Component {
     componentDidMount() {
-        //GoogleMapsAPIKey = this.props.googleMapsAPIKey
     }
 
     render() {
+        console.log(this.props)
         let icon_url_selected = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
         let icon_url_notselected = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
-        const cityMarkers = this.props.cityMarker.map(markerObj =>
-            <Marker
+        let icon_url_intrip = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+        const cityMarkers = this.props.cityMarker.map(markerObj => {
+            console.log(markerObj.city_id)
+            let icon_url = this.props.tripPlan.includes(markerObj.city_id) ? icon_url_intrip : icon_url_notselected
+            icon_url = this.props.currentCityIndex === markerObj.index ? icon_url_selected : icon_url
+            return(<Marker
                 index={markerObj.index}
                 position={markerObj.position}
-                icon={this.props.currentCityIndex === markerObj.index ?icon_url_selected : icon_url_notselected }
-                onClick={markerObj.onClick} />)
+                icon={icon_url}
+                onClick={markerObj.onClick} />
+            )
+        });
+        const polyline = <Polyline
+            path={this.props.polylinePath}
+            options={{
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            }}>
+            {/* path={[{lat: 43.7696, lng: 11.2558},{lat: 45.4642, lng: 9.1900}]}> */}
+        </Polyline>
+
         return (
             <div>
                 <MyMapComponent
-                cityMarkers={cityMarkers}
+                    cityMarkers={cityMarkers}
+                    polyline={polyline}
+                    tripPlan={this.props.tripPlan}
+
                 // polyline={
                 //     <Polyline
                 //         options={{ strokeColor: '#808080', strokeWeight: 2 }}
@@ -69,6 +89,6 @@ const MyMapComponent = compose(
         defaultZoom={6}
         defaultCenter={{ lat: 41.8719, lng: 12.5674 }}>
         {props.cityMarkers}
-
+        {props.polyline}
     </GoogleMap>);
 

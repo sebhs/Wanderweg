@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MapView from './MapView'
 import InfoView from './InfoView'
 import Grid from '@material-ui/core/Grid';
-import selectedCountry from './../fakeData/italy.json';
+import { cities } from './../fakeData/cities.json';
 
 
 const wrapperStyles = {
@@ -16,32 +16,51 @@ class TripPlannerParent extends Component {
     constructor() {
         super();
         this.state = {
-            tripPlan: {},
-            selectedCity: selectedCountry.cities[0],
-            currentCityIndex: 0,
+            tripPlan: [],
+            polylinePath: [],
+            selectedCity: cities[0],
+            currentCityIndex: -1,
             cityMarkers: [],
         }
     }
 
     componentDidMount() {
-        let cityMarkers = selectedCountry.cities.map((city, index) => {
+        let cityMarkers = cities.map((city, index) => {
             return {
                 index: index,
+                city_id:city.id,
                 position: city.location,
                 onClick: () => this.setToCurrentCity(index)
-
             }
         });
-        console.log(cityMarkers);
         this.setState({ cityMarkers })
     }
 
 
     setToCurrentCity = function (index) {
         this.setState({
-            selectedCity: selectedCountry.cities[index],
+            selectedCity: cities[index],
             currentCityIndex: index
         })
+
+    }
+
+    addToTrip = function () {
+        if (this.state.currentCityIndex > -1) {
+            // let tmpPolyline = this.state.polylinePath;
+            // let tmpPlan = this.state.tripPlan;
+            // tmpPolyline.push(cities[this.state.currentCityIndex].location);
+            const city_id = cities[this.state.currentCityIndex].id;
+            const crd = cities[this.state.currentCityIndex].location;
+            // this.setState({
+            //     tripPlan: tmpPlan,
+            //     polylinePath: tmpPolyline,
+            // })
+            this.setState({
+                polylinePath:[...this.state.polylinePath, crd],
+                tripPlan: [...this.state.tripPlan,city_id ],
+            })
+        }
     }
 
 
@@ -52,12 +71,15 @@ class TripPlannerParent extends Component {
             // <div style={wrapperStyles}>
             <div>
                 <MapView cityMarker={this.state.cityMarkers}
-                currentCityIndex = {this.state.currentCityIndex} />
+                    currentCityIndex={this.state.currentCityIndex}
+                    polylinePath = {this.state.polylinePath}
+                    tripPlan = {this.state.tripPlan}
+                     />
 
                 <InfoView
                     selectedCity={this.state.selectedCity}
+                    addToTrip={this.addToTrip.bind(this)}
                 />
-
             </div>
         );
     }

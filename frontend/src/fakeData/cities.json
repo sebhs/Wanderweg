@@ -1,0 +1,43 @@
+{
+ "cities": [
+        {
+            "id":"bb171e2214ff45a8a5add3dcedc59ae9",
+            "city": "Rome",
+            "country": "Italy",
+            "location": {
+                "lat": 41.9028,
+                "lng": 12.4964
+            }, 
+            "size": {
+                "population": 2873000,
+                "area": 496
+            }
+        },
+        {
+            "id":"169c0cbbf0104c00912f6c344fff8123",
+            "city": "Milan",
+            "country": "Italy",
+            "location": {
+                "lat": 45.4642,
+                "lng": 9.1900
+            }, 
+            "size": {
+                "population": 2873000,
+                "area": 496
+            }
+        },
+        {
+            "id":"284d263daf0b47baa9e9a48a604a87d5",
+            "city": "Florence",
+            "country": "Italy",
+            "location": {
+                "lat": 43.7696,
+                "lng": 11.2558
+            }, 
+            "size": {
+                "population": 2873000,
+                "area": 496
+            }
+        }
+    ]
+}
