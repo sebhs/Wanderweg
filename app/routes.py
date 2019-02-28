@@ -31,7 +31,7 @@ def getCitiesOverview():
     # Format response
     cities = []
     for entry in data:
-        city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 'location':{'lat': entry[4], 'lng': entry[5]}}
+        city = {'name': entry[1], 'id': entry[0], 'country': entry[2], 'population': entry[3], 'location':{'lat': entry[4], 'lng': entry[5]}}
         cities.append(city)
 
     return json.dumps(cities)
