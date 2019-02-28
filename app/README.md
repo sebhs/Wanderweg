@@ -9,8 +9,7 @@
       Uses activites api to query for activity data for a specific city
     
     - routes.py:
-      Holds all the server endpoints. Uses database queries and other files within app to 
-      satisfy requests
+      Holds all the server endpoints. Uses database queries and other files within app to satisfy requests
 
     - screenScrape.py:
       Utility file for scraping, should live in dataCollection
@@ -31,3 +30,4 @@
 ### Questions
 - Should we always be defining the routes with the methods that are allowed to call them?
     - ^ what does this mean
+
