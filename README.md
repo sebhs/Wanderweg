@@ -30,3 +30,5 @@ Our project aims to help students plan trips on a budget.
 | Seb         | sebhs@stanford.edu |
 | Daniel      | dbook@stanford.edu |
 | Noah        | noahjax@stanford.edu |
+
+Example of a good wiki: https://github.com/cs210/Hella/wiki
