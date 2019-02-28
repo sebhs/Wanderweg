@@ -36,7 +36,8 @@ def create_cities_table(database):
                                         hostel_url text,
                                         population integer,
                                         latitude real,
-                                        longitude real
+                                        longitude real,
+                                        weather text
                                     ); """
 
     if conn is not None:
@@ -49,13 +50,7 @@ def create_cities_table(database):
 
 
 def create_city(conn, city):
-    """
-    Create a new project into the projects table
-    :param conn:
-    :param city:
-    :return: city id
-    """
-    sql = "insert into cities values(?,?,?,?,?,?,?)"
+    sql = "insert into cities values(?,?,?,?,?,?,?,?)"
     cur = conn.cursor()
     cur.execute(sql, city)
     return cur.lastrowid
@@ -76,7 +71,7 @@ def load_cities_data(conn):
     cities = readFromFile('countries/italyData.txt')
     count = 1
     for city, info in cities.items():
-        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4]))
+        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], str(info[5])))
         count += 1
 
 

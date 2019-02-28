@@ -15,6 +15,8 @@ from db_utils import create_connection
 def home():
     return "Server is running"
 
+#TODO: Do we want this to just return id, name, and population? Would speed up 
+#query and my understanding is that this is just to get city ids for later queries
 @app.route('/cities')
 def getCitiesOverview():
 
@@ -41,15 +43,16 @@ def getCityInfo(cid):
 
     conn = create_connection('./database/Wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT name,country,hostel_url FROM cities WHERE id=' + cid
+    sql = 'SELECT name,country,hostel_url,weather FROM cities WHERE id=' + cid
     cur.execute(sql)
     data = cur.fetchone()
     conn.close()
 
-    # Scrape hostelworld
-    # Fetch activities
+    # TODO: Scrape hostelworld
+    # TODO: Fetch activities
 
-    return "The city corresponding to id #" + cid + " is: " + data[0] + ", " + data[1] + "."
+    return "The city corresponding to id #" + cid + " is: " + data[0] + ", " + data[1] + \
+            " with weather " + data[3]
 
 
 # Use params or something to accept a list of destinations
