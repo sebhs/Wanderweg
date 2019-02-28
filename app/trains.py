@@ -1,7 +1,7 @@
 """
 Creates list of all trains on goeuro.com for a given city and writes them to file
 
-"""
+
 # Imports
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -88,4 +88,4 @@ class GatherTrains:
 	def findCheapest(self, n):
 		self.tripOptions.sort(key=lambda x: x[3])
 		return self.tripOptions[:n]
-
+"""

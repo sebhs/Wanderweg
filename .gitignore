@@ -2,3 +2,5 @@
 .vscode/*
 debug.log*
 ghostdriver.log*
+__pycache__
+.todo
