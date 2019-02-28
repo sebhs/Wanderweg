@@ -1,47 +1,64 @@
+
+# Imports
 from app import app
 from flask import request
 import json
-from app.climate import GatherClimate
-from app.activities import GatherActivities
-from app.trains import GatherTrains
-from app.population import GatherPop
-from pathlib import Path
-from db import database as db
+import sys
+sys.path.append('./database')
+from db_utils import create_connection
+
+# Potentially useful imports:
+#from app.activities import GatherActivities
+#from app.trains import GatherTrains
 
 @app.route('/')
 def home():
     return "Server is running"
 
+@app.route('/cities')
+def getCitiesOverview():
 
-
-#TODO: Modify so it uses city id instead
-@app.route('/city_info/<city>')
-def getCityInfo(city):
-    table_path = str(Path('../Wanderweg/db/sqlite.db').resolve())
-    conn = db.create_connection(table_path)
-    
+    # Database query
+    conn = create_connection('./database/Wanderweg.db')
     cur = conn.cursor()
-    cur.execute('SELECT * FROM city_data WHERE name=?', (city,))
-    
-    info = cur.fetchall()
-    city_info = []
-    for entry in info:
-        city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'hostel_url': entry[3],
-                'population': entry[4], 'latitude': entry[5], 'longitude': entry[6]}
-        city_info.append(city)
+    sql = 'SELECT id,name,country,population,latitude,longitude FROM cities'
+    cur.execute(sql)
+    data = cur.fetchall()
+    conn.close()
 
-    return json.dumps(city_info)
+    # Format response
+    cities = []
+    for entry in data:
+        city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 'latitude': entry[4], 'longitude': entry[5]}
+        cities.append(city)
 
-'''
-Most of this stuff is outdated...we need to make new functions tailored
-to exactly what Seb wants.
-'''
-#Returns climate data for a city. Note that it also requires the country
-@app.route('/weather/<country>/<city>')
-def getWeather(country, city):
-    climateScraper = GatherClimate()
-    return climateScraper.scrapeData(country, city)
+    return json.dumps(cities)
 
+
+@app.route('/city_info/<cid>')
+def getCityInfo(cid):
+    # Database query
+
+    conn = create_connection('./database/Wanderweg.db')
+    cur = conn.cursor()
+    sql = 'SELECT name,country,hostel_url FROM cities WHERE id=' + cid
+    cur.execute(sql)
+    data = cur.fetchone()
+    conn.close()
+
+    # Scrape hostelworld
+    # Fetch activities
+
+    return "The city corresponding to id #" + cid + " is: " + data[0] + ", " + data[1] + "."
+
+
+# Use params or something to accept a list of destinations
+@app.route('/travel', methods=['GET'])
+def createTravelPlan():
+    return "TODO"
+
+"""
+Saved these two routes because they could be usefull for helper function for our final routes.
 #Returns activities in a city
 @app.route('/activities/<city>')
 def getActivities(city):
@@ -63,8 +80,4 @@ def getTrains():
     trainScraper = GatherTrains()
     return trainScraper.scrapeAllInfo(origin, destination, date, num_results)
 
-@app.route('/population/<country>/<city>')
-def getPopulation(country, city):
-    print(country, city)
-    popScraper = GatherPop()
-    return popScraper.scrapeInfo(country, city)
+"""

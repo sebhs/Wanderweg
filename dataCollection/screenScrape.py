@@ -8,9 +8,8 @@ To-do:
 """
 
 # Imports
-import urllib.request
+from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
-import time
 
 class Scraper:
 
@@ -20,7 +19,12 @@ class Scraper:
 		url - valid HTTP(S) web address
 	"""
 	def __init__(self, url):
-		with urllib.request.urlopen(url) as response:
+		
+		# Get around for servers with protections against Python crawlers
+		headers = {'User-Agent': 'Mozilla/5.0'} 
+
+		req = Request(url, headers=headers)
+		with urlopen(req) as response:
 			htmlStr = response.read().decode('utf-8')
 			self.soup = BeautifulSoup(htmlStr, 'html.parser')
 
@@ -34,39 +38,24 @@ class Scraper:
 		html - the html that we want to search inside of, defaults to internally stored HTML from initialization
 	Outputs:
 		List of all matches to search query
-		
-		BeautifulSoup find_all documnentation...adding class has little impact on speed, but makes things cleaner
-		https://www.crummy.com/software/BeautifulSoup/bs4/doc/#find-all
 	"""
 	def search(self, element, klass=None, portion=None, html=None):
 		if html == None: html = self.soup
 		matches = []
-		for e in html.find_all(element, class_=klass):
+		for e in html.find_all(element):
 			
-			if portion != None:
-				matches.append(e.get(portion))
-			else:
-				matches.append(e)
+			if klass == None:
+				if portion != None:
+					matches.append(e.get(portion))
+				else:
+					matches.append(e)
+				continue
+
+			k = e.get('class')
+			if k != None and k[0] == klass:
+				if portion != None:
+					matches.append(e.get(portion))
+				else:
+					matches.append(e)
 
 		return matches
-
-	# def search(self, element, klass=None, portion=None, html=None):
-	# 	if html == None: html = self.soup
-	# 	matches = []
-	# 	for e in html.find_all(element):
-			
-	# 		if klass == None:
-	# 			if portion != None:
-	# 				matches.append(e.get(portion))
-	# 			else:
-	# 				matches.append(e)
-	# 			continue
-
-	# 		k = e.get('class')
-	# 		if k != None and k[0] == klass:
-	# 			if portion != None:
-	# 				matches.append(e.get(portion))
-	# 			else:
-	# 				matches.append(e)
-
-	# 	return matches

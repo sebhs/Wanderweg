@@ -1,14 +1,18 @@
-import sys
-sys.path.append('..')
+"""
+Script to build dict of static data on cities in a given country
+"""
+
+# Imports
+from screenScrape import Scraper
 import json
 import requests 
 import csv
 import sys
-from dataCollection.screenScrape import Scraper
-from dataCollection.climate import GatherClimate
 
 # Constants
 googleAPIKey = 'AIzaSyBw0StR76cWn1lE3laP23Tr9zig47bC-K8'
+validCountries = set(["Italy", "France", "Croatia", "Germany"])
+
 
 ###### HOSTELS ######
 
@@ -29,7 +33,7 @@ def fetchOtherLocations(urls, provencePage):
 
 # Function to build initial map of cities for certain country 
 # based off hostelworld.com url of country's base page
-def buildCityMap(url):
+def buildCityMap(url, country):
     provences = fetchOtherLocations([url], False)
     print('Starting provences')
     cities = fetchOtherLocations(provences, True)
@@ -37,7 +41,7 @@ def buildCityMap(url):
     cities.sort(key=lambda city: city[0])
     cityMap = {}
     for city in cities:
-        cityMap[city[0]] = ['Italy', city[1]]
+        cityMap[city[0]] = [country, city[1]]
     return cityMap
 
 
@@ -80,16 +84,6 @@ def addCoordData(cityMap):
         cityMap[key].append(data['results'][0]['geometry']['location']['lng'])
 
 
-###### Add Climate ######
-
-#Scrapes for climate
-def addClimateData():
-    # cl
-
-
-
-
-
 ###### MAIN FUNCTIONS ######
 
 
@@ -99,48 +93,24 @@ def writeToFile(data, filename):
     f.write(string)
     f.close()
 
-def readFromFile(filename):
-    ret = {}
-    with open(filename) as f:
-        data = json.load(f)
-        for key in data:
-            ret[key] = data[key]
-    return ret
-
 def main(country):
-	url = 'https://www.hostelworld.com/hostels/' + country
-	cities = buildCityMap(url)
-	addPopulationData(country, cities)
-	prune(cities, 3)
-	addCoordData(cities)
-	fileName = '../database/' + country.lower() + 'Data.txt'
-	writeToFile(cities, fileName)
-
-# def main():
-# 	if len(sys.argv) == 1:
-# 		sys.stderr.write("Please give the country of interest\nProper format is python3 buildHostelList.py ~country~\n")
-# 		return
-# 	url = 'https://www.hostelworld.com/hostels/' + sys.argv[1]
-# 	createList(url)
+    url = 'https://www.hostelworld.com/hostels/' + country.lower()
+    cities = buildCityMap(url, country)
+    print("Done with hostelworld scraping")
+    addPopulationData(country, cities)
+    print("Done with population scraping")
+    prune(cities, 3)
+    addCoordData(cities)
+    print("Done with coordinate scraping")
+    fileName = '../database/countries/' + country.lower() + 'Data.txt'
+    writeToFile(cities, fileName)
 
 # Add checks for valid input country
 if __name__ == '__main__':
-	if len(sys.argv) == 1 or sys.argv[1][0].islower():
-		sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py ~Country~\n")
-	else: main(sys.argv[1])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if len(sys.argv) == 1 or sys.argv[1][0].islower():
+        sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py Country\n")
+    elif sys.argv[1] not in validCountries:
+        sys.stderr.write("That country is currently not supported\n")
+    else:
+        main(sys.argv[1])
 
