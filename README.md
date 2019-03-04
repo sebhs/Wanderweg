@@ -23,7 +23,7 @@ Our project aims to help students plan trips on a budget.
 
 1. Slack
 2. Phone
-3. SGM Form: https://docs.google.com/forms/d/e/1FAIpQLSfzoFLcjY57HtWUL4IIIaXfrWXLqDXu3dUzkKFXKgOb2xctDA/viewform?usp=sf_link
+3. [SGM Form](https://docs.google.com/forms/d/e/1FAIpQLSfzoFLcjY57HtWUL4IIIaXfrWXLqDXu3dUzkKFXKgOb2xctDA/viewform?usp=sf_link)
 
 | __Name__ | __Email__ |
 |-------------|------------|
@@ -31,4 +31,4 @@ Our project aims to help students plan trips on a budget.
 | Daniel      | dbook@stanford.edu |
 | Noah        | noahjax@stanford.edu |
 
-Example of a good wiki: https://github.com/cs210/Hella/wiki
+Example of a good [wiki](https://github.com/cs210/Hella/wiki)
