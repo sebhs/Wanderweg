@@ -21,7 +21,7 @@ Our project aims to help students plan trips on a budget.
 
 ### Team Communication
 
-1. Slack
+1. [Slack](https://cs194wwin19.slack.com/messages/CFDH00DFA/)
 2. Phone
 3. [SGM Form](https://docs.google.com/forms/d/e/1FAIpQLSfzoFLcjY57HtWUL4IIIaXfrWXLqDXu3dUzkKFXKgOb2xctDA/viewform?usp=sf_link)
 
