@@ -5,7 +5,9 @@ from flask import request
 import json
 import sys
 sys.path.append('./database')
+sys.path.append('./app')
 from db_utils import create_connection
+from activities import GatherActivities
 
 # Potentially useful imports:
 #from app.activities import GatherActivities
@@ -31,7 +33,8 @@ def getCitiesOverview():
     # Format response
     cities = []
     for entry in data:
-        city = {'name': entry[1], 'id': entry[0], 'country': entry[2], 'population': entry[3], 'location':{'lat': entry[4], 'lng': entry[5]}}
+        city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 
+                'latitude': entry[4], 'longitude': entry[5]}
         cities.append(city)
 
     return json.dumps(cities)
@@ -40,7 +43,6 @@ def getCitiesOverview():
 @app.route('/city_info/<cid>')
 def getCityInfo(cid):
     # Database query
-
     conn = create_connection('./database/Wanderweg.db')
     cur = conn.cursor()
     sql = 'SELECT name,country,hostel_url,weather FROM cities WHERE id=' + cid
@@ -49,10 +51,15 @@ def getCityInfo(cid):
     conn.close()
 
     # TODO: Scrape hostelworld
-    # TODO: Fetch activities
+    # Fetch activities
+    activityScraper = GatherActivities()
+    activities = activityScraper.scrapeCity(data[0])
 
-    return "The city corresponding to id #" + cid + " is: " + data[0] + ", " + data[1] + \
-            " with weather " + data[3]
+    data = list(data)
+    print(type(data), data)
+    data.append(activities)
+
+    return json.dumps(data)
 
 
 # Use params or something to accept a list of destinations
