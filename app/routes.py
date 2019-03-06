@@ -1,7 +1,8 @@
 
 # Imports
 from app import app
-from flask import request
+from flask import request,jsonify
+import flask
 import json
 import sys
 sys.path.append('./database')
@@ -36,8 +37,10 @@ def getCitiesOverview():
         city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 
                 'latitude': entry[4], 'longitude': entry[5]}
         cities.append(city)
-
-    return json.dumps(cities)
+    
+    response = flask.jsonify(cities)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 @app.route('/city_info/<cid>')
@@ -58,8 +61,9 @@ def getCityInfo(cid):
     data = list(data)
     print(type(data), data)
     data.append(activities)
-
-    return json.dumps(data)
+    response = flask.jsonify(data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 # Use params or something to accept a list of destinations
