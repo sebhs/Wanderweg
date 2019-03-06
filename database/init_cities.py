@@ -5,9 +5,8 @@ import sqlite3
 from sqlite3 import Error
 from db_utils import create_connection
 
-
 '''
-This file initializes the database
+This file initializes the cities table in the Wanderweg database
 '''
 
 def create_table(conn, create_table_sql):
@@ -41,7 +40,7 @@ def create_cities_table(database):
                                     ); """
 
     if conn is not None:
-        # create projects table
+        # create cities table
         create_table(conn, sql_create_cities_table)
     else:
         print("Error! cannot create the database connection.")

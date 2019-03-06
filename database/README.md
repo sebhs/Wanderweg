@@ -7,17 +7,20 @@
 	- countries/<country>Data.txt:
 	  Data on all cities supported in <country> such as hostel_url, population, latitude, and longitude
 
-	- db_utils.py:
-	  Utility functions for connecting to and querying the database
+	- init_cities.py:
+	  Creates and fills the cities table in wanderweg.db with data from the files in countries. Should only need to be run once.
 
-	- init_db.py:
-	  Creates and fills wanderweg.db with data from the files in countries. Should only need to be run once
+	- exonyms/<countryExos.txt:
+	  Data on the exonyms for every city we support, city id's are the same accross databases.
+
+	- init_exos.py:
+	  Creates and filles the exonyms table in wanderweg.db with data from the files in exonyms. Should only need to be run once.
+
+	- db_utils.py:
+	  Utility functions for connecting to and querying the database.
 
 	- wanderweg.db:
-	  Database with static data for easy querying. Tables in wanderweg.db are described below
-	
-	- weatherbase_cities.csv:
-	  List of the urls for all cities supported by weatherbase. Weather averages are scraped from these urls
+	  Database with static data for easy querying. Tables in wanderweg.db are described below.
 
 # Database Info
 
@@ -34,12 +37,34 @@
 
 # Tables
 - cities
-	- id: integer
-	- name: text
+	- id: integer NOT NULL
+	- name: text NOT NULL
 	- country: text
 	- hostel_url: text
 	- population: integer
 	- latitude: real
 	- longitude: real
 	- weather: text
+
+- exonyms
+	- id: integer NOT NULL
+	- english: text NOT NULL
+	- german text
+	- french text
+	- italian text
+	- spanish text
+	- portuguese text
+	- brazilian text
+	- sweedish text
+	- polish text
+	- finnish text
+	- danish text
+	- dutch text
+	- norwegian text
+	- czech text
+	- russian text
+	- turkish text
+	- japanese text
+	- korean text
+	- chinese text
 
