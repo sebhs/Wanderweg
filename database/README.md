@@ -41,4 +41,5 @@
 	- population: integer
 	- latitude: real
 	- longitude: real
+	- weather: text
 

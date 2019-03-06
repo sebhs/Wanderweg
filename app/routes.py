@@ -5,20 +5,19 @@ from flask import request
 import json
 import sys
 sys.path.append('./database')
-sys.path.append('./app')
 from db_utils import create_connection
+sys.path.append('./app')
 from activities import GatherActivities
+from hostels import gatherHostelData
 
 # Potentially useful imports:
-#from app.activities import GatherActivities
 #from app.trains import GatherTrains
 
 @app.route('/')
 def home():
     return "Server is running"
 
-#TODO: Do we want this to just return id, name, and population? Would speed up 
-#query and my understanding is that this is just to get city ids for later queries
+
 @app.route('/cities')
 def getCitiesOverview():
 
@@ -42,6 +41,7 @@ def getCitiesOverview():
 
 @app.route('/city_info/<cid>')
 def getCityInfo(cid):
+    
     # Database query
     conn = create_connection('./database/Wanderweg.db')
     cur = conn.cursor()
@@ -50,16 +50,18 @@ def getCityInfo(cid):
     data = cur.fetchone()
     conn.close()
 
-    # TODO: Scrape hostelworld
     # Fetch activities
+    # TO DO: should we include country in acitivities search? Could help for when we scale
     activityScraper = GatherActivities()
     activities = activityScraper.scrapeCity(data[0])
 
-    data = list(data)
-    print(type(data), data)
-    data.append(activities)
+    # Fetch hostel info
+    hostelData = gatherHostelData(data[2])
 
-    return json.dumps(data)
+    # Format response
+    info = {'activities': activities, 'hostels': hostelData}
+
+    return json.dumps(info)
 
 
 # Use params or something to accept a list of destinations
