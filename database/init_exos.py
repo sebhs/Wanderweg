@@ -32,25 +32,25 @@ def create_exonyms_table(database):
     #Create table for city features 
     sql_create_exonyms_table = """ CREATE TABLE IF NOT EXISTS exonyms (
                                         id integer PRIMARY KEY,
-                                        english text NOT NULL,
-                                        german text,
-                                        french text,
-                                        italian text,
-                                        spanish text,
-                                        portuguese text,
-                                        brazilian text,
-                                        sweedish text,
-                                        polish text,
-                                        finnish text,
-                                        danish text,
-                                        dutch text,
+                                        england text NOT NULL,
+                                        germany text,
+                                        france text,
+                                        italy text,
+                                        spain text,
+                                        portugal text,
+                                        brazil text,
+                                        sweden text,
+                                        poland text,
+                                        finland text,
+                                        denmark text,
+                                        netherlands text,
                                         norwegian text,
-                                        czech text,
-                                        russian text,
-                                        turkish text,
-                                        japanese text,
-                                        korean text,
-                                        chinese text
+                                        czech_republic text,
+                                        russia text,
+                                        turkey text,
+                                        japan text,
+                                        korea text,
+                                        china text
                                     ); """
 
     if conn is not None:

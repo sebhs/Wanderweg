@@ -36,7 +36,8 @@ def create_cities_table(database):
                                         population integer,
                                         latitude real,
                                         longitude real,
-                                        weather text
+                                        weather text,
+                                        trainline_id text
                                     ); """
 
     if conn is not None:
@@ -49,7 +50,7 @@ def create_cities_table(database):
 
 
 def create_city(conn, city):
-    sql = "insert into cities values(?,?,?,?,?,?,?,?)"
+    sql = "insert into cities values(?,?,?,?,?,?,?,?,?)"
     cur = conn.cursor()
     cur.execute(sql, city)
     return cur.lastrowid
@@ -70,7 +71,7 @@ def load_cities_data(conn):
     cities = readFromFile('countries/italyData.txt')
     count = 1
     for city, info in cities.items():
-        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], str(info[5])))
+        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], str(info[5]), '0'))
         count += 1
 
 

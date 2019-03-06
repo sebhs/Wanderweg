@@ -4,6 +4,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+import sys
+sys.path.append('../database')
+from db_utils import create_connection
+
 
 base_url = 'https://www.thetrainline.com/'
 
@@ -83,13 +87,83 @@ def scrapeIDs(origin, destination):
 
 	return (orig_id, dest_id)
 
-#Function to get ids for every city 
-def getAllIDs():
-	# 1. Get list of all cities and exonames from database
-	# 2. Format into tuples of ('local_name (english_name),'local_name (english_name)')
-	# 3. Call scrapeIDs on each tuple
-	# 4. Add IDs to cities table in wanderweg.db
-	pass
+#Get local exonyms for every city in the db
+def getLocalExonyms():
+	#Get city name and country	
+	conn = create_connection('../database/wanderweg.db')
+	cur = conn.cursor()
+	city_sql = 'SELECT name, country FROM cities'
+	cur.execute(city_sql)
+	city_data = cur.fetchall()
+	city_names = {name[0] for name in city_data}
+	city_country = {entry[0]:entry[1] for entry in city_data}
 
-city_ids = scrapeIDs('Roma (Rome)', 'Firenze (Florence)')
-print(city_ids)
+	exo_sql = 'SELECT * FROM exonyms'
+	cur.execute(exo_sql)
+	col_names = [country[0] for country in cur.description[1:]]
+	country_index = {country:index+1 for index, country in enumerate(col_names)}
+	exonyms = cur.fetchall()
+	conn.close()
+
+	#Map cities to their local exonym
+	exonym_dict = {}
+	for row in exonyms:
+		english_index = country_index['england']
+		if row[english_index] in city_country.keys():
+			cur_city = row[english_index]
+			#Get the country for the current city
+			country = city_country[cur_city]
+			#Get the local city name for the current city
+			local_name = row[country_index[country.lower()]]
+			exonym_dict[cur_city] = local_name
+
+	return exonym_dict	
+
+#Use exonym dict to get all trainline ids for cities in our db
+#TODO: Consider using threadpool
+def scrapeAllIDs():
+	#Get dict mapping cities to local exonyms
+	local_exonyms = getLocalExonyms()
+	local_names = []
+	#Format for use on trainline
+	for english_name, local_name in local_exonyms.items():
+		if english_name == local_name:
+			local_names.append(english_name)
+		else:
+			local_names.append(local_name + ' (' + english_name + ')')
+	city_pairs = []
+	for i in range(0, len(local_names), 2):
+		if i + 1 < len(local_names):
+			city_pairs.append((local_names[i], local_names[i+1]))
+		else: 
+			city_pairs.append(local_names[i], local_names[0])
+	
+	trainline_ids = {}
+	for origin, destination in city_pairs:
+		#Get trainline ids
+		orig_id, dest_id = scrapeIDs(origin, destination)
+		#Return names to english name only
+		if '(' in origin: 
+			origin = origin.split(' ')[1].replace('(', '').replace(')', '')
+		if '(' in destination: 
+			destination = destination.split(' ')[1].replace('(', '').replace(')', '')
+		#Add to id dict
+		trainline_ids[origin] = orig_id
+		trainline_ids[destination] = dest_id
+		print(origin, orig_id, destination, dest_id)
+
+	return trainline_ids
+
+
+def addIDsToDB(trainline_ids):
+	db_vals = [(val, key) for key, val in trainline_ids.items()]
+
+	conn = create_connection('../database/wanderweg.db')
+	cur = conn.cursor()
+	sql = 'UPDATE cities SET trainline_id = ? WHERE name = ?'
+	cur.executemany(sql, db_vals)
+	conn.commit()
+	conn.close()
+	
+id_dict = scrapeAllIDs()
+addIDsToDB(id_dict)
