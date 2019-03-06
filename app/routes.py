@@ -3,7 +3,6 @@
 from app import app
 from flask import request
 import flask
-import json
 import sys
 sys.path.append('./database')
 from db_utils import create_connection
@@ -57,16 +56,12 @@ def getCityInfo(cid):
     # TO DO: should we include country in acitivities search? Could help for when we scale
     activityScraper = GatherActivities()
     activities = activityScraper.scrapeCity(data[0])
-
-    data = list(data)
-    print(type(data), data)
-    data.append(activities)
    
     # Fetch hostel info
     hostelData = gatherHostelData(data[2])
 
     # Format response
-    info = {'activities': activities, 'hostels': hostelData}
+    info = {'activities': activities, 'hostels': hostelData, 'weather': data[3]}
     response = flask.jsonify(info)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
@@ -76,28 +71,3 @@ def getCityInfo(cid):
 @app.route('/travel', methods=['GET'])
 def createTravelPlan():
     return "TODO"
-
-"""
-Saved these two routes because they could be usefull for helper function for our final routes.
-#Returns activities in a city
-@app.route('/activities/<city>')
-def getActivities(city):
-    activityScraper = GatherActivities()
-    return activityScraper.scrapeCity(city)
-
-#Returns train info for a trip between two cities 
-#Note that requests need to replace spaces with underscores
-@app.route('/trains', methods=['GET'])
-def getTrains():
-    #Fetch and clean up params
-    origin = request.args.get('origin')
-    destination = request.args.get('destination')
-    date = request.args.get('date')
-    num_results = int(request.args.get('n'))
-    origin = origin.replace("_", " ")
-    destination = destination.replace("_", " ")
-    #Get route data
-    trainScraper = GatherTrains()
-    return trainScraper.scrapeAllInfo(origin, destination, date, num_results)
-
-"""
