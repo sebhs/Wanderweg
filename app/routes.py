@@ -46,11 +46,17 @@ def getCityInfo(cid):
     # Database query
     conn = create_connection('./database/Wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT name,country,hostel_url,weather FROM cities WHERE id=' + cid
+    sql = 'SELECT name,country,hostel_url,population,weather FROM cities WHERE id=' + cid
     cur.execute(sql)
     data = cur.fetchone()
     conn.close()
 
+    if not data:
+        info = {'error': 'no country with that ID found'}
+        response = flask.jsonify(info)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+        
     # Fetch activities
     # TO DO: should we include country in acitivities search? Could help for when we scale
     activityScraper = GatherActivities()
@@ -60,7 +66,8 @@ def getCityInfo(cid):
     hostelData = gatherHostelData(data[2])
 
     # Format response
-    info = {'activities': activities, 'hostels': hostelData, 'weather': data[3]}
+    info = {'city_id': int(cid), 'population': data[3], 'name': data[0], 'country': data[1], 
+            'activities': activities, 'hostels': hostelData, 'weather': data[4]}
     response = flask.jsonify(info)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
