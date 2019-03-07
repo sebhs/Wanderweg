@@ -22,7 +22,7 @@ def home():
 def getCitiesOverview():
 
     # Database query
-    conn = create_connection('./database/Wanderweg.db')
+    conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
     sql = 'SELECT id,name,country,population,latitude,longitude FROM cities'
     cur.execute(sql)
@@ -44,7 +44,7 @@ def getCitiesOverview():
 def getCityInfo(cid):
     
     # Database query
-    conn = create_connection('./database/Wanderweg.db')
+    conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
     sql = 'SELECT name,country,hostel_url,population,weather FROM cities WHERE id=' + cid
     cur.execute(sql)
