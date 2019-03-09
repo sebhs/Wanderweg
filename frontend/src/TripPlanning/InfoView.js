@@ -8,7 +8,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { withStyles } from '@material-ui/core/styles';
-import ActivitesList from './InfoViewChildren/ActivitesList'
+import ItemsList from './InfoViewChildren/ItemsList'
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -38,25 +38,49 @@ class InfoView extends Component {
                     style={{ padding: '100px' }} size={80} />
             </div>)
         }
+
+        console.log(this.props.cityInfo);
         return (
             // <div style={wrapperStyles}>
             <div >
                 <Card style={{ padding: '20px', height: '100vh' }}>
                     <Typography variant="h2" gutterBottom>
-                        {this.props.cityInfo.city}, {this.props.cityInfo.country}
+                        {this.props.cityInfo.name}, {this.props.cityInfo.country}
                     </Typography>
                     <Card>
-                    <CardMedia  style = {{height:170}}
-                        image={this.props.cityInfo.activities.data[0].city.cover_image_url}
-                    />
+                        {(this.props.cityInfo.activities.data.length > 0) &&
+                            <CardMedia style={{ height: 170 }}
+                                image={this.props.cityInfo.activities.data[0].city.cover_image_url}
+                            />}
                     </Card>
-                    <br/>
+                    <br />
 
-                
-                    <ActivitesList
-                        cityInfo={this.props.cityInfo}
-                    />
-                        <Button
+                    {(this.props.cityInfo.activities.data.length > 0) &&
+                        <div>
+                            <Typography variant="h4" gutterBottom>
+                                Activities in  {this.props.cityInfo.name}
+                            </Typography>
+                            <ItemsList
+                                elems={this.props.cityInfo.activities.data}
+                                isActivity={true}
+
+                            />
+                        </div>
+                    }
+                    <br />
+
+                    {(this.props.cityInfo.hostels.length > 0) &&
+                        <div>
+                            <Typography variant="h4" gutterBottom>
+                                Hostels in  {this.props.cityInfo.name}
+                            </Typography>
+                            <ItemsList
+                                elems={this.props.cityInfo.hostels}
+                                isActivity={false}
+                            />
+                        </div>
+                    }
+                    <Button
                         variant="contained"
                         color="primary"
                         onClick={() => this.props.addToTrip()}

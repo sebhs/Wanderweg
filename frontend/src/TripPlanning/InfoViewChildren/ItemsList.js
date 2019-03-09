@@ -7,6 +7,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ActivityElem from './ActivityElem'
+import HostelElem from './HostelElem'
 
 const gridStyle = theme => ({
     root: {
@@ -31,16 +32,31 @@ const gridStyle = theme => ({
 });
 function ActivitesList(props) {
     const { classes } = props;
+    function items() {
+        if (props.isActivity) {
+            return props.elems.map(elem => (
+
+                <ActivityElem
+                    activity={elem}
+                />
+            ));
+        } else {
+            return props.elems.map(elem => (
+                <HostelElem
+                    hostel={elem}
+                />
+            ));
+        }
+    }
+
     return (
         <div className={classes.root}>
             <GridList className={classes.gridList} cols={2.5}>
-                {props.cityInfo.activities.data.map(elem => (
-    
-                    <ActivityElem
-                    activity={elem}
-                    />
-                ))}
+                {items()}
             </GridList>
+
+
+
         </div >
     );
 }
