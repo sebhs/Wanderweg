@@ -9,6 +9,7 @@ from db_utils import create_connection
 sys.path.append('./app')
 from activities import GatherActivities
 from hostels import gatherHostelData
+import trains
 
 # Potentially useful imports:
 #from app.trains import GatherTrains
@@ -74,6 +75,6 @@ def getCityInfo(cid):
 
 
 # Use params or something to accept a list of destinations
-@app.route('/travel', methods=['GET'])
+@app.route('/travel', methods=['POST'])
 def createTravelPlan():
-    return "TODO"
+    pass
