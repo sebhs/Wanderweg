@@ -11,11 +11,6 @@ sys.path.append('../database')
 from db_utils import create_connection
 
 
-base_url = 'https://www.thetrainline.com/'
-
-options = webdriver.ChromeOptions()
-options.add_argument('headless')
-
 #Helper function that waits for an element to load 
 def waitForLoad(driver, secs, by, val):
 	if by == "class": by = By.CLASS_NAME
@@ -210,6 +205,11 @@ def saveDBToText():
 	f.write(string)
 	f.close()
 
+
+base_url = 'https://www.thetrainline.com/'
+
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
 
 city_pairs = buildCityPairs()
 partitionScraping(city_pairs)
