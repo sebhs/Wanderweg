@@ -4,21 +4,25 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+import time
+from datetime import datetime, timedelta
+from multiprocessing.pool import ThreadPool
 import sys
 sys.path.append('../database')
 from db_utils import create_connection
-import time
-from datetime import datetime, timedelta
+
 
 base_url = 'https://www.thetrainline.com/book/results?origin=_ORIG_&destination=_DEST_&outwardDate=_DATE_T17%3A45%3A00&outwardDateType=departAfter&journeySearchType=single&passengers%5B%5D=1993-03-05%7C1e63a212-9fa8-4535-b60f-14e457d90166&selectedOutward=f3IZm9oC3Yo%3D%3A0zT3TEdRlg4%3D%3AStandard'
 
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
+options.add_argument('log-level=3')
 
 #Helper function that waits for an element to load 
 def waitForLoad(driver, secs, by, val):
 	if by == "class": by = By.CLASS_NAME
 	elif by == "id": by = By.ID
+	elif by == 'xpath': by = By.XPATH
 
 	try:
 		WebDriverWait(driver, secs).until(EC.presence_of_element_located((by, val))) 
@@ -32,8 +36,6 @@ def cancelLoad(driver, secs, by, val):
 	if by == "class": by = By.CLASS_NAME
 	elif by == "id": by = By.ID
 	elif by == 'xpath': by = By.XPATH
-	#TODO: Figure out why this doesn't work
-	elif by == 'tag': by = By.TAG_NAME
 
 	try:
 		WebDriverWait(driver, secs).until(EC.presence_of_element_located((by, val))) 
@@ -59,13 +61,15 @@ def fetchID(sql_id):
 #Scrapes the rows of the page for trip info
 def scrapeRows(driver, trip_type='train'):
 	route_options = []
-	waitForLoad(driver, 2, 'class', '_dbqts5')
+	#See if page won't load because there are no routes
+	if cancelLoad(driver, 3, 'class', '_dbqts5'):
+		return []
 	rows = driver.find_elements_by_class_name('_dbqts5')
 
 	#Wait for idividual components to load
-	waitForLoad(driver, 1, 'class', '_1rxwtew')
-	waitForLoad(driver, 1, 'class', '_1wbkmhm')
-	waitForLoad(driver, 1, 'class', '_1xi5pac')
+	waitForLoad(driver, 3, 'class', '_1rxwtew')
+	waitForLoad(driver, 3, 'class', '_1wbkmhm')
+	waitForLoad(driver, 3, 'class', '_1xi5pac')
 	
 	for row in rows:
 		opt = {}
@@ -73,7 +77,6 @@ def scrapeRows(driver, trip_type='train'):
 		for i, span in enumerate(spans):
 			if i == 0: opt['departure_time'] = span.text
 			if i == 1: opt['arrival_time'] = span.text
-			# if i == 2: opt['duration'] = span.text
 			if i == 4: opt['num_changes'] = span.text
 			if i == 7: opt['price'] = span.text
 
@@ -88,7 +91,7 @@ def scrapeRows(driver, trip_type='train'):
 	return route_options
 
 #Scrapes for all trip options
-def scrapeTrains(options, origin, destination, date='2019-04-10'):
+def scrapeTrains(origin, destination, date='2019-04-10'):
 	orig_id = fetchID(origin)
 	dest_id = fetchID(destination)
 	if not orig_id or not dest_id:
@@ -102,13 +105,13 @@ def scrapeTrains(options, origin, destination, date='2019-04-10'):
 
 	#Sleep so page can fully load
 	#TODO: Find a better way to do this
-	time.sleep(3)
+	time.sleep(5)
 
 	#Get route options for trains
 	route_options = scrapeRows(driver)
 			
 	# Get route options for busses
-	if not cancelLoad(driver, 2, 'class', '_17dn4adNaN'):
+	if not cancelLoad(driver, 3, 'class', '_17dn4adNaN'):
 		coach_button = driver.find_element_by_class_name('_17dn4adNaN')
 		coach_button.click()
 		route_options += scrapeRows(driver, trip_type='bus')
@@ -116,7 +119,18 @@ def scrapeTrains(options, origin, destination, date='2019-04-10'):
 	driver.close()
 	driver.quit()
 
-	return route_options
+	cheapest, fastest, bus = formatOptions(route_options)
+	trip_opts = {}
+	trip_opts['meta'] = {'orig_id':origin, 'dest_id':destination, 'date':date}
+	trip_opts['cheapest'] = cheapest
+	trip_opts['fastest'] = fastest
+	trip_opts['bus'] = bus
+
+	return trip_opts
+
+def scrapeHelper(input_tuple):
+	origin, destination, date = input_tuple
+	return scrapeTrains(origin, destination, date)
 
 #Sort options by a few metrics
 def formatOptions(trip_options, n=3):
@@ -128,8 +142,27 @@ def formatOptions(trip_options, n=3):
 
 	return (cost_sort[:n], time_sort[:n], bus_options[:n])
 
-data = scrapeTrains(options, '19', '53')
-formatOptions(data)
+#Take a list of city_ids and dates and use a threadpool to scrape info for each trip
+def scrapeList(trip_list, num_threads=8):
+	pool = ThreadPool(num_threads)
+	results = pool.map(scrapeTrains, trip_list)
+	pool.close()
+	pool.join()
+	return results
+
+test_list = [('18','21','2019-04-10'), ('53','19','2019-04-10'),
+			('21','18','2019-04-10'), ('19','53','2019-04-10'),
+			('18','21','2019-04-10'), ('53','19','2019-04-10'),
+			('21','18','2019-04-10'), ('19','53','2019-04-10')]
+data = scrapeList(test_list)
+
+for entry in data:
+	print(entry)
+
+
+
+
+
 
 
 
