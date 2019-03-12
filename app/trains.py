@@ -47,7 +47,7 @@ def cancelLoad(driver, secs, by, val):
 
 #Fetch trainline id using the city id we store in our db
 def fetchID(sql_id):
-	conn = create_connection('../database/wanderweg.db')
+	conn = create_connection('./database/wanderweg.db')
 	cur = conn.cursor()
 	sql = "SELECT trainline_id FROM cities WHERE id = '" + sql_id + "'"
 	cur.execute(sql)
@@ -150,14 +150,14 @@ def scrapeList(trip_list, num_threads=8):
 	pool.join()
 	return results
 
-test_list = [('18','21','2019-04-10'), ('53','19','2019-04-10'),
-			('21','18','2019-04-10'), ('19','53','2019-04-10'),
-			('18','21','2019-04-10'), ('53','19','2019-04-10'),
-			('21','18','2019-04-10'), ('19','53','2019-04-10')]
-data = scrapeList(test_list)
+# test_list = [('18','21','2019-04-10'), ('53','19','2019-04-10'),
+# 			('21','18','2019-04-10'), ('19','53','2019-04-10'),
+# 			('18','21','2019-04-10'), ('53','19','2019-04-10'),
+# 			('21','18','2019-04-10'), ('19','53','2019-04-10')]
+# data = scrapeList(test_list)
 
-for entry in data:
-	print(entry)
+# for entry in data:
+# 	print(entry)
 
 
 
