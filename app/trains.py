@@ -15,7 +15,7 @@ from db_utils import create_connection
 base_url = 'https://www.thetrainline.com/book/results?origin=_ORIG_&destination=_DEST_&outwardDate=_DATE_T10%3A00%3A00&outwardDateType=departAfter&journeySearchType=single&passengers%5B%5D=1993-03-12%7C39e086e7-d9a3-4b99-83c8-13398ea86824&selectedOutward=e4%2BA34QkjGc%3D%3AnXL1onjhxgY%3D%3AStandard'
 
 options = webdriver.ChromeOptions()
-# options.add_argument('headless')
+options.add_argument('headless')
 options.add_argument('log-level=3')
 
 #Helper function that waits for an element to load 
