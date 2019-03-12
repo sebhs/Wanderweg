@@ -145,7 +145,7 @@ def formatOptions(trip_options, n=3):
 #Take a list of city_ids and dates and use a threadpool to scrape info for each trip
 def scrapeList(trip_list, num_threads=8):
 	pool = ThreadPool(num_threads)
-	results = pool.map(scrapeTrains, trip_list)
+	results = pool.map(scrapeHelper, trip_list)
 	pool.close()
 	pool.join()
 	return results
