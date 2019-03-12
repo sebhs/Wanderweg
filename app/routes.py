@@ -81,7 +81,6 @@ def createTravelPlan():
     #Extract info from post request
     info = request.get_json()
     trip_info = info['trip_info']
-    print(trip_info)
     city_pairs = []
     dates = []
     for i, entry in enumerate(trip_info):
@@ -99,5 +98,4 @@ def createTravelPlan():
 
     #Fetch route options using trains.py
     route_options = trains.scrapeList(request_list)
-    print(route_options)
     return flask.jsonify(route_options)
