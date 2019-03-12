@@ -77,13 +77,15 @@ def getCityInfo(cid):
 
 # Use params or something to accept a list of destinations
 @app.route('/route_info', methods=['POST'])
-def createTravelPlan():
+def createTravelPlan():  
     #Extract info from post request
-    trip_info = request.form['trip_info']
+    info = request.get_json()
+    trip_info = info['trip_info']
+    print(trip_info)
     city_pairs = []
     dates = []
     for i, entry in enumerate(trip_info):
-        if i < len(trip_info) : city_pairs.append((trip_info[i]['city_id'], trip_info[i+1]['city_id']))
+        if i < len(trip_info) - 1 : city_pairs.append((trip_info[i]['city_id'], trip_info[i+1]['city_id']))
         if i > 0: dates.append(entry['ISO_date'])
     
     #Format into list of route requests
@@ -91,11 +93,11 @@ def createTravelPlan():
     for i in range(len(city_pairs)):
         origin = city_pairs[i][0]
         destination = city_pairs[i][1]
-        date = datetime.strptime(dates[i], "%Y-%m-%dT%H:%M:%S%z")
-        date = datetime.strftime(date, '%Y-%m-%d')
-        formatted_tuple = (origin, destination, date)
+        date = dates[i].split('T')[0]
+        formatted_tuple = (str(origin), str(destination), date)
         request_list.append(formatted_tuple)
 
     #Fetch route options using trains.py
     route_options = trains.scrapeList(request_list)
+    print(route_options)
     return flask.jsonify(route_options)
