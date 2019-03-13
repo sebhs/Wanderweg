@@ -44,6 +44,8 @@ function ActivitesList(props) {
             return props.elems.map(elem => (
                 <HostelElem
                     hostel={elem}
+                    selectHostel={props.selectHostel.bind(this)}
+                    selectedHostel={props.selectedHostel}
                 />
             ));
         }

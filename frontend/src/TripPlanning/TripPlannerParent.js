@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import MapView from './MapView'
 import InfoView from './InfoView'
+import StartView from './StartView'
+import 'react-dates/lib/css/_datepicker.css';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -32,6 +34,8 @@ class TripPlannerParent extends Component {
             cityLoaded: false,
             cityInfo: rome,
             dataLoaded: false,
+            startpage: true,
+            firstCitySelected: false,
         }
     }
 
@@ -49,8 +53,6 @@ class TripPlannerParent extends Component {
                     cities: data,
                     dataLoaded: true,
                 });
-            this.fetchCity(); //TODO: delete
-             console.log('City list fetched');
             }).catch((err) => {
                 console.error(err)
             });
@@ -74,12 +76,11 @@ class TripPlannerParent extends Component {
         })
             .then(res => res.json())
             .then(data => {
-                data.activities =  JSON.parse(data.activities);
+                data.activities = JSON.parse(data.activities);
                 this.setState({
                     cityInfo: data,
                     cityLoaded: true,
-            });
-             console.log('City fetched', data);
+                });
             }).catch((err) => {
                 console.error(err)
             });
@@ -89,18 +90,27 @@ class TripPlannerParent extends Component {
     setToCurrentCity = function (index) {
         this.setState({
             selectedCity: this.state.cities[index],
-            currentCityIndex: index
+            currentCityIndex: index,
+            firstCitySelected:true
+
         })
         this.fetchCity();
-
+    }
+    goToPlanTrip = function() {
+        this.setState({startpage : false})
     }
 
-    addToTrip = function () {
+    addToTrip = function (hostel, duration, activities) {
         if (this.state.currentCityIndex > -1) {
             // let tmpPolyline = this.state.polylinePath;
             // let tmpPlan = this.state.tripPlan;
             // tmpPolyline.push(this.state.cities[this.state.currentCityIndex].location);
-            const city_id = this.state.cities[this.state.currentCityIndex].city_id;
+            //const city_id = this.state.cities[this.state.currentCityIndex].city_id;
+            const city = {
+                city_id : this.state.cities[this.state.currentCityIndex].city_id,
+                hostel : hostel,
+                duration_in_days: duration, //duration in days
+            }
             const crd = this.state.cities[this.state.currentCityIndex].location;
             // this.setState({
             //     tripPlan: tmpPlan,
@@ -108,7 +118,7 @@ class TripPlannerParent extends Component {
             // })
             this.setState({
                 polylinePath: [...this.state.polylinePath, crd],
-                tripPlan: [...this.state.tripPlan, city_id],
+                tripPlan: [...this.state.tripPlan, city],
             })
         }
     }
@@ -124,6 +134,7 @@ class TripPlannerParent extends Component {
                     style={{ padding: '100px' }} size={80} />
             </div>)
         }
+        console.log(this.state.tripPlan) 
 
         let cityMarkers = this.state.cities.map((city, index) => {
             return {
@@ -143,12 +154,20 @@ class TripPlannerParent extends Component {
                     tripPlan={this.state.tripPlan}
                 />
 
-                <InfoView
-                    cityInfo={this.state.cityInfo}
-                    cityLoaded={this.state.cityLoaded}
 
-                    addToTrip={this.addToTrip.bind(this)}
-                />
+                {this.state.startpage ? (
+                    <StartView 
+                    goToPlanTrip={this.goToPlanTrip.bind(this)}
+                    />
+                ) : (
+                        <InfoView
+                            cityInfo={this.state.cityInfo}
+                            cityLoaded={this.state.cityLoaded}
+                            addToTrip={this.addToTrip.bind(this)}
+                            firstCitySelected={this.state.firstCitySelected}
+                        />
+                    )}
+
             </div>
         );
     }

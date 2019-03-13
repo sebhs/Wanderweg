@@ -27,6 +27,7 @@ export default class Map extends React.Component {
         let icon_url_notselected = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
         let icon_url_intrip = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
         const cityMarkers = this.props.cityMarker.map(markerObj => {
+            //vendors.filter(vendor => (vendor.Name === "Magenic"));
             let icon_url = this.props.tripPlan.includes(markerObj.city_id) ? icon_url_intrip : icon_url_notselected
             icon_url = this.props.currentCityIndex === markerObj.index ? icon_url_selected : icon_url
             return(<Marker

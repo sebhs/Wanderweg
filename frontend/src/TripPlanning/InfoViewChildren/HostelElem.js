@@ -27,6 +27,8 @@ const styles = theme => ({
 });
 function HostelElem(props) {
     const { classes } = props;
+ 
+
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
@@ -42,14 +44,25 @@ function HostelElem(props) {
                                 <Typography gutterBottom variant="subtitle1">
                                     {props.hostel.name}
                                 </Typography>
+                                {(props.selectedHostel === props.hostel) &&
+                                    <Typography gutterBottom variant="subtitle1">
+                                        <h><b>SELECTED</b></h>
+                                    </Typography>
+                                }
                                 <Typography gutterBottom> {props.hostel.location}</Typography>
                                 {/* <Typography color="textSecondary">ID: 1030114</Typography> */}
                             </Grid>
                             <Grid item>
-                                <Button variant="contained" className={classes.button}  target="_blank" href={props.hostel.url}>
+                                <Button variant="contained" className={classes.button} target="_blank" href={props.hostel.url}>
                                     More
                              </Button>
+                                {(props.selectedHostel !== props.hostel) &&
+                                    <Button variant="contained" className={classes.button} onClick={() => props.selectHostel(props.hostel)}>
+                                        Select
+                                     </Button>
+                                }
                             </Grid>
+
                         </Grid>
                         <Grid item>
                             <Typography variant="subtitle1">Rating: <b>{props.hostel.rating}</b></Typography>

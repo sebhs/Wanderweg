@@ -29,9 +29,28 @@ class InfoView extends Component {
 
     componentDidMount() {
     }
+    selectHostel = function (hostel) {
+        this.setState({selectedHostel:hostel})
+    }
 
 
     render() {
+        if (!this.props.firstCitySelected) {
+            return (
+                <div>
+                    <Card style={{ padding: '20px', height: '100vh' }}>
+
+                        <Typography variant="h3" gutterBottom>
+                            Start Planning your Trip
+                    </Typography>
+                        <Typography variant="h6sƒ" >
+                            Click on one of the markers on the map to explore a city!
+                    </Typography>
+                    </Card>
+                </div>
+
+            );
+        }
         if (!this.props.cityLoaded) {
             return (<div style={{ display: 'flex', height: '200px', justifyContent: 'center' }}>
                 <CircularProgress
@@ -39,7 +58,6 @@ class InfoView extends Component {
             </div>)
         }
 
-        console.log(this.props.cityInfo);
         return (
             // <div style={wrapperStyles}>
             <div >
@@ -77,17 +95,19 @@ class InfoView extends Component {
                             <ItemsList
                                 elems={this.props.cityInfo.hostels}
                                 isActivity={false}
+                                selectHostel={this.selectHostel.bind(this)}
+                                selectedHostel={this.state.selectedHostel}
                             />
                         </div>
                     }
                     <Button
+                        //TODO: check if you selected a hostel
                         variant="contained"
                         color="primary"
-                        onClick={() => this.props.addToTrip()}
+                        onClick={() => this.props.addToTrip(this.state.selectedHostel,1,[])}
                     >
                         Add city to trip
                 </Button>
-                    <ReactJson collapsed={true} name={'weather'} src={this.props.cityInfo.weather} />
                     <ReactJson collapsed={true} name={'activities'} src={this.props.cityInfo.activities} />
                     <ReactJson collapsed={true} name={'hostels'} src={this.props.cityInfo.hostels} />
                 </Card>
