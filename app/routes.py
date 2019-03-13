@@ -98,4 +98,6 @@ def createTravelPlan():
 
     #Fetch route options using trains.py
     route_options = trains.scrapeList(request_list)
-    return flask.jsonify(route_options)
+    response = flask.jsonify(route_options)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
