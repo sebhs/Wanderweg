@@ -11,7 +11,7 @@ from coordinates import addCoordData
 from climate import addWeather
 
 # Constants
-validCountries = set(["Italy", "France", "Croatia", "Germany"])
+validCountries = set(["Italy", "France", "Croatia", "Germany", "Switzerland", "Austria", "Slovenia"])
 
 def writeToFile(data, filename):
     string = json.dumps(data)
@@ -20,7 +20,7 @@ def writeToFile(data, filename):
     f.close()
 
 def main(country):
-    url = 'https://www.hostelworld.com/hostels/' + country.lower()
+    url = 'https://www.hostelworld.com/hostels/' + country.replace(' ','-')
     cities, exonyms = buildCityMap(url, country)
     print("Done with hostelworld scraping")
     addPopulationData(country, cities, exonyms)
@@ -34,11 +34,11 @@ def main(country):
     exosFileName = '../database/exonyms/' + country.lower() + 'Exos.txt'
     writeToFile(exonyms, exosFileName)
 
-# Add checks for valid input country
+
 if __name__ == '__main__':
     if len(sys.argv) == 1 or sys.argv[1][0].islower():
         sys.stderr.write("Please give the country of interest\nProper format is python3 buildCityList.py Country\n")
     elif sys.argv[1] not in validCountries:
-        sys.stderr.write("That country is currently not supported\n")
+        sys.stderr.write("That country is currently not supported (check for proper capitalization)\n")
     else:
         main(sys.argv[1])

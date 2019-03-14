@@ -48,7 +48,7 @@ def getCityInfo(cid):
     # Database query
     conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT name,country,hostel_url,population,weather FROM cities WHERE id=' + cid
+    sql = 'SELECT name,country,hostel_url,population,weather,hostelworld_pic FROM cities WHERE id=' + cid
     cur.execute(sql)
     data = cur.fetchone()
     conn.close()
@@ -69,7 +69,7 @@ def getCityInfo(cid):
 
     # Format response
     info = {'city_id': int(cid), 'population': data[3], 'name': data[0], 'country': data[1], 
-            'activities': activities, 'hostels': hostelData, 'weather': data[4]}
+            'activities': activities, 'hostels': hostelData, 'weather': data[4], 'alt_cover': data[5]}
     response = flask.jsonify(info)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
