@@ -38,6 +38,10 @@ function ActivitesList(props) {
 
                 <ActivityElem
                     activity={elem}
+                    activities={props.activities}
+                    addActivity={props.addActivity.bind(this)}
+                    removeActivity={props.removeActivity.bind(this)}
+
                 />
             ));
         } else {

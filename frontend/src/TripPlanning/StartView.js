@@ -36,7 +36,6 @@ class StartView extends Component {
 
     onClick = () => {
         if (this.state.date === undefined) {
-            // this.setState({ snackBar: true });
             this.handleClickSnackBar();
         } else {
             this.props.goToPlanTrip();

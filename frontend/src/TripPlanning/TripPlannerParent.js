@@ -5,9 +5,7 @@ import StartView from './StartView'
 import 'react-dates/lib/css/_datepicker.css';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
-// import { cities } from './../fakeData/cities.json';
-
+import ReactJson from 'react-json-view'
 import milan from './../fakeData/milan.json';
 import rome from './../fakeData/rome.json';
 import florence from './../fakeData/florence.json';
@@ -34,7 +32,7 @@ class TripPlannerParent extends Component {
             cityLoaded: false,
             cityInfo: rome,
             dataLoaded: false,
-            startpage: true,
+            startpage: false, //TODO: set to true
             firstCitySelected: false,
         }
     }
@@ -110,16 +108,23 @@ class TripPlannerParent extends Component {
                 city_id : this.state.cities[this.state.currentCityIndex].city_id,
                 hostel : hostel,
                 duration_in_days: duration, //duration in days
+                activities : activities
             }
             const crd = this.state.cities[this.state.currentCityIndex].location;
             // this.setState({
             //     tripPlan: tmpPlan,
             //     polylinePath: tmpPolyline,
             // })
+            if(this.state.tripPlan.length > 0 && this.state.tripPlan[this.state.tripPlan.length-1].city_id === city.city_id){
+                return false;
+            }
             this.setState({
                 polylinePath: [...this.state.polylinePath, crd],
                 tripPlan: [...this.state.tripPlan, city],
             })
+            console.log(JSON.stringify(this.state.tripPlan))
+            // console.log(this.state.tripPlan) 
+            return true;
         }
     }
 
@@ -134,7 +139,6 @@ class TripPlannerParent extends Component {
                     style={{ padding: '100px' }} size={80} />
             </div>)
         }
-        console.log(this.state.tripPlan) 
 
         let cityMarkers = this.state.cities.map((city, index) => {
             return {
@@ -167,6 +171,7 @@ class TripPlannerParent extends Component {
                             firstCitySelected={this.state.firstCitySelected}
                         />
                     )}
+                    {/* <ReactJson collapsed={false} name={'tripPlan'} src={this.state.tripPlan} /> */}
 
             </div>
         );

@@ -86,6 +86,11 @@ def addWeather(supported_cities, cur_country, exonyms):
         if name == cur_country:
             regions += getRegions(base_url, url)
 
+    #Check to see if regions are actually cities
+    test_url = base_url + regions[0]
+    print(test_url)
+    # test_response = requests.get(re)
+
     print("Collecting city URLs")
     cities = []
     for region in regions:

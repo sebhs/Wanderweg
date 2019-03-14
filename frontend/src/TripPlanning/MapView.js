@@ -22,7 +22,6 @@ export default class Map extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         let icon_url_selected = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
         let icon_url_notselected = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
         let icon_url_intrip = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';

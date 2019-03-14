@@ -13,11 +13,11 @@ const styles = theme => ({
     paper: {
         padding: theme.spacing.unit * 2,
         margin: 'auto',
-        width: 128 * 4,
+        width: '80%',
         height: '80%',
     },
     image: {
-        width: 128,
+        width: 128 * 2,
         height: 128,
     },
     img: {
@@ -25,53 +25,63 @@ const styles = theme => ({
         maxHeight: '100%',
     }
 });
-function HostelElem(props) {
+function CityElem(props) {
     const { classes } = props;
- 
+
 
     return (
         <div className={classes.root}>
-            <Paper className={classes.paper} style={{backgroundColor: (props.selectedHostel === props.hostel) ? "LightGreen" : null}}>
+            {/* <Paper className={classes.paper}> */}
                 <Grid container spacing={16}>
                     <Grid item>
                         <ButtonBase className={classes.image}>
-                            <img className={classes.img} alt="complex" src={props.hostel.cover_image_url} />
+                            <img className={classes.img} alt="complex" src={props.city.hostel.cover_image_url} />
                         </ButtonBase>
                     </Grid>
                     <Grid item xs={12} sm container>
                         <Grid item xs container direction="column" spacing={16}>
                             <Grid item xs>
-                                <Typography gutterBottom variant="subtitle1">
-                                    {props.hostel.name}
+                                <Typography gutterBottom variant="h5">
+                                    {props.city.city}, {props.city.country}
                                 </Typography>
-                                <Typography gutterBottom> {props.hostel.location}</Typography>
+                                <Typography gutterBottom>
+                                    <b>Hostel you are staying:</b> {props.city.hostel.name}
+                                </Typography>
+                                <Typography gutterBottom>
+                                    <b>Activites you are going to do:</b>
+                                </Typography>
+                                {props.city.activities.map(activity => (
+                                    <Typography gutterBottom>
+                                        {activity.title}
+                                    </Typography>
+                                ))}
                                 {/* <Typography color="textSecondary">ID: 1030114</Typography> */}
                             </Grid>
-                            <Grid item>
-                                <Button variant="contained" className={classes.button} target="_blank" href={props.hostel.url}>
+                            {/* <Grid item>
+                                <Button variant="contained" className={classes.button} target="_blank" href={props.city.hostel.url}>
                                     More
-                             </Button>
-                             
-                                {(props.selectedHostel !== props.hostel) &&
+                             </Button> */}
+                            {/*                              
+                                {(props.city.selectedHostel !== props.city.hostel) &&
                                 <span>
                                      <span>&nbsp;&nbsp;</span>
-                                    <Button variant="contained" className={classes.button} onClick={() => props.selectHostel(props.hostel)}>
+                                    <Button variant="contained" className={classes.button} onClick={() => props.city.selectHostel(props.city.hostel)}>
                                         Select
                                      </Button>
                                 </span>}
-                            </Grid>
+                            </Grid> */}
 
                         </Grid>
                         <Grid item>
-                            <Typography variant="subtitle1">Price: <b>$88</b>&nbsp;&nbsp;&nbsp;&nbsp;Rating: <b>{props.hostel.rating}</b></Typography>
+                            <Typography variant="subtitle1">Total Cost: <b>$88</b></Typography>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Paper>
+            {/* </Paper> */}
         </div>
     );
 }
 
 
 
-export default withStyles(styles)(HostelElem);
+export default withStyles(styles)(CityElem);

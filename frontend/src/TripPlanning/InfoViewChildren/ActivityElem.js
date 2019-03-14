@@ -29,7 +29,7 @@ function ActivityElem(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} style={{ backgroundColor: (props.activities.includes(props.activity)) ? "LightGreen" : null }}>
                 <Grid container spacing={16}>
                     <Grid item>
                         <ButtonBase className={classes.image}>
@@ -46,9 +46,23 @@ function ActivityElem(props) {
                                 {/* <Typography color="textSecondary">ID: 1030114</Typography> */}
                             </Grid>
                             <Grid item>
-                                <Button variant="contained" className={classes.button}  target="_blank" href={props.activity.url}>
+                                <Button variant="contained" className={classes.button} target="_blank" href={props.activity.url}>
                                     More
                              </Button>
+                                {(!props.activities.includes(props.activity)) ? (
+                                    <span>
+                                        <span>&nbsp;&nbsp;</span>
+                                        <Button variant="contained" className={classes.button} onClick={() => props.addActivity(props.activity)}>
+                                            Add
+                                     </Button>
+                                    </span>) : (
+                                        <span>
+                                            <span>&nbsp;&nbsp;</span>
+                                            <Button variant="contained" className={classes.button} onClick={() => props.removeActivity(props.activity)}>
+                                                Remove
+                                             </Button>
+                                        </span>     
+                                    )}
                             </Grid>
                         </Grid>
                         <Grid item>
