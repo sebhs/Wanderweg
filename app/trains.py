@@ -76,7 +76,7 @@ def scrapeRows(driver, trip_type='train'):
 		for i, span in enumerate(spans):
 			if i == 0: opt['departure_time'] = span.text
 			if i == 1: opt['arrival_time'] = span.text
-			if i == 4: opt['num_changes'] = span.text
+			# if i == 4: opt['num_changes'] = span.text
 			if i == 7: opt['price'] = span.text
 
 		if 'price' in opt and '$' in opt['price']:

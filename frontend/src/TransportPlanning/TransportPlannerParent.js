@@ -36,7 +36,7 @@ class TransportPlannerParent extends Component {
         let arrivalDate = new Date();
         const tripArr = tripDataFake.trip_info.map(elem => {
             let date = arrivalDate;
-            arrivalDate.setTime( date.getTime() + elem.duration_in_days * 86400000 );
+            arrivalDate.setTime(date.getTime() + elem.duration_in_days * 86400000);
             return {
                 city_id: elem.city_id,
                 ISO_date: date.toISOString()
@@ -44,7 +44,7 @@ class TransportPlannerParent extends Component {
             //someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
         })
         const postBody = {
-            "trip_info":tripArr
+            "trip_info": tripArr
         }
         console.log(JSON.stringify(postBody));
         console.log('POST', URL);
@@ -53,11 +53,12 @@ class TransportPlannerParent extends Component {
             mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
-              },
+            },
             body: JSON.stringify(postBody)
         })
             .then(res => res.json())
             .then(data => {
+                
                 this.setState({
                     transportData: data,
                     dataLoaded: true,
@@ -93,7 +94,7 @@ class TransportPlannerParent extends Component {
         return (
             // <div style={wrapperStyles}>
             <div>
-                <Card style={{ padding: '60px' }}>
+                {/* <Card style={{ padding: '60px' }}>
                     {tripDataFake.trip_info.map((city, index) => (
                         <div>
                             <CityElem
@@ -104,7 +105,6 @@ class TransportPlannerParent extends Component {
                                 <TransportElem
                                 transport={transportDataFake[index]}
                                 />
-                                {/* <ReactJson collapsed={true} name={'transport'} src={transportDataFake[index]} /> */}
                             </div>
                             }
                         </div>
@@ -115,7 +115,10 @@ class TransportPlannerParent extends Component {
                     <ReactJson collapsed={true} name={'tripDataFake'} src={tripDataFake} />
 
 
-                </Card>
+                </Card> */}
+
+                <ReactJson collapsed={true} name={'tripDataFake'} src={this.state.transportData} />
+
             </div>
         );
     }

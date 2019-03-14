@@ -47,10 +47,11 @@ class TripPlannerParent extends Component {
         })
             .then(res => res.json())
             .then(data => {
-                this.setState({
-                    cities: data,
-                    dataLoaded: true,
-                });
+                // this.setState({
+                //     cities: data,
+                //     dataLoaded: true,
+                // });
+                console.log(data)
             }).catch((err) => {
                 console.error(err)
             });

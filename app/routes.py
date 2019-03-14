@@ -5,6 +5,7 @@ from flask import request
 import flask
 from datetime import datetime, timedelta
 import sys
+import json
 sys.path.append('./database')
 sys.path.append('./app')
 from db_utils import create_connection
@@ -79,7 +80,9 @@ def getCityInfo(cid):
 @app.route('/route_info', methods=['POST'])
 def createTravelPlan():  
     #Extract info from post request
-    info = request.get_json()
+    info = request.data
+    info = json.loads(info)
+    print(info)
     trip_info = info['trip_info']
     city_pairs = []
     dates = []
