@@ -150,25 +150,33 @@ def getLocalExonyms():
 	return exonym_dict	
 
 #Build a list of city pairs
-def buildCityPairs():
+def buildCityPairs(safe_city=False, offset=0):
 	#Get dict mapping cities to local exonyms
 	local_exonyms = getLocalExonyms()
 	city_names = []
-
 
 	for english_name, local_name in local_exonyms.items():
 		if filterCities(english_name):
 			name_opts = (local_name, local_name + ' (' + english_name + ')', english_name)
 			city_names.append(name_opts)
 
+	city_names = city_names[offset:]
+
 	#Format into pairs
 	# random.shuffle(city_names)
 	city_pairs = []
-	for i in range(0, len(city_names), 2):
-		if i + 1 < len(city_names):
-			city_pairs.append((city_names[i], city_names[i+1]))
-		else: 
-			city_pairs.append(city_names[i], city_names[0])
+	#Use rome as the destination so we can ensure that if the origin is valid it will work
+	if safe_city:
+		safe_entry = ('Roma', 'Roma (Rome)', 'Rome')
+		for city in city_names:
+			city_pairs.append((city, safe_entry))
+	#Use two unknown cities to get move twice as fast
+	else:
+		for i in range(0, len(city_names), 2):
+			if i + 1 < len(city_names):
+				city_pairs.append((city_names[i], city_names[i+1]))
+			else: 
+				city_pairs.append(city_names[i], city_names[0])
 	
 	return city_pairs
 
@@ -199,8 +207,8 @@ def addIDsToDB(trainline_ids):
 	conn.commit()
 	conn.close()
 	
-def partitionScraping(city_pairs, step=8, offset=0):
-	city_pairs = city_pairs[offset:]
+def partitionScraping(step=8, offset=0):
+	city_pairs = buildCityPairs(offset=offset)
 	for i in range(0, len(city_pairs), step):
 		cur_pairs = city_pairs[i:i+step]
 		print(cur_pairs)
@@ -222,7 +230,7 @@ def filterCities(city_name):
 def saveDBToText():
 	conn = create_connection('../database/wanderweg.db')
 	cur = conn.cursor()
-	sql = 'SELECT name, trainline_id FROM cities'
+	sql = 'SELECT id, trainline_id FROM cities'
 	cur.execute(sql)
 	data = cur.fetchall()
 	string = json.dumps(data)
@@ -230,6 +238,23 @@ def saveDBToText():
 	f.write(string)
 	f.close()
 
+#Loads from a text file
+def loadDBFromText():
+	with open('../database/trainline_ids.txt', 'r') as f:
+		content = f.read()
+		data = json.loads(content)
+		tuple_data = []
+		for entry in data:
+			city_id, trainline_id = entry
+			if len(trainline_id) > 20:
+				tuple_data.append((trainline_id, city_id))
+
+		conn = create_connection('../database/wanderweg.db')
+		cur = conn.cursor()
+		sql = 'UPDATE cities SET trainline_id = ? WHERE id = ?'
+		cur.executemany(sql, tuple_data)
+		conn.commit()
+		conn.close()
 
 base_url = 'https://www.thetrainline.com/'
 
@@ -237,9 +262,11 @@ options = webdriver.ChromeOptions()
 # options.add_argument('headless')
 options.add_argument('log-level=3')
 
-batch_size = 1
-city_pairs = buildCityPairs()
-partitionScraping(city_pairs, batch_size)
+# batch_size = 1
+# city_pairs = buildCityPairs()
+# partitionScraping(city_pairs, batch_size)
+
+loadDBFromText()
 
 # saveDBToText()
 
