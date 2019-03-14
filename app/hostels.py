@@ -28,6 +28,10 @@ def gatherHostelData(url):
 		rat = scrpr.search('a', klass='hwta-rating-score', html=h)
 		hData['rating'] = 0.0 if not rat else rat[0].text.replace('\n', '').replace(' ', '')
 
+		# Find price
+		price = scrpr.search('span', klass='price', html=h)
+		hData['price'] = 0.0 if not price else price[0].text
+
 		hostelsData.append(hData)
-	    
+
 	return hostelsData

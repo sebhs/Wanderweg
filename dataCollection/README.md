@@ -5,7 +5,8 @@
 # Files:
     - buildCityList.py: 
       Builds a list of data for each city we support in Wanderweg. This data 
-      lives in ../database/countries/<country>Data.txt and contains city specific info such as population and weather.
+      lives in ../database/countries/<country>Data.txt and contains city specific info such as population and weather. If they
+      country you are passing in is two words, make sure to put it in quotes.
 
     - climate.py:
       Functions to gather climate data for a list of cities

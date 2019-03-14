@@ -33,6 +33,7 @@ def create_cities_table(database):
                                         name text NOT NULL,
                                         country text NOT NULL,
                                         hostel_url text,
+                                        hostelworld_pic text,
                                         population integer,
                                         latitude real,
                                         longitude real,
@@ -50,7 +51,7 @@ def create_cities_table(database):
 
 
 def create_city(conn, city):
-    sql = "insert into cities values(?,?,?,?,?,?,?,?,?)"
+    sql = "insert into cities values(?,?,?,?,?,?,?,?,?,?)"
     cur = conn.cursor()
     cur.execute(sql, city)
     return cur.lastrowid
@@ -60,18 +61,18 @@ def readFromFile(filename):
     ret = {}
     with open(filename) as f:
         data = json.load(f)
-        for key in data:
+        for key in sorted(list(data.keys())):
             ret[key] = data[key]
     return ret
 
 
 # When we scale, will have to write code to access every text file in cities
-def load_cities_data(conn):
+def load_cities_data(conn=None):
     # for file in 'countries':
     cities = readFromFile('countries/italyData.txt')
     count = 1
     for city, info in cities.items():
-        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], str(info[5]), '0'))
+        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], info[5], str(info[6]), '0'))
         count += 1
 
 
