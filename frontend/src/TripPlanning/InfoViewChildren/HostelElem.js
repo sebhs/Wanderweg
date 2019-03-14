@@ -31,7 +31,7 @@ function HostelElem(props) {
 
     return (
         <div className={classes.root}>
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper} style={{backgroundColor: (props.selectedHostel === props.hostel) ? "LightGreen" : null}}>
                 <Grid container spacing={16}>
                     <Grid item>
                         <ButtonBase className={classes.image}>
@@ -44,11 +44,6 @@ function HostelElem(props) {
                                 <Typography gutterBottom variant="subtitle1">
                                     {props.hostel.name}
                                 </Typography>
-                                {(props.selectedHostel === props.hostel) &&
-                                    <Typography gutterBottom variant="subtitle1">
-                                        <h><b>SELECTED</b></h>
-                                    </Typography>
-                                }
                                 <Typography gutterBottom> {props.hostel.location}</Typography>
                                 {/* <Typography color="textSecondary">ID: 1030114</Typography> */}
                             </Grid>
@@ -56,16 +51,19 @@ function HostelElem(props) {
                                 <Button variant="contained" className={classes.button} target="_blank" href={props.hostel.url}>
                                     More
                              </Button>
+                             
                                 {(props.selectedHostel !== props.hostel) &&
+                                <span>
+                                     <span>&nbsp;&nbsp;</span>
                                     <Button variant="contained" className={classes.button} onClick={() => props.selectHostel(props.hostel)}>
                                         Select
                                      </Button>
-                                }
+                                </span>}
                             </Grid>
 
                         </Grid>
                         <Grid item>
-                            <Typography variant="subtitle1">Rating: <b>{props.hostel.rating}</b></Typography>
+                            <Typography variant="subtitle1">Price: <b>$88</b>&nbsp;&nbsp;&nbsp;&nbsp;Rating: <b>{props.hostel.rating}</b></Typography>
                         </Grid>
                     </Grid>
                 </Grid>

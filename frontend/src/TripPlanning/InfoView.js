@@ -12,7 +12,9 @@ import ItemsList from './InfoViewChildren/ItemsList'
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import TextField from '@material-ui/core/TextField';
+import Snackbar from '@material-ui/core/Snackbar';
+import CloseIcon from '@material-ui/icons/Close';
 
 
 const wrapperStyles = {
@@ -24,13 +26,93 @@ class InfoView extends Component {
         super();
         this.state = {
             index: 0,
+            activities: [],
+            snackBarMsg: ""
         }
     }
 
-    componentDidMount() {
-    }
+    componentWillReceiveProps(nextProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
+        if (!this.props.cityLoaded) {
+          this.handleCloseSnackBar()
+        }
+      }
     selectHostel = function (hostel) {
-        this.setState({selectedHostel:hostel})
+        this.setState({ selectedHostel: hostel })
+    }
+    addActivity = function (activity) {
+        this.setState({ activities: [...this.state.activities, activity], })
+    }
+    removeActivity = function (activity) {
+
+        let arr = [...this.state.activities]; // make a separate copy of the array
+        var index = arr.indexOf(activity)
+        if (index !== -1) {
+            arr.splice(index, 1);
+            this.setState({ activities: arr });
+        }
+    }
+    handleChangeDays = days => event => {
+        this.setState({
+            numDays: event.target.value,
+        });
+    };
+
+
+    handleAddTrip = function () {
+        if (this.state.selectedHostel === undefined) {
+            this.handleClickSnackBar("Please select a hostel");
+            this.setState({ numDays: ""});
+            return;
+        }
+        if (this.state.numDays === undefined || this.state.numDays === "") {
+            this.handleClickSnackBar("Please select add valid number of days");
+            this.setState({ numDays: ""});
+            return;
+        }
+        if (this.props.addToTrip(this.state.selectedHostel, this.state.numDays, this.state.activities)) {
+            this.handleClickSnackBar("Trip Added");
+        } else {
+            this.handleClickSnackBar("Trip already added");
+        }
+        this.setState({ numDays: ""});
+
+
+    }
+    handleClickSnackBar = (msg) => {
+        this.setState({ snackBarMsg: msg, snackBar: true });
+    };
+
+    handleCloseSnackBar = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        this.setState({ snackBar: false });
+    };
+    snackBar() {
+        return (<Snackbar
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+            }}
+            open={this.state.snackBar}
+            autoHideDuration={3000}
+            onClose={this.handleCloseSnackBar}
+            ContentProps={{
+                'aria-describedby': 'message-id',
+            }}
+            message={<span id='message-id'>{this.state.snackBarMsg}</span>}
+            action={[
+                <IconButton
+                    key='close'
+                    aria-label='Close'
+                    color='inherit'
+                    onClick={this.handleCloseSnackBar}
+                >
+                    <CloseIcon />
+                </IconButton>,
+            ]}
+        />);
     }
 
 
@@ -58,10 +140,13 @@ class InfoView extends Component {
             </div>)
         }
 
+
+
         return (
             // <div style={wrapperStyles}>
             <div >
-                <Card style={{ padding: '20px', height: '100vh' }}>
+                {this.snackBar()}
+                <Card style={{ padding: '20px', height: '100vh', overflow: 'auto' }}>
                     <Typography variant="h2" gutterBottom>
                         {this.props.cityInfo.name}, {this.props.cityInfo.country}
                     </Typography>
@@ -81,6 +166,10 @@ class InfoView extends Component {
                             <ItemsList
                                 elems={this.props.cityInfo.activities.data}
                                 isActivity={true}
+                                addActivity={this.addActivity.bind(this)}
+                                removeActivity={this.removeActivity.bind(this)}
+
+                                activities={this.state.activities}
 
                             />
                         </div>
@@ -100,16 +189,35 @@ class InfoView extends Component {
                             />
                         </div>
                     }
-                    <Button
-                        //TODO: check if you selected a hostel
-                        variant="contained"
-                        color="primary"
-                        onClick={() => this.props.addToTrip(this.state.selectedHostel,1,[])}
-                    >
-                        Add city to trip
+                    <br /><br />
+                    <div style={{ align: "justify" }}>
+                        <TextField
+                            id="outlined-number"
+                            label="Number of Days"
+                            value={this.state.numDays}
+                            onChange={this.handleChangeDays('days')}
+                            type="number"
+                            // className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            margin="normal"
+                            variant="outlined"
+                        />
+                        <span>&nbsp;&nbsp;</span>
+
+                        <Button
+                            //TODO: check if you selected a hostel
+                            variant="contained"
+                            color="primary"
+                            onClick={() => this.handleAddTrip()}
+                        >
+                            Add city to trip
                 </Button>
-                    <ReactJson collapsed={true} name={'activities'} src={this.props.cityInfo.activities} />
-                    <ReactJson collapsed={true} name={'hostels'} src={this.props.cityInfo.hostels} />
+
+                    </div>
+
+                    {/* <ReactJson collapsed={true} name={'cityInfo'} src={this.props.cityInfo} /> */}
                 </Card>
 
 
