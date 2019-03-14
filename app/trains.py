@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, WebDriverException
 import time
 from datetime import datetime, timedelta
 from multiprocessing.pool import ThreadPool
@@ -28,8 +28,6 @@ def waitForLoad(driver, secs, by, val):
 		WebDriverWait(driver, secs).until(EC.presence_of_element_located((by, val))) 
 	except TimeoutException:
 		print("Page loaded too slow")
-		driver.close()
-		driver.quit()
 
 #Helper function that cancels the job if element doesn't load
 def cancelLoad(driver, secs, by, val):
@@ -41,8 +39,6 @@ def cancelLoad(driver, secs, by, val):
 		WebDriverWait(driver, secs).until(EC.presence_of_element_located((by, val))) 
 		return False
 	except TimeoutException:
-		driver.close()
-		driver.quit()
 		return True
 
 #Fetch trainline id using the city id we store in our db
@@ -63,13 +59,16 @@ def scrapeRows(driver, trip_type='train'):
 	route_options = []
 	#See if page won't load because there are no routes
 	if cancelLoad(driver, 3, 'class', '_dbqts5'):
+		driver.close()
+		driver.quit()
 		return []
 	rows = driver.find_elements_by_class_name('_dbqts5')
 
 	#Wait for idividual components to load
-	waitForLoad(driver, 3, 'class', '_1rxwtew')
-	waitForLoad(driver, 3, 'class', '_1wbkmhm')
-	waitForLoad(driver, 3, 'class', '_1xi5pac')
+	if cancelLoad(driver, 3, 'class', '_1rxwtew') or cancelLoad(driver, 3, 'class', '_1wbkmhm')	 or cancelLoad(driver, 3, 'class', '_1xi5pac'):
+		driver.close()
+		driver.quit()
+		return []
 	
 	for row in rows:
 		opt = {}
@@ -105,11 +104,11 @@ def scrapeTrains(origin, destination, date='2019-04-10'):
 
 	#Sleep so page can fully load
 	#TODO: Find a better way to do this
-	time.sleep(5)
+	time.sleep(3)
 
 	#Get route options for trains
 	route_options = scrapeRows(driver)
-			
+
 	# Get route options for busses
 	if not cancelLoad(driver, 3, 'class', '_17dn4adNaN'):
 		coach_button = driver.find_element_by_class_name('_17dn4adNaN')
@@ -122,9 +121,7 @@ def scrapeTrains(origin, destination, date='2019-04-10'):
 	cheapest, fastest, bus = formatOptions(route_options)
 	trip_opts = {}
 	trip_opts['meta'] = {'orig_id':origin, 'dest_id':destination, 'date':date}
-	trip_opts['cheapest'] = cheapest
-	trip_opts['fastest'] = fastest
-	trip_opts['bus'] = bus
+	trip_opts['trip_info'] = [bus, cheapest, fastest]
 
 	return trip_opts
 
@@ -159,7 +156,7 @@ def scrapeList(trip_list, num_threads=8):
 # for entry in data:
 # 	print(entry)
 
-
+# https://www.thetrainline.com/book/results?origin=f053a2c5cbcabccedc5415298584c90a&destination=502361d129c87b2951d1a4f4d8f6870e&outwardDate=2019-04-14T10%3A00%3A00&outwardDateType=departAfter&journeySearchType=single&passengers%5B%5D=1993-03-12%7C39e086e7-d9a3-4b99-83c8-13398ea86824&selectedOutward=e4%2BA34QkjGc%3D%3AnXL1onjhxgY%3D%3AStandard
 
 
 
