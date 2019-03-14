@@ -1,0 +1,55 @@
+[
+ "trip_info": [
+        [
+            {
+                "arrival_time": "10:10",
+                "departure_time": "20:05",
+                "duration": 845,
+                "num_changes": "0 changes",
+                "price": "45.19",
+                "type": "bus"
+            }
+        ],
+        [
+            {
+                "arrival_time": "23:35",
+                "departure_time": "12:03",
+                "duration": 692,
+                "num_changes": "2 changes",
+                "price": "77.55",
+                "type": "train"
+            },
+            {
+                "arrival_time": "10:10",
+                "departure_time": "20:05",
+                "duration": 845,
+                "num_changes": "0 changes",
+                "price": "45.19",
+                "type": "bus"
+            }
+        ],
+        [
+            {
+                "arrival_time": "23:35",
+                "departure_time": "12:03",
+                "duration": 692,
+                "num_changes": "2 changes",
+                "price": "77.55",
+                "type": "train"
+            },
+            {
+                "arrival_time": "10:10",
+                "departure_time": "20:05",
+                "duration": 845,
+                "num_changes": "0 changes",
+                "price": "45.19",
+                "type": "bus"
+            }
+        ]
+    ],
+    "meta": {
+        "date": "2019-04-04",
+        "dest_id": "64",
+        "orig_id": "2"
+    }
+],

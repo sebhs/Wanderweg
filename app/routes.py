@@ -100,4 +100,7 @@ def createTravelPlan():
     route_options = trains.scrapeList(request_list)
     response = flask.jsonify(route_options)
     response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+
     return response

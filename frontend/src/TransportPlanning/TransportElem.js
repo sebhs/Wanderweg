@@ -87,7 +87,7 @@ class TransportElem extends React.Component {
 
                                             <Typography>
                                                 <b>Duration:</b> {this.props.transport.fastest[0].duration}
-                                            </Typography>
+                                       c     </Typography>
                                             <Typography>
                                                 <b>Price:</b> $c{this.props.transport.fastest[0].price}
                                             </Typography>

@@ -30,45 +30,45 @@ class TransportPlannerParent extends Component {
     }
 
     componentDidMount() {
-        // this.setState({ dataLoaded: false })
-        // const apiPoint = 'route_info';
-        // const URL = `${host}/${apiPoint}`
-        // let arrivalDate = new Date();
-        // const tripArr = tripDataFake.trip_info.map(elem => {
-        //     let date = arrivalDate;
-        //     arrivalDate.setTime( date.getTime() + elem.duration_in_days * 86400000 );
-        //     return {
-        //         city_id: elem.city_id,
-        //         ISO_date: date.toISOString()
-        //     }
-        //     //someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
-        // })
-        // const postBody = {
-        //     "trip_info":tripArr
-        // }
-        // console.log(JSON.stringify(postBody));
-        // console.log('POST', URL);
-        // fetch(URL, {
-        //     method: 'POST',
-        //     mode: 'no-cors',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //       },
-        //     body: JSON.stringify(postBody)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.setState({
-        //             transportData: data,
-        //             dataLoaded: true,
-        //         });
-        //     }).catch((err) => {
-        //         this.setState({
-        //             dataLoaded: true,
-        //         });
-        //         // alert(err)
-        //         console.error(err)
-        //     });
+        this.setState({ dataLoaded: false })
+        const apiPoint = 'route_info';
+        const URL = `${host}/${apiPoint}`
+        let arrivalDate = new Date();
+        const tripArr = tripDataFake.trip_info.map(elem => {
+            let date = arrivalDate;
+            arrivalDate.setTime( date.getTime() + elem.duration_in_days * 86400000 );
+            return {
+                city_id: elem.city_id,
+                ISO_date: date.toISOString()
+            }
+            //someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
+        })
+        const postBody = {
+            "trip_info":tripArr
+        }
+        console.log(JSON.stringify(postBody));
+        console.log('POST', URL);
+        fetch(URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(postBody)
+        })
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    transportData: data,
+                    dataLoaded: true,
+                });
+            }).catch((err) => {
+                // this.setState({
+                //     dataLoaded: true,
+                // });
+                alert(err)
+                console.error(err)
+            });
     }
 
 
@@ -82,12 +82,12 @@ class TransportPlannerParent extends Component {
 
     render() {
         /* Waiting for data to load*/
-        // if (!this.state.dataLoaded) {
-        //     return (<div style={{ display: 'flex', height: '200px', justifyContent: 'center' }}>
-        //         <CircularProgress
-        //             style={{ padding: '100px' }} size={80} />
-        //     </div>)
-        // }
+        if (!this.state.dataLoaded) {
+            return (<div style={{ display: 'flex', height: '200px', justifyContent: 'center' }}>
+                <CircularProgress
+                    style={{ padding: '100px' }} size={80} />
+            </div>)
+        }
 
 
         return (

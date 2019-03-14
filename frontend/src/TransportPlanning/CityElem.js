@@ -45,7 +45,7 @@ function CityElem(props) {
                                     {props.city.city}, {props.city.country}
                                 </Typography>
                                 <Typography gutterBottom>
-                                    <b>Hostel you are staying:</b> {props.city.hostel.name}
+                                    <b>Hostel you are staying in:</b> {props.city.hostel.name}
                                 </Typography>
                                 <Typography gutterBottom>
                                     <b>Activites you are going to do:</b>
