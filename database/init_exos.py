@@ -74,7 +74,7 @@ def readFromFile(filename):
     ret = {}
     with open(filename) as f:
         data = json.load(f)
-        for key in data:
+        for key in sorted(list(data.keys())):
             ret[key] = data[key]
     return ret
 

@@ -15,22 +15,37 @@ def getCountries(base_url):
 
     return countries
 
+def hasRegions(soup):
+    headers = soup.find_all('h2')
+    for h in headers:
+        if h.text.lower() == 'regions': return True
+    return False
+
 #Helper function to get all regions
 def getRegions(base_url, country_base_url):
     country_url = base_url + country_base_url
     response = requests.get(country_url, 'html5lib')
     soup = BeautifulSoup(response.content, 'html5lib')
+    if not hasRegions(soup): return [('idk', country_base_url, True)]
     article = soup.find('div', id='article')
     regions_li = article.find_all('li')
     regions = []
     for region_li in regions_li:
         link = region_li.find('a')
-        regions.append((link.text, link['href']))
-
+        regions.append((link.text, link['href'], False))
     return regions
 
+def invalidLink(link):
+    if '#example' in link['href']: return True
+    if './?page=' in link['href']: return True
+    if '#temperature-graph' in link['href']: return True
+    if '#climate-graph' in link['href']: return True
+    if 'name' in link.attrs: return True
+    if len(link.contents) == 1: return True
+    return False
+
 # Helper function to get all cities
-def getCities(base_url, region_base_url, page=''):
+def getCities(base_url, region_base_url, country, page=''):
     region_url = base_url + region_base_url + page
     response = requests.get(region_url, 'html5lib')
     soup = BeautifulSoup(response.content, 'html5lib')
@@ -38,18 +53,24 @@ def getCities(base_url, region_base_url, page=''):
     link_elems = data.find_all('a')
     cities = []
     for link_elem in link_elems:
-        link = link_elem['href']
-        name = link_elem.find('span', class_='name').text
-        cities.append((name, link))
-
+        if country:
+            if invalidLink(link_elem): continue
+            link = link_elem['href']
+            name = link_elem.find('span', class_='name').text
+            cities.append((name, link))
+        else:
+            link = link_elem['href']
+            name = link_elem.find('span', class_='name').text
+            cities.append((name, link))
+    
     pages = soup.find('div', class_='pagination')
     page_links = pages.find_all('a')
     last_link = page_links[-1]
     if last_link.text == 'Next':
         next_page_url = last_link['href']
         next_page_url = next_page_url[2:]
-        cities += getCities(base_url, region_base_url, next_page_url)
-
+        cities += getCities(base_url, region_base_url, country, page=next_page_url)
+    
     return cities
 
 #Scrape city page for weather info
@@ -72,6 +93,12 @@ def scrapeCityWeather(base_url, city_base_url):
     
     return weather
 
+def inExonyms(names, exos):
+    for name in names: 
+        if name in exos: return True
+    return False
+
+
 #Use helper functions above to add weather to each city 
 def addWeather(supported_cities, cur_country, exonyms):
 
@@ -85,13 +112,13 @@ def addWeather(supported_cities, cur_country, exonyms):
         url = country[1]
         if name == cur_country:
             regions += getRegions(base_url, url)
-
+    
     print("Collecting city URLs")
     cities = []
     for region in regions:
         name = region[0]
         url = region[1]
-        cities += getCities(base_url, url)
+        cities += getCities(base_url, url, region[2])
 
     weather_cities = {entry[0]:entry[1] for entry in cities}
 
@@ -104,9 +131,9 @@ def addWeather(supported_cities, cur_country, exonyms):
             print('Thru %f of cities' % check)
             check += .2
         for city in weather_cities:
-            if city == key or city in exonyms[key]:
+            names = city.split('/')
+            if key in names or inExonyms(names, exonyms[key]):
                 city_weather = scrapeCityWeather(base_url, weather_cities[city])
                 supported_cities[key].append(city_weather)
                 break
-        if len(supported_cities[key]) != 6: supported_cities[key].append("No climate data available")
-        
+        if len(supported_cities[key]) < 7: supported_cities[key].append("No climate data available")

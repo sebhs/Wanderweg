@@ -11,7 +11,7 @@ from coordinates import addCoordData
 from climate import addWeather
 
 # Constants
-validCountries = set(["Italy", "France", "Croatia", "Germany"])
+validCountries = set(["Italy", "France", "Croatia", "Germany", "Switzerland", "Austria", "Slovenia"])
 
 def writeToFile(data, filename):
     string = json.dumps(data)
@@ -20,7 +20,7 @@ def writeToFile(data, filename):
     f.close()
 
 def main(country):
-    url = 'https://www.hostelworld.com/hostels/' + country.lower()
+    url = 'https://www.hostelworld.com/hostels/' + country.replace(' ','-')
     cities, exonyms = buildCityMap(url, country)
     print("Done with hostelworld scraping")
     addPopulationData(country, cities, exonyms)
