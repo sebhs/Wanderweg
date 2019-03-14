@@ -3,10 +3,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, WebDriverException
+from multiprocessing.pool import ThreadPool
 import random
 import json
 import sys
+import time
 sys.path.append('../database')
 from db_utils import create_connection
 
@@ -32,7 +34,7 @@ def cancelLoad(driver, secs, by, val):
 		WebDriverWait(driver, secs).until(EC.presence_of_element_located((by, val))) 
 		return False
 	except TimeoutException:
-		print("Page loaded too slow")
+		print("Page loaded too slow, load canceled")
 		driver.close()
 		driver.quit()
 		return True
@@ -42,12 +44,16 @@ def scrapeIDs(origin, destination):
 	driver.get(base_url)
 
 	#Navigate to page to input origin and destination
+	waitForLoad(driver, 5, 'class', '_b2dtf3NaN')
 	inputs = driver.find_elements_by_class_name('_b2dtf3NaN')
 	orig_inp = inputs[0]
 	dest_inp = inputs[1]
 
 	#Select the desired location from the dropdown for origin and destination
-	orig_inp.send_keys(origin)
+	if origin[0] == origin[2]:
+		orig_inp.send_keys(origin[0])
+	else: 
+		orig_inp.send_keys(origin[1])
 	if cancelLoad(driver, 5, 'id', 'stations_from'):
 		return ("One city in pair could not be found", "One city in pair could not be found")
 	orig_list = driver.find_element_by_id('stations_from')
@@ -56,29 +62,33 @@ def scrapeIDs(origin, destination):
 	orig_opts = [opt.text for opt in orig_opts]
 	orig_found = False
 	for opt in orig_opts:
-		if opt == origin: 
+		if opt == origin[0] or opt == origin[1] or opt == origin[2]: 
 			orig_found = True
 			break
 		else: orig_inp.send_keys(Keys.ARROW_DOWN)
 	orig_inp.send_keys(Keys.ENTER)
 
-	dest_inp.send_keys(destination)
+	if destination[0] == destination[2]:
+		dest_inp.send_keys(destination[0])
+	else:
+		dest_inp.send_keys(destination[1])
 	if cancelLoad(driver, 5, 'id', 'stations_to'):
-		return ("One city in pair could not be found", "One city in pair could not be found")
+		return {origin[2]:"One city in pair could not be found", destination[2]:"One city in pair could not be found"}
 	dest_list = driver.find_element_by_id('stations_to')
 	waitForLoad(driver, 5, 'class', '_1ef1s25')
 	dest_opts = dest_list.find_elements_by_class_name('_1ef1s25')
 	dest_opts = [opt.text for opt in dest_opts] 
 	dest_found = False
 	for opt in dest_opts:
-		if opt == destination: 
+		if opt == destination[0] or opt == destination[1] or opt == destination[2]: 
 			dest_found = True
 			break
 		else: dest_inp.send_keys(Keys.ARROW_DOWN)
 	dest_inp.send_keys(Keys.ENTER)
 
 	#Click search
-	waitForLoad(driver, 5, 'class', '_1tuqvrz4')
+	time.sleep(3)
+	waitForLoad(driver, 3, 'class', '_1tuqvrz4')
 	search = driver.find_element_by_class_name('_1tuqvrz4')
 	search.click()
 
@@ -98,7 +108,15 @@ def scrapeIDs(origin, destination):
 	if not orig_found: orig_id = 'ID not found'
 	if not dest_found: dest_id = 'ID not found'
 
-	return (orig_id, dest_id)
+	id_dict = {}
+	id_dict[origin[2]] = orig_id
+	id_dict[destination[2]] = dest_id
+
+	return id_dict
+
+def scrapeIDsHelper(input_tuple):
+	origin, destination = input_tuple
+	return scrapeIDs(origin, destination)
 
 #Get local exonyms for every city in the db
 def getLocalExonyms():
@@ -108,7 +126,6 @@ def getLocalExonyms():
 	city_sql = 'SELECT name, country FROM cities'
 	cur.execute(city_sql)
 	city_data = cur.fetchall()
-	city_names = {name[0] for name in city_data}
 	city_country = {entry[0]:entry[1] for entry in city_data}
 
 	exo_sql = 'SELECT * FROM exonyms'
@@ -136,39 +153,35 @@ def getLocalExonyms():
 def buildCityPairs():
 	#Get dict mapping cities to local exonyms
 	local_exonyms = getLocalExonyms()
-	local_names = []
-	#Format for use on trainline
+	city_names = []
+
+
 	for english_name, local_name in local_exonyms.items():
-		if english_name == local_name:
-			local_names.append(english_name)
-		else:
-			local_names.append(local_name + ' (' + english_name + ')')
-	random.shuffle(local_names)
+		if filterCities(english_name):
+			name_opts = (local_name, local_name + ' (' + english_name + ')', english_name)
+			city_names.append(name_opts)
+
+	#Format into pairs
+	# random.shuffle(city_names)
 	city_pairs = []
-	for i in range(0, len(local_names), 2):
-		if i + 1 < len(local_names):
-			city_pairs.append((local_names[i], local_names[i+1]))
+	for i in range(0, len(city_names), 2):
+		if i + 1 < len(city_names):
+			city_pairs.append((city_names[i], city_names[i+1]))
 		else: 
-			city_pairs.append(local_names[i], local_names[0])
+			city_pairs.append(city_names[i], city_names[0])
 	
 	return city_pairs
 
 #Use exonym dict to get all trainline ids for cities in our db
-#TODO: Consider using threadpool
-def scrapeAllIDs(city_pairs):
+def scrapeAllIDs(city_pairs, num_threads=8):
+	pool = ThreadPool(num_threads)
+	results = pool.map(scrapeIDsHelper, city_pairs)
+	pool.close()
+	pool.join()
+	
 	trainline_ids = {}
-	for origin, destination in city_pairs:
-		#Get trainline ids
-		orig_id, dest_id = scrapeIDs(origin, destination)
-		#Return names to english name only
-		if '(' in origin: 
-			origin = origin.split(' ')[1].replace('(', '').replace(')', '')
-		if '(' in destination: 
-			destination = destination.split(' ')[1].replace('(', '').replace(')', '')
-		#Add to id dict
-		trainline_ids[origin] = orig_id
-		trainline_ids[destination] = dest_id
-		print(origin, orig_id, destination, dest_id)
+	for result in results:
+		trainline_ids.update(result)
 
 	return trainline_ids
 
@@ -186,12 +199,24 @@ def addIDsToDB(trainline_ids):
 	conn.commit()
 	conn.close()
 	
-def partitionScraping(city_pairs, offset=0, step=1):
+def partitionScraping(city_pairs, step=8, offset=0):
 	city_pairs = city_pairs[offset:]
 	for i in range(0, len(city_pairs), step):
 		cur_pairs = city_pairs[i:i+step]
-		ids = scrapeAllIDs(cur_pairs)
+		print(cur_pairs)
+		ids = scrapeAllIDs(cur_pairs, step)
 		addIDsToDB(ids)
+		print('Done Adding')
+
+#Helper to check filter cities. Returns true if name should be included
+def filterCities(city_name):
+	# return True
+
+	filter_names = {'La spezia','Mazara del vallo', 'Milan','Reggio Emilia'}
+
+	for name in filter_names:
+		if city_name.lower() in name.lower(): return True
+	return False
 
 #Save DB to csv in case DB is ever deleted
 def saveDBToText():
@@ -209,8 +234,17 @@ def saveDBToText():
 base_url = 'https://www.thetrainline.com/'
 
 options = webdriver.ChromeOptions()
-options.add_argument('headless')
+# options.add_argument('headless')
+options.add_argument('log-level=3')
 
+batch_size = 1
 city_pairs = buildCityPairs()
-partitionScraping(city_pairs)
-saveDBToText()
+partitionScraping(city_pairs, batch_size)
+
+# saveDBToText()
+
+
+# La spezia
+# Mazara del vallo
+# Milan
+# Reggio Emilia
