@@ -122,7 +122,8 @@ class TripPlannerParent extends Component {
                 polylinePath: [...this.state.polylinePath, crd],
                 tripPlan: [...this.state.tripPlan, city],
             })
-            console.log(this.state.tripPlan) 
+            console.log(JSON.stringify(this.state.tripPlan))
+            // console.log(this.state.tripPlan) 
             return true;
         }
     }

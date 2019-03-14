@@ -1,0 +1,140 @@
+[
+    {
+        "bus": [
+            {
+                "arrival_time": "10:10",
+                "departure_time": "20:05",
+                "duration": 845,
+                "num_changes": "0 changes",
+                "price": "45.19",
+                "type": "bus"
+            }
+        ],
+        "cheapest": [
+            {
+                "arrival_time": "23:35",
+                "departure_time": "12:03",
+                "duration": 692,
+                "num_changes": "2 changes",
+                "price": "77.55",
+                "type": "train"
+            },
+            {
+                "arrival_time": "10:10",
+                "departure_time": "20:05",
+                "duration": 845,
+                "num_changes": "0 changes",
+                "price": "45.19",
+                "type": "bus"
+            }
+        ],
+        "fastest": [
+            {
+                "arrival_time": "23:35",
+                "departure_time": "12:03",
+                "duration": 692,
+                "num_changes": "2 changes",
+                "price": "77.55",
+                "type": "train"
+            },
+            {
+                "arrival_time": "10:10",
+                "departure_time": "20:05",
+                "duration": 845,
+                "num_changes": "0 changes",
+                "price": "45.19",
+                "type": "bus"
+            }
+        ],
+        "meta": {
+            "date": "2019-04-04",
+            "dest_id": "64",
+            "orig_id": "2"
+        }
+    },
+    {
+        "bus": [
+            {
+                "arrival_time": "14:40",
+                "departure_time": "09:00",
+                "duration": 340,
+                "num_changes": "0 changes",
+                "price": "4.75",
+                "type": "bus"
+            },
+            {
+                "arrival_time": "22:25",
+                "departure_time": "15:30",
+                "duration": 415,
+                "num_changes": "1 change",
+                "price": "16.52",
+                "type": "bus"
+            },
+            {
+                "arrival_time": "16:00",
+                "departure_time": "10:00",
+                "duration": 360,
+                "num_changes": "0 changes",
+                "price": "19.02",
+                "type": "bus"
+            }
+        ],
+        "cheapest": [
+            {
+                "arrival_time": "15:47",
+                "departure_time": "12:25",
+                "duration": 202,
+                "num_changes": "0 changes",
+                "price": "22.48",
+                "type": "train"
+            },
+            {
+                "arrival_time": "15:59",
+                "departure_time": "12:25",
+                "duration": 214,
+                "num_changes": "0 changes",
+                "price": "22.48",
+                "type": "train"
+            },
+            {
+                "arrival_time": "13:47",
+                "departure_time": "10:20",
+                "duration": 207,
+                "num_changes": "0 changes",
+                "price": "28.43",
+                "type": "train"
+            }
+        ],
+        "fastest": [
+            {
+                "arrival_time": "15:47",
+                "departure_time": "12:25",
+                "duration": 202,
+                "num_changes": "0 changes",
+                "price": "22.48",
+                "type": "train"
+            },
+            {
+                "arrival_time": "16:47",
+                "departure_time": "13:25",
+                "duration": 202,
+                "num_changes": "0 changes",
+                "price": "28.43",
+                "type": "train"
+            },
+            {
+                "arrival_time": "17:28",
+                "departure_time": "14:05",
+                "duration": 203,
+                "num_changes": "0 changes",
+                "price": "33.19",
+                "type": "train"
+            }
+        ],
+        "meta": {
+            "date": "2019-04-07",
+            "dest_id": "65",
+            "orig_id": "64"
+        }
+    }
+]

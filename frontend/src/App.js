@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import TripPlannerParent from './TripPlanning/TripPlannerParent'
-
-import {
-  ComposableMap,
-  ZoomableGroup,
-  Geographies,
-  Geography,
-} from "react-simple-maps"
-
+import TransportPlannerParent from './TransportPlanning/TransportPlannerParent'
 
 
 class App extends Component {
   render() {
     return (
-      <TripPlannerParent />
+      // <TripPlannerParent />
+      <TransportPlannerParent/>
     );
   }
 }
