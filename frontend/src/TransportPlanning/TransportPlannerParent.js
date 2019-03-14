@@ -56,20 +56,46 @@ class TransportPlannerParent extends Component {
             },
             body: JSON.stringify(postBody)
         })
-            .then(res => res.json())
-            .then(data => {
-                
+            .then(function (response) {
+                console.log("response: ")
+                console.log(response)
+
+                return response.json();
+            }).then(function (data) {
+                console.log("data: ")
+                console.log(data)
+
                 this.setState({
                     transportData: data,
                     dataLoaded: true,
                 });
             }).catch((err) => {
-                // this.setState({
-                //     dataLoaded: true,
-                // });
                 alert(err)
                 console.error(err)
             });
+
+        //     // this.setState({
+        //     //     dataLoaded: true,
+        //     // });
+        //     alert(err)
+        //     console.error(err)
+        // });
+        // .then(res => res.json())
+        // .then(data => {
+
+        //     this.setState({
+        //         transportData: data,
+        //         dataLoaded: true,
+        //     });
+        // }).catch((err) => {
+        //     // this.setState({
+        //     //     dataLoaded: true,
+        //     // });
+        //     alert(err)
+        //     console.error(err)
+        // });
+
+
     }
 
 
