@@ -14,5 +14,5 @@ def addPopulationData(country, cityMap, exonyms):
                 break
     
     for key in cityMap:
-        if len(cityMap[key]) != 4:
+        if len(cityMap[key]) < 4:
             cityMap[key].append(0)

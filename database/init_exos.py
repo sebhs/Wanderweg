@@ -79,16 +79,17 @@ def readFromFile(filename):
     return ret
 
 
-# When we scale, will have to write code to access every text file in cities
 def load_exonyms_data(conn):
-    # for file in 'countries':
-    exonyms = readFromFile('exonyms/italyExos.txt')
+    countries = ["Italy", "Croatia", "Slovenia"] #, "France", "Germany", "Switzerland", "Austria"]
     count = 1
-    for english, info in exonyms.items():
-        if info:
-            create_exo(conn, (count, english, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], info[9],
-                info[10], info[11], info[12], info[13], info[14], info[15], info[16], info[17]))
-        count += 1
+    for country in countries:
+        filename = 'exonyms/' + country.lower() + 'Exos.txt'
+        exonyms = readFromFile(filename)
+        for english, info in exonyms.items():
+            if info:
+                create_exo(conn, (count, english, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], info[9],
+                    info[10], info[11], info[12], info[13], info[14], info[15], info[16], info[17]))
+            count += 1
 
 
 def main():
