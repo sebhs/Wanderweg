@@ -266,9 +266,8 @@ options.add_argument('log-level=3')
 # city_pairs = buildCityPairs()
 # partitionScraping(city_pairs, batch_size)
 
-loadDBFromText()
-
 # saveDBToText()
+# loadDBFromText()
 
 
 # La spezia

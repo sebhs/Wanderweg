@@ -50,7 +50,7 @@ class TransportPlannerParent extends Component {
         console.log('POST', URL);
         fetch(URL, {
             method: 'POST',
-            mode: 'no-cors',
+            // mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -73,6 +73,7 @@ class TransportPlannerParent extends Component {
                 alert(err)
                 console.error(err)
             });
+        
 
         //     // this.setState({
         //     //     dataLoaded: true,
