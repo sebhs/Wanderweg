@@ -24,7 +24,7 @@ def getCitiesOverview():
     # Database query
     conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT id,name,country,population,latitude,longitude,trainline_id FROM cities'
+    sql = 'SELECT id,name,country,population,latitude,longitude,hostelworld_pic,trainline_id FROM cities'
     cur.execute(sql)
     data = cur.fetchall()
     conn.close()
@@ -33,7 +33,8 @@ def getCitiesOverview():
     cities = []
     for entry in data:
         if entry[-1] != '0' and entry[-1] != 'ID not found':
-            city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 'location': {'lat': entry[4], 'lng': entry[5]}}
+            city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3],
+                    'location': {'lat': entry[4], 'lng': entry[5]}, 'alt_cover': entry[6]}
             cities.append(city)
     
     response = flask.jsonify(cities)
