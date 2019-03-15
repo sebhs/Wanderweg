@@ -13,6 +13,8 @@ from activities import GatherActivities
 from hostels import gatherHostelData
 import trains
 
+exclude_ids = {2}
+
 @app.route('/')
 def home():
     return "Server is running"
@@ -32,7 +34,7 @@ def getCitiesOverview():
     # Format response
     cities = []
     for entry in data:
-        if entry[-1] != '0' and entry[-1] != 'ID not found':
+        if entry[-1] != '0' and entry[-1] != 'ID not found' and entry[1] not in exclude_ids:
             city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3],
                     'location': {'lat': entry[4], 'lng': entry[5]}, 'alt_cover': entry[6]}
             cities.append(city)
@@ -86,6 +88,7 @@ def createTravelPlan():
     
     #Format into list of route requests
     request_list = []
+    invalid_list = []
     for i in range(len(city_pairs)):
         origin = city_pairs[i][0]
         destination = city_pairs[i][1]
