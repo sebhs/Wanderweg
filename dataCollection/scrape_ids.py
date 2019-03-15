@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from multiprocessing.pool import ThreadPool
+from unidecode import unidecode
 import random
 import json
 import sys
@@ -55,11 +56,11 @@ def scrapeIDs(origin, destination):
 	else: 
 		orig_inp.send_keys(origin[1])
 	if cancelLoad(driver, 5, 'id', 'stations_from'):
-		return ("One city in pair could not be found", "One city in pair could not be found")
+		return {origin[2]:"One city in pair could not be found", destination[2]:"One city in pair could not be found"}
 	orig_list = driver.find_element_by_id('stations_from')
 	waitForLoad(driver, 5, 'class', '_1ef1s25')
 	orig_opts = orig_list.find_elements_by_class_name('_1ef1s25')
-	orig_opts = [opt.text for opt in orig_opts]
+	orig_opts = [unidecode(opt.text) for opt in orig_opts]
 	orig_found = False
 	for opt in orig_opts:
 		if opt == origin[0] or opt == origin[1] or opt == origin[2]: 
@@ -144,7 +145,10 @@ def getLocalExonyms():
 			#Get the country for the current city
 			country = city_country[cur_city]
 			#Get the local city name for the current city
-			local_name = row[country_index[country.lower()]]
+			if country.lower() in country_index:
+				local_name = row[country_index[country.lower()]]
+			else: 
+				local_name = cur_city
 			exonym_dict[cur_city] = local_name
 
 	return exonym_dict	
@@ -157,6 +161,7 @@ def buildCityPairs(safe_city=False, offset=0):
 
 	for english_name, local_name in local_exonyms.items():
 		if filterCities(english_name):
+			print(english_name, local_name)
 			name_opts = (local_name, local_name + ' (' + english_name + ')', english_name)
 			city_names.append(name_opts)
 
@@ -176,7 +181,7 @@ def buildCityPairs(safe_city=False, offset=0):
 			if i + 1 < len(city_names):
 				city_pairs.append((city_names[i], city_names[i+1]))
 			else: 
-				city_pairs.append(city_names[i], city_names[0])
+				city_pairs.append((city_names[i], city_names[0]))
 	
 	return city_pairs
 
@@ -191,6 +196,7 @@ def scrapeAllIDs(city_pairs, num_threads=8):
 	for result in results:
 		trainline_ids.update(result)
 
+	print(trainline_ids)
 	return trainline_ids
 
 #Add ids to database
@@ -207,8 +213,8 @@ def addIDsToDB(trainline_ids):
 	conn.commit()
 	conn.close()
 	
-def partitionScraping(step=8, offset=0):
-	city_pairs = buildCityPairs(offset=offset)
+def partitionScraping(step=8, offset=0, safe_city=False):
+	city_pairs = buildCityPairs(safe_city, offset)
 	for i in range(0, len(city_pairs), step):
 		cur_pairs = city_pairs[i:i+step]
 		print(cur_pairs)
@@ -216,21 +222,26 @@ def partitionScraping(step=8, offset=0):
 		addIDsToDB(ids)
 		print('Done Adding')
 
-#Helper to check filter cities. Returns true if name should be included
+#Helper to check filter cities
 def filterCities(city_name):
 	# return True
 
-	filter_names = {'La spezia','Mazara del vallo', 'Milan','Reggio Emilia'}
+	# filter_names = {'La spezia','Mazara del vallo', 'Milan','Reggio Emilia'}
+	# filter_names = {'Bol', 'Brac', 'Brela','Hvar','Korcula','Novalja'}
+	filter_names = {'Salerno'}
 
 	for name in filter_names:
-		if city_name.lower() in name.lower(): return True
+		if city_name.lower() in name.lower(): 
+			return True
+			# return False
+	# return True
 	return False
 
 #Save DB to csv in case DB is ever deleted
 def saveDBToText():
 	conn = create_connection('../database/wanderweg.db')
 	cur = conn.cursor()
-	sql = 'SELECT id, trainline_id FROM cities'
+	sql = 'SELECT id, name, trainline_id FROM cities'
 	cur.execute(sql)
 	data = cur.fetchall()
 	string = json.dumps(data)
@@ -245,13 +256,13 @@ def loadDBFromText():
 		data = json.loads(content)
 		tuple_data = []
 		for entry in data:
-			city_id, trainline_id = entry
+			city_id, city_name, trainline_id = entry
 			if len(trainline_id) > 20:
-				tuple_data.append((trainline_id, city_id))
+				tuple_data.append((trainline_id, city_id, city_name))
 
 		conn = create_connection('../database/wanderweg.db')
 		cur = conn.cursor()
-		sql = 'UPDATE cities SET trainline_id = ? WHERE id = ?'
+		sql = 'UPDATE cities SET trainline_id = ? WHERE id = ? AND name = ?'
 		cur.executemany(sql, tuple_data)
 		conn.commit()
 		conn.close()
@@ -262,15 +273,8 @@ options = webdriver.ChromeOptions()
 # options.add_argument('headless')
 options.add_argument('log-level=3')
 
-# batch_size = 1
-# city_pairs = buildCityPairs()
-# partitionScraping(city_pairs, batch_size)
+batch_size = 1
+partitionScraping(batch_size, 0, True)
 
 # saveDBToText()
 # loadDBFromText()
-
-
-# La spezia
-# Mazara del vallo
-# Milan
-# Reggio Emilia

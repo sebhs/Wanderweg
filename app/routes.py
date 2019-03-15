@@ -13,9 +13,6 @@ from activities import GatherActivities
 from hostels import gatherHostelData
 import trains
 
-# Potentially useful imports:
-#from app.trains import GatherTrains
-
 @app.route('/')
 def home():
     return "Server is running"
@@ -27,7 +24,7 @@ def getCitiesOverview():
     # Database query
     conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT id,name,country,population,latitude,longitude,hostelworld_pic FROM cities'
+    sql = 'SELECT id,name,country,population,latitude,longitude,hostelworld_pic,trainline_id FROM cities'
     cur.execute(sql)
     data = cur.fetchall()
     conn.close()
@@ -35,12 +32,12 @@ def getCitiesOverview():
     # Format response
     cities = []
     for entry in data:
-        city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3],
-                'location': {'lat': entry[4], 'lng': entry[5]}, 'alt_cover': entry[6]}
-        cities.append(city)
+        if entry[-1] != '0' and entry[-1] != 'ID not found':
+            city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3],
+                    'location': {'lat': entry[4], 'lng': entry[5]}, 'alt_cover': entry[6]}
+            cities.append(city)
     
     response = flask.jsonify(cities)
-    response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
@@ -50,7 +47,7 @@ def getCityInfo(cid):
     # Database query
     conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT name,country,hostel_url,population,weather,hostelworld_pic FROM cities WHERE id=' + cid
+    sql = 'SELECT name,country,hostel_url,population,weather,hostelworld_pic,latitude,longitude FROM cities WHERE id=' + cid
     cur.execute(sql)
     data = cur.fetchone()
     conn.close()
@@ -58,13 +55,12 @@ def getCityInfo(cid):
     if not data:
         info = {'error': 'no country with that ID found'}
         response = flask.jsonify(info)
-        # response.headers.add('Access-Control-Allow-Origin', '*')
         return response
         
     # Fetch activities
-    # TO DO: should we include country in acitivities search? Could help for when we scale
     activityScraper = GatherActivities()
-    activities = activityScraper.scrapeCity(data[0])
+    #Use latitude and longitude to refine activity gathering
+    activities = activityScraper.scrapeCity(data[0], (data[-2], data[-1]))
    
     # Fetch hostel info
     hostelData = gatherHostelData(data[2])
@@ -73,7 +69,6 @@ def getCityInfo(cid):
     info = {'city_id': int(cid), 'population': data[3], 'name': data[0], 'country': data[1], 
             'activities': activities, 'hostels': hostelData, 'weather': data[4], 'alt_cover': data[5]}
     response = flask.jsonify(info)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
@@ -101,10 +96,5 @@ def createTravelPlan():
     #Fetch route options using trains.py
     route_options = trains.scrapeList(request_list)
     response = flask.jsonify(route_options)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    # response.headers.add('Access-Control-Allow-Headers', '*')
-    # response.headers.add('Access-Control-Allow-Methods', '*')
-    # response.headers.add('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-    # response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
     print(response.data)
     return response

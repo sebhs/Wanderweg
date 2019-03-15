@@ -7,8 +7,9 @@ class GatherActivities:
     def __init__(self):
         self.url = "https://developers.musement.com/api/v3/activities"
 
-    def scrapeCity(self, city):
-        query_params = {"text":city, "sort_by":"price"}
+    def scrapeCity(self, city, coords):
+        latitude, longitude = coords
+        query_params = {"text":city, "sort_by":"price","coordinates":str(latitude)+','+str(longitude)}
         response = requests.request("GET", self.url, params=query_params)
         self.json = response.json()
 
