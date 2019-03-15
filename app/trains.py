@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.common.exceptions import TimeoutException, WebDriverException, StaleElementReferenceException
 import time
 from datetime import datetime, timedelta
 from multiprocessing.pool import ThreadPool
@@ -28,6 +28,17 @@ def waitForLoad(driver, secs, by, val):
 		WebDriverWait(driver, secs).until(EC.presence_of_element_located((by, val))) 
 	except TimeoutException:
 		print("Page loaded too slow")
+
+#Loop a few times for stale elements
+def loopUntilNotStale(span, tries=3):
+    attempt = 1
+    while True:
+        try:
+            return span.text
+        except StaleElementReferenceException:
+            if attempt == tries:
+                return ""
+            attempt += 1
 
 #Helper function that cancels the job if element doesn't load
 def cancelLoad(driver, secs, by, val):
@@ -74,10 +85,10 @@ def scrapeRows(driver, trip_type='train'):
 		opt = {}
 		spans = row.find_elements_by_tag_name('span')
 		for i, span in enumerate(spans):
-			if i == 0: opt['departure_time'] = span.text
-			if i == 1: opt['arrival_time'] = span.text
-			# if i == 4: opt['num_changes'] = span.text
-			if i == 7: opt['price'] = span.text
+			if i == 0: opt['departure_time'] = loopUntilNotStale(span)
+			if i == 1: opt['arrival_time'] = loopUntilNotStale(span)
+			if i == 4: opt['num_changes'] = loopUntilNotStale(span)
+			if i == 7: opt['price'] = loopUntilNotStale(span)
 
 		if 'price' in opt and '$' in opt['price']:
 			opt['price'] = opt['price'].replace('$','')
