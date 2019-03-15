@@ -27,7 +27,7 @@ def getCitiesOverview():
     # Database query
     conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT id,name,country,population,latitude,longitude FROM cities'
+    sql = 'SELECT id,name,country,population,latitude,longitude,trainline_id FROM cities'
     cur.execute(sql)
     data = cur.fetchall()
     conn.close()
@@ -35,11 +35,12 @@ def getCitiesOverview():
     # Format response
     cities = []
     for entry in data:
-        city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 'location': {'lat': entry[4], 'lng': entry[5]}}
-        cities.append(city)
+        if entry[-1] != '0' and entry[-1] != 'ID not found':
+            city = {'name': entry[1], 'city_id': entry[0], 'country': entry[2], 'population': entry[3], 'location': {'lat': entry[4], 'lng': entry[5]}}
+            cities.append(city)
     
     response = flask.jsonify(cities)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
@@ -61,8 +62,8 @@ def getCityInfo(cid):
         return response
         
     # Fetch activities
-    # TO DO: should we include country in acitivities search? Could help for when we scale
     activityScraper = GatherActivities()
+    #Use latitude and longitude to refine activity gathering
     activities = activityScraper.scrapeCity(data[0], (data[-2], data[-1]))
    
     # Fetch hostel info
