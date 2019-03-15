@@ -33,6 +33,23 @@ class TransportElem extends React.Component {
             [key]: value,
         });
     };
+    //taken from here: https://www.w3resource.com/javascript-exercises/javascript-date-exercise-13.php    
+    timeConvert = function (n) {
+        var num = n;
+        var hours = (num / 60);
+        var rhours = Math.floor(hours);
+        var minutes = (hours - rhours) * 60;
+        var rminutes = Math.round(minutes);
+        return rhours + "h and " + rminutes + "min";
+    }
+    noOption = function () {
+        return (<div>
+            <Typography variant="h8">
+                <b>This option is currently not available</b>
+            </Typography>
+        </div>)
+    }
+
 
     render() {
         const { classes } = this.props;
@@ -42,55 +59,76 @@ class TransportElem extends React.Component {
             <Grid container className={classes.root} spacing={32}>
                 <Grid item xs={12}>
                     <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
-                        {[0, 1, 2].map(value => (
+
+                        {this.props.transport.trip_info.map((value, index) => (
                             <Grid key={value} item>
-                                <Paper className={classes.paper} style={{ padding: "20px" }}>
+                                <Paper className={classes.paper} 
+                                onClick={() => { this.props.addTransport(value,this.props.pos)}}
+                                style={{ padding: "20px" ,backgroundColor: ((value.length > 0) && this.props.transportTrip.includes(value[0])) ? "LightGreen" : null}}
+                                >
 
-                                    {value === 0 &&
+                                    {(index === 0) &&
                                         <div>
-                                            <Typography>
-                                                <b>Bus Option:</b>
-                                            </Typography>
-                                            <br />
+                                            {(value.length > 0) ? (
+                                                <div>
+                                                    <Typography variant="h8">
+                                                        <b>Bus Option:</b>
+                                                    </Typography>
+                                                    <br />
 
-                                            <Typography>
-                                                <b>Duration:</b> {this.props.transport.bus[0].duration}
-                                            </Typography>
-                                            <Typography>
-                                                <b>Price:</b> ${this.props.transport.bus[0].price}
-                                            </Typography>
+                                                    <Typography>
+                                                        <b>Duration:</b> {this.timeConvert(value[0].duration)}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <b>Price:</b> ${value[0].price}
+                                                    </Typography>
+                                                </div>
+                                            ) : (
+                                                    this.noOption()
+                                                )
+                                            }
                                         </div>
                                     }
-                                    {value === 1 &&
+                                    {(index === 1) &&
                                         <div>
-                                            <Typography>
-                                                <b>Cheapest Train Option:</b>
-
-                                            </Typography>
-                                            <br />
-                                            <Typography>
-
-                                                <b>Duration:</b> {this.props.transport.cheapest[0].duration}
-                                            </Typography>
-                                            <Typography>
-
-                                                <b>Price:</b> ${this.props.transport.cheapest[0].price}
-                                            </Typography>
+                                            {(value.length > 0) ? (
+                                                <div>
+                                                    <Typography variant="h8">
+                                                        <b>Cheapest Train Option:</b>
+                                                    </Typography>
+                                                    <br />
+                                                    <Typography>
+                                                        <b>Duration:</b> {this.timeConvert(value[0].duration)}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <b>Price:</b> ${value[0].price}
+                                                    </Typography>
+                                                </div>
+                                            ) : (
+                                                    this.noOption()
+                                                )
+                                            }
                                         </div>
                                     }
-                                    {value === 2 &&
+                                    {(index === 2) &&
                                         <div>
-                                            <Typography>
-                                                <b>Fastest Train Option:</b>
-                                            </Typography>
-                                            <br />
+                                            {(value.length > 0) ? (
+                                                <div>
+                                                    <Typography variant="h8">
+                                                        <b>Fastest Train Option:</b>
+                                                    </Typography>
+                                                    <br />
 
-                                            <Typography>
-                                                <b>Duration:</b> {this.props.transport.fastest[0].duration}
-                                       c     </Typography>
-                                            <Typography>
-                                                <b>Price:</b> $c{this.props.transport.fastest[0].price}
-                                            </Typography>
+                                                    <Typography>
+                                                        <b>Duration:</b> {this.timeConvert(value[0].duration)}
+                                                    </Typography>
+                                                    <Typography>
+                                                        <b>Price:</b> ${value[0].price}
+                                                    </Typography>
+                                                </div>
+                                            ) : (
+                                                    this.noOption()
+                                                )}
                                         </div>
                                     }
                                 </Paper>

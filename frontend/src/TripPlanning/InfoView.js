@@ -34,9 +34,9 @@ class InfoView extends Component {
     componentWillReceiveProps(nextProps) {
         // You don't have to do this check first, but it can help prevent an unneeded render
         if (!this.props.cityLoaded) {
-          this.handleCloseSnackBar()
+            this.handleCloseSnackBar()
         }
-      }
+    }
     selectHostel = function (hostel) {
         // const newHostel = {
         //     name: hostel.name,
@@ -80,14 +80,14 @@ class InfoView extends Component {
 
 
     handleAddTrip = function () {
-        if (this.state.selectedHostel === undefined) {
+        if (this.state.selectedHostel === undefined || this.state.selectedHostel === "") {
             this.handleClickSnackBar("Please select a hostel");
-            this.setState({ numDays: ""});
+            this.setState({ numDays: "" });
             return;
         }
         if (this.state.numDays === undefined || this.state.numDays === "") {
             this.handleClickSnackBar("Please select add valid number of days");
-            this.setState({ numDays: ""});
+            this.setState({ numDays: "" });
             return;
         }
         if (this.props.addToTrip(this.state.selectedHostel, this.state.numDays, this.state.activities)) {
@@ -95,7 +95,8 @@ class InfoView extends Component {
         } else {
             this.handleClickSnackBar("Trip already added");
         }
-        this.setState({ numDays: ""});
+        this.setState({ numDays: "" });
+        this.setState({ selectedHostel: "" });
 
 
     }
@@ -171,10 +172,15 @@ class InfoView extends Component {
                         {this.props.cityInfo.name}, {this.props.cityInfo.country}
                     </Typography>
                     <Card>
-                        {(this.props.cityInfo.activities.data.length > 0) &&
+                        {(this.props.cityInfo.activities.data.length > 0) ? (
                             <CardMedia style={{ height: 170 }}
-                                image={this.props.cityInfo.activities.data[0].city.cover_image_url}
-                            />}
+                                image={(this.props.cityInfo.activities.data[0].city.cover_image_url)}
+                            />
+                        ) : (
+                                <CardMedia style={{ height: 170 }}
+                                    image={(this.props.cityInfo.alt_cover)}
+                                />
+                            )}
                     </Card>
                     <br />
 
@@ -234,6 +240,13 @@ class InfoView extends Component {
                         >
                             Add city to trip
                 </Button>
+                <span>&nbsp;&nbsp;</span>
+                        <Button variant="contained" 
+                        color="secondary" 
+                        onClick={() => this.props.donePlanning()}
+                        >
+                            Finished
+                        </Button>
 
                     </div>
 

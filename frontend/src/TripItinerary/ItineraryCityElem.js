@@ -27,11 +27,11 @@ const styles = theme => ({
 });
 function CityElem(props) {
     const { classes } = props;
-    let total_cost = function() {
+    let total_cost = function () {
         let totalPrice = props.city.hostel.price.match(/\d+/g).map(Number)[0];
         totalPrice *= parseInt(props.city.duration_in_days);
 
-        for(let i = 0; i < props.city.activities.length; i++) {
+        for (let i = 0; i < props.city.activities.length; i++) {
             totalPrice += props.city.activities[i].retail_price.value;
         }
         return totalPrice;
@@ -53,7 +53,23 @@ function CityElem(props) {
                                 {props.city.city_obj.name}, {props.city.city_obj.country}
                             </Typography>
                             <Typography gutterBottom>
+                                <b>Days:</b> {props.city.duration_in_days}
+                            </Typography>
+
+                            <Typography gutterBottom>
                                 <b>Your Hostel:</b> {props.city.hostel.name}
+                                <span>&nbsp;&nbsp;</span>
+                                |
+                                <span>&nbsp;&nbsp;</span>
+                                Price: <i>{props.city.hostel.price.substring(2)}</i>
+                                <span>&nbsp;&nbsp;</span>
+
+                                <Button variant="contained"
+                                    target="_blank"
+                                    href={props.city.hostel.url}
+                                >
+                                    Book
+                        </Button>
                             </Typography>
                             <Typography gutterBottom>
                                 <b>Your Activites:</b>
@@ -61,6 +77,17 @@ function CityElem(props) {
                             {props.city.activities.map(activity => (
                                 <Typography gutterBottom>
                                     {activity.title}
+                                    <span>&nbsp;&nbsp;</span>
+                                    |
+                                <span>&nbsp;&nbsp;</span>
+                                    Price: <i>{activity.retail_price.formatted_value}</i>
+                                    <span>&nbsp;&nbsp;</span>
+
+                                    <Button variant="contained"
+                                        target="_blank"
+                                        href={activity.url}>
+                                        Book
+                                    </Button>
                                 </Typography>
                             ))}
                             {/* <Typography color="textSecondary">ID: 1030114</Typography> */}

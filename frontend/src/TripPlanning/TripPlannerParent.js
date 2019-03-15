@@ -32,7 +32,7 @@ class TripPlannerParent extends Component {
             cityLoaded: false,
             cityInfo: rome,
             dataLoaded: false,
-            startpage: false, //TODO: set to true
+            startpage: true, 
             firstCitySelected: false,
         }
     }
@@ -57,6 +57,9 @@ class TripPlannerParent extends Component {
             });
     }
 
+    donePlanning = () => {
+        this.props.setTrip(this.state.tripPlan, this.state.startDate)
+    };
 
 
     fetchCity() {
@@ -95,8 +98,8 @@ class TripPlannerParent extends Component {
         })
         this.fetchCity();
     }
-    goToPlanTrip = function() {
-        this.setState({startpage : false})
+    goToPlanTrip = function(startDate) {
+        this.setState({startpage : false, startDate})
     }
 
     addToTrip = function (hostel, duration, activities) {
@@ -107,6 +110,7 @@ class TripPlannerParent extends Component {
             //const city_id = this.state.cities[this.state.currentCityIndex].city_id;
             const city = {
                 city_id : this.state.cities[this.state.currentCityIndex].city_id,
+                city_obj: this.state.cities[this.state.currentCityIndex],
                 hostel : hostel,
                 duration_in_days: duration, //duration in days
                 activities : activities
@@ -169,6 +173,7 @@ class TripPlannerParent extends Component {
                             cityInfo={this.state.cityInfo}
                             cityLoaded={this.state.cityLoaded}
                             addToTrip={this.addToTrip.bind(this)}
+                            donePlanning={this.donePlanning.bind(this)}
                             firstCitySelected={this.state.firstCitySelected}
                         />
                     )}
