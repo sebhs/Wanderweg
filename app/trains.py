@@ -131,11 +131,11 @@ def scrapeHelper(input_tuple):
 
 #Sort options by a few metrics
 def formatOptions(trip_options, n=3):
-	cost_sort = sorted(trip_options, key=lambda x: (x['type'], -float(x['price'])), reverse=True)
-	time_sort = sorted(trip_options, key=lambda x: x['duration'])
-	bus_options = []
-	for entry in cost_sort:
-		if entry['type'] == 'bus': bus_options.append(entry)
+	train_options = [opt for opt in trip_options if opt['type'] == 'train']
+	cost_sort = sorted(train_options, key=lambda x: (-float(x['price'])), reverse=True)
+	time_sort = sorted(train_options, key=lambda x: x['duration'])
+	bus_options = [opt for opt in trip_options if opt['type'] == 'bus']
+	bus_options = sorted(bus_options, key=lambda x: (-float(x['price'])), reverse=True)
 
 	return (cost_sort[:n], time_sort[:n], bus_options[:n])
 
