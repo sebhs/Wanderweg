@@ -66,14 +66,15 @@ def readFromFile(filename):
     return ret
 
 
-# When we scale, will have to write code to access every text file in cities
-def load_cities_data(conn=None):
-    # for file in 'countries':
-    cities = readFromFile('countries/italyData.txt')
+def load_cities_data(conn):
+    countries = ["Italy", "Croatia", "Slovenia"] #, "France", "Germany", "Switzerland", "Austria"]
     count = 1
-    for city, info in cities.items():
-        create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], info[5], str(info[6]), '0'))
-        count += 1
+    for country in countries:
+        filename = 'countries/' + country.lower() + 'Data.txt'
+        cities = readFromFile(filename)
+        for city, info in cities.items():
+            create_city(conn, (count, city, info[0], info[1], info[2], info[3], info[4], info[5], str(info[6]), '0'))
+            count += 1
 
 
 def main():
