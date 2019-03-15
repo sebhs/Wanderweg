@@ -49,7 +49,7 @@ def getCityInfo(cid):
     # Database query
     conn = create_connection('./database/wanderweg.db')
     cur = conn.cursor()
-    sql = 'SELECT name,country,hostel_url,population,weather,hostelworld_pic FROM cities WHERE id=' + cid
+    sql = 'SELECT name,country,hostel_url,population,weather,hostelworld_pic,latitude,longitude FROM cities WHERE id=' + cid
     cur.execute(sql)
     data = cur.fetchone()
     conn.close()
@@ -63,7 +63,7 @@ def getCityInfo(cid):
     # Fetch activities
     # TO DO: should we include country in acitivities search? Could help for when we scale
     activityScraper = GatherActivities()
-    activities = activityScraper.scrapeCity(data[0])
+    activities = activityScraper.scrapeCity(data[0], (data[-2], data[-1]))
    
     # Fetch hostel info
     hostelData = gatherHostelData(data[2])
