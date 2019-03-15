@@ -95,5 +95,4 @@ def createTravelPlan():
     #Fetch route options using trains.py
     route_options = trains.scrapeList(request_list)
     response = flask.jsonify(route_options)
-    print(response.data)
     return response

@@ -4,6 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException, StaleElementReferenceException
+from urllib3.exceptions import NewConnectionError, MaxRetryError
+import errno
+from socket import error as socket_error
 import time
 from datetime import datetime, timedelta
 from multiprocessing.pool import ThreadPool
@@ -108,26 +111,33 @@ def scrapeTrains(origin, destination, date='2019-04-10'):
 		print("ID not found for one or more cities")
 		return []
 
+	print(origin, destination)
+
 	url = base_url.replace('_ORIG_', orig_id).replace('_DEST_', dest_id).replace('_DATE_', date)
 
 	driver = webdriver.Chrome(chrome_options=options)
-	driver.get(url)
+	try:
+		driver.get(url)
+		
+		#Get route options for trains
+		route_options = scrapeRows(driver)
 
-	#Sleep so page can fully load
-	#TODO: Find a better way to do this
-	# time.sleep(3)
+		# Get route options for busses
+		if not cancelLoad(driver, 3, 'class', '_17dn4adNaN'):
+			coach_button = driver.find_element_by_class_name('_17dn4adNaN')
+			coach_button.click()
+			route_options += scrapeRows(driver, trip_type='bus')
 
-	#Get route options for trains
-	route_options = scrapeRows(driver)
+		driver.close()
+		driver.quit()
 
-	# Get route options for busses
-	if not cancelLoad(driver, 3, 'class', '_17dn4adNaN'):
-		coach_button = driver.find_element_by_class_name('_17dn4adNaN')
-		coach_button.click()
-		route_options += scrapeRows(driver, trip_type='bus')
-
-	driver.close()
-	driver.quit()
+	except ConnectionRefusedError:
+		print("can't get the url")
+		trip_opts = {}
+		trip_opts['meta'] = {'orig_id':origin, 'dest_id':destination, 'date':date}
+		trip_opts['trip_info'] = [[], [], []]
+		return trip_opts
+	# , NewConnectionError, MaxRetryError
 
 	cheapest, fastest, bus = formatOptions(route_options)
 	trip_opts = {}
@@ -151,7 +161,7 @@ def formatOptions(trip_options, n=3):
 	return (cost_sort[:n], time_sort[:n], bus_options[:n])
 
 #Take a list of city_ids and dates and use a threadpool to scrape info for each trip
-def scrapeList(trip_list, num_threads=8):
+def scrapeList(trip_list, num_threads=1):
 	pool = ThreadPool(num_threads)
 	results = pool.map(scrapeHelper, trip_list)
 	pool.close()
