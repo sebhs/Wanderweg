@@ -115,7 +115,7 @@ def scrapeTrains(origin, destination, date='2019-04-10'):
 
 	#Sleep so page can fully load
 	#TODO: Find a better way to do this
-	time.sleep(3)
+	# time.sleep(3)
 
 	#Get route options for trains
 	route_options = scrapeRows(driver)

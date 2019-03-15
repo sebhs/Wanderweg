@@ -145,8 +145,8 @@ def getLocalExonyms():
 			#Get the country for the current city
 			country = city_country[cur_city]
 			#Get the local city name for the current city
-			if country in country_index:
-				local_name = row[country_index[country]]
+			if country.lower() in country_index:
+				local_name = row[country_index[country.lower()]]
 			else: 
 				local_name = cur_city
 			exonym_dict[cur_city] = local_name
@@ -161,6 +161,7 @@ def buildCityPairs(safe_city=False, offset=0):
 
 	for english_name, local_name in local_exonyms.items():
 		if filterCities(english_name):
+			print(english_name, local_name)
 			name_opts = (local_name, local_name + ' (' + english_name + ')', english_name)
 			city_names.append(name_opts)
 
@@ -223,11 +224,11 @@ def partitionScraping(step=8, offset=0, safe_city=False):
 
 #Helper to check filter cities
 def filterCities(city_name):
-	return True
+	# return True
 
 	# filter_names = {'La spezia','Mazara del vallo', 'Milan','Reggio Emilia'}
 	# filter_names = {'Bol', 'Brac', 'Brela','Hvar','Korcula','Novalja'}
-	filter_names = {'Zadar','portoroz'}
+	filter_names = {'Salerno'}
 
 	for name in filter_names:
 		if city_name.lower() in name.lower(): 
@@ -272,8 +273,8 @@ options = webdriver.ChromeOptions()
 # options.add_argument('headless')
 options.add_argument('log-level=3')
 
-batch_size = 2
-# partitionScraping(batch_size, 0, True)
+batch_size = 1
+partitionScraping(batch_size, 0, True)
 
 # saveDBToText()
-loadDBFromText()
+# loadDBFromText()

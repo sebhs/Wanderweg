@@ -13,9 +13,6 @@ from activities import GatherActivities
 from hostels import gatherHostelData
 import trains
 
-# Potentially useful imports:
-#from app.trains import GatherTrains
-
 @app.route('/')
 def home():
     return "Server is running"
@@ -40,7 +37,6 @@ def getCitiesOverview():
             cities.append(city)
     
     response = flask.jsonify(cities)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
@@ -58,7 +54,6 @@ def getCityInfo(cid):
     if not data:
         info = {'error': 'no country with that ID found'}
         response = flask.jsonify(info)
-        # response.headers.add('Access-Control-Allow-Origin', '*')
         return response
         
     # Fetch activities
@@ -73,7 +68,6 @@ def getCityInfo(cid):
     info = {'city_id': int(cid), 'population': data[3], 'name': data[0], 'country': data[1], 
             'activities': activities, 'hostels': hostelData, 'weather': data[4], 'alt_cover': data[5]}
     response = flask.jsonify(info)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
@@ -101,10 +95,5 @@ def createTravelPlan():
     #Fetch route options using trains.py
     route_options = trains.scrapeList(request_list)
     response = flask.jsonify(route_options)
-    # response.headers.add('Access-Control-Allow-Origin', '*')
-    # response.headers.add('Access-Control-Allow-Headers', '*')
-    # response.headers.add('Access-Control-Allow-Methods', '*')
-    # response.headers.add('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-    # response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
     print(response.data)
     return response
