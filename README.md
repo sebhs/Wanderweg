@@ -3,7 +3,7 @@
 
 <img src="https://github.com/StanfordCS194/Team-16/blob/master/logo_flat.png" width="800" height="150" />
 
-(Team Wiki)[https://github.com/StanfordCS194/Wanderweg/wiki]
+[Team Wiki](https://github.com/StanfordCS194/Wanderweg/wiki)
 
 ### Team Members
 
