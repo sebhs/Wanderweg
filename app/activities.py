@@ -13,8 +13,6 @@ class GatherActivities:
         response = requests.request("GET", self.url, params=query_params)
         self.json = response.json()
 
-        #All the relevant data is kept in self.json['data']
-
         #Filter to only the city we care about
         filtered_activities = {}
         filtered_activities['meta'] = self.json['meta']
