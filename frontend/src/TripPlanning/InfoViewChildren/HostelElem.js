@@ -63,7 +63,7 @@ function HostelElem(props) {
 
                         </Grid>
                         <Grid item>
-                            <Typography variant="subtitle1">Price: <b> {props.hostel.price.substring(2)}</b>&nbsp;&nbsp;&nbsp;&nbsp;Rating: <b>{props.hostel.rating}</b></Typography>
+                            <Typography variant="subtitle1">Price: <b> ${props.hostel.price.substring(2)}</b>&nbsp;&nbsp;&nbsp;&nbsp;Rating: <b>{props.hostel.rating}</b></Typography>
                         </Grid>
                     </Grid>
                 </Grid>

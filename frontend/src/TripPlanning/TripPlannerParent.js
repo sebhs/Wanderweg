@@ -28,7 +28,7 @@ class TripPlannerParent extends Component {
             currentCityIndex: -1,
             cityMarkers: [],
             cityLoaded: false,
-            cityInfo: rome,
+            cityInfo: {},
             dataLoaded: false,
             startpage: true, 
             firstCitySelected: false,
@@ -63,11 +63,9 @@ class TripPlannerParent extends Component {
     fetchCity() {
         this.setState({ cityLoaded: false })
         const { selectedCity } = this.state
-        // let city = selectedCity.city_id === rome.city_id ? rome : milan;
-        // city = selectedCity.city_id === florence.city_id ? florence : city;
+
         const apiPoint = 'city_info';
-        const city_id = selectedCity.city_id;// TODO: add back
-        // const city_id = 3;
+        const city_id = selectedCity.city_id;
 
         const URL = `${host}/${apiPoint}/${city_id}`
         console.log('GET', URL);

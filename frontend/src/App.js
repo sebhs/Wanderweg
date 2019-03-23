@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TripPlannerParent from './TripPlanning/TripPlannerParent'
 import TransportPlannerParent from './TransportPlanning/TransportPlannerParent'
-import TripPlannerItinerary from './TripItinerary/TripPlannerItinerary'
+import TripItineraryParent from './TripItinerary/TripItineraryParent'
 
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
         ) : (
           <div>
           {this.state.displayItinerary ? (
-            <TripPlannerItinerary
+            <TripItineraryParent
             tripPlan={this.state.tripPlan}
             transport={this.state.transport}
             />
