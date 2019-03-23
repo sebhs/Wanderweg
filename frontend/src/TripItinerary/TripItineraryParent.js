@@ -16,8 +16,7 @@ const wrapperStyles = {
     margin: "0 auto",
 }
 
-
-class TripPlannerItinerary extends Component {
+class TripItineraryParent extends Component {
 
     constructor() {
         super();
@@ -49,7 +48,7 @@ class TripPlannerItinerary extends Component {
                                 <div style={{ "text-align": "center", "vertical-align": "middle" }}>
                            
                                     <TransportElem
-                                        transport={this.props.transport[index]}
+                                        transport={this.props.transport[index] ? this.props.transport[index] : null }
                                        
                                     />
                                 </div>
@@ -62,4 +61,4 @@ class TripPlannerItinerary extends Component {
     }
 }
 
-export default TripPlannerItinerary;
+export default TripItineraryParent;

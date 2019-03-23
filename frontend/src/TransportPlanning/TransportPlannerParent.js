@@ -121,6 +121,7 @@ class TransportPlannerParent extends Component {
                                     <Typography gutterBottom variant="h5">
                                         Choose a transport option:
                                 </Typography>
+                                {typeof this.state.transportData[index]}
                                     <TransportElem
                                         transport={this.state.transportData[index]}
                                         pos={index}

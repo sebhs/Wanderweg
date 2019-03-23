@@ -38,32 +38,12 @@ class InfoView extends Component {
         }
     }
     selectHostel = function (hostel) {
-        // const newHostel = {
-        //     name: hostel.name,
-        //     url : hostel.url,
-        //     rating : hostel.rating,
-        //     price: 45,
-        //     cover_image_url: hostel.cover_image_url,
-        // }
         this.setState({ selectedHostel: hostel })
     }
     addActivity = function (activity) {
-        // const newActivity = {
-        //     title:activity.title,
-        //     description:activity.description,
-        //     price:activity.retail_price,
-        //     cover_image_url:activity.cover_image_url
-        // }
-
         this.setState({ activities: [...this.state.activities, activity], })
     }
     removeActivity = function (activity) {
-        // const newActivity = {
-        //     title:activity.title,
-        //     description:activity.description,
-        //     price:activity.retail_price,
-        //     cover_image_url:activity.cover_image_url
-        // }
         let arr = [...this.state.activities]; // make a separate copy of the array
         var index = arr.indexOf(activity)
         if (index !== -1) {
@@ -233,7 +213,6 @@ class InfoView extends Component {
                         <span>&nbsp;&nbsp;</span>
 
                         <Button
-                            //TODO: check if you selected a hostel
                             variant="contained"
                             color="primary"
                             onClick={() => this.handleAddTrip()}

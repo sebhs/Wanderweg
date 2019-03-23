@@ -6,9 +6,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import ReactJson from 'react-json-view'
-import milan from './../fakeData/milan.json';
-import rome from './../fakeData/rome.json';
-import florence from './../fakeData/florence.json';
+
 
 const wrapperStyles = {
     width: "100%",

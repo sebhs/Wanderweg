@@ -53,7 +53,7 @@ class TransportElem extends React.Component {
                             <Paper className={classes.paper}
                                 style={{ padding: "20px" }}
                             >
-                                {(typeof this.props.transport === undefined || this.props.transport === null) ? (
+                                {(this.props.transport === undefined || this.props.transport === null) ? (
                                     <div>No Transport available</div>
                                 ) : (
                                     <div>
@@ -71,8 +71,8 @@ class TransportElem extends React.Component {
                                     <Typography>
 
                                     <Button variant="contained"
-                                        // target="_blank"
-                                        // href={this.props.transport.url}
+                                        target="_blank"
+                                        href={this.props.transport.url}
                                         >
                                         Book
                                     </Button>
